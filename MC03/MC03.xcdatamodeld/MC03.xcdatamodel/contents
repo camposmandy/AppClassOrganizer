@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Materia" representedClassName="PRODUCT_MODULE_NAME.Materia" syncable="YES">
+        <attribute name="cargaHoraria" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="diasAula" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="faltas" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="media" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nomeMateria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomeProfessor" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="possuiNota" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nota" inverseName="pertenceMateria" inverseEntity="Nota" syncable="YES"/>
+        <relationship name="possuiTarefa" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tarefa" inverseName="pertenceMateria" inverseEntity="Tarefa" syncable="YES"/>
+    </entity>
+    <entity name="Nota" representedClassName="PRODUCT_MODULE_NAME.Nota" syncable="YES">
+        <attribute name="nota" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pesoNota" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tipoNota" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pertenceMateria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiNota" inverseEntity="Materia" syncable="YES"/>
+    </entity>
+    <entity name="Tarefa" representedClassName="PRODUCT_MODULE_NAME.Tarefa" syncable="YES">
+        <attribute name="dataEntrega" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="descricaoTarefa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomeTarefa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nota" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="statusTarefa" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="pertenceMateria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiTarefa" inverseEntity="Materia" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Materia" positionX="-63" positionY="-180" width="128" height="163"/>
+        <element name="Nota" positionX="-234" positionY="153" width="128" height="103"/>
+        <element name="Tarefa" positionX="90" positionY="128" width="128" height="133"/>
+    </elements>
 </model>

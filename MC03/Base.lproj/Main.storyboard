@@ -29,7 +29,7 @@
         <!--Taferas-->
         <scene sceneID="2cV-2A-DtM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fBJ-rT-pa9" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fBJ-rT-pa9" customClass="TarefasViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nke-be-xNd"/>
                         <viewControllerLayoutGuide type="bottom" id="z5W-by-gR7"/>
@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="u1Z-bs-yjA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="u1Z-bs-yjA" customClass="TarefasTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u1Z-bs-yjA" id="7tm-Mv-IZT">
@@ -70,6 +70,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagemTafera" destination="0hQ-jA-HH6" id="uZf-fu-KhL"/>
+                                            <outlet property="lblNomeTarefa" destination="cyn-DP-8rO" id="tzb-3W-LBE"/>
+                                            <outlet property="lbldataEntrega" destination="F6f-c7-ZoR" id="sOA-5x-Amh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -103,7 +108,7 @@
         <!--Adicionar Tarefa-->
         <scene sceneID="tJH-2z-5mg">
             <objects>
-                <tableViewController id="1Fu-8j-595" sceneMemberID="viewController">
+                <tableViewController id="1Fu-8j-595" customClass="AdicionarTarefaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="kmq-s1-VS1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +201,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-3V-k02">
-                                                    <rect key="frame" x="500" y="14" width="51" height="31"/>
+                                                    <rect key="frame" x="296" y="14" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -210,18 +215,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Adicionar Tarefa" id="uY5-zv-UB6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="E2X-fp-kYf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="E2X-fp-kYf">
+                            <connections>
+                                <segue destination="K39-ei-Fd7" kind="unwind" unwindAction="unwindToViewController:" id="fMl-96-r1a"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="ZiN-xp-akB"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="j4P-sH-E2D" id="FTL-9X-FW4"/>
+                        <outlet property="descricao" destination="YX3-Mn-m8r" id="d0f-9a-Bme"/>
+                        <outlet property="opcao" destination="6lz-3V-k02" id="Jze-tz-MaW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCA-xZ-akM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="K39-ei-Fd7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-490" y="1315"/>
         </scene>
-        <!--Matéria-->
+        <!--Selecionar Matéria-->
         <scene sceneID="Hp0-JS-9sN">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daA-AJ-nDo" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daA-AJ-nDo" customClass="SelecionarMateriaViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7eU-Zs-6X0"/>
                         <viewControllerLayoutGuide type="bottom" id="78l-Ds-bNe"/>
@@ -234,7 +249,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="ctT-u3-QyB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="ctT-u3-QyB" customClass="SelecionarMateriaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ctT-u3-QyB" id="PfO-cC-QWa">
@@ -251,6 +266,10 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagemMateria" destination="EzP-tG-bKz" id="50U-UH-R2D"/>
+                                            <outlet property="lblMateria" destination="kjV-a5-vrJ" id="Yz3-Ur-4JQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -263,7 +282,7 @@
                             <constraint firstItem="O7p-vU-NHH" firstAttribute="top" secondItem="7eU-Zs-6X0" secondAttribute="bottom" id="feb-d0-PWL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Matéria" id="kD6-d2-JUt"/>
+                    <navigationItem key="navigationItem" title="Selecionar Matéria" id="kD6-d2-JUt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +291,7 @@
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bR7-x2-rWC" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bR7-x2-rWC" customClass="MateriasViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LRD-Uw-PMR"/>
                         <viewControllerLayoutGuide type="bottom" id="da2-PP-7n0"/>
@@ -281,15 +300,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6WX-fy-bLd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6WX-fy-bLd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Gu7-Ga-6me">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="99" id="Gu7-Ga-6me" customClass="MateriaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gu7-Ga-6me" id="L95-kw-Tfv">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Principios de Comiiaiafo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55P-RL-JAN">
+                                                    <rect key="frame" x="80" y="38" width="187" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelNome" destination="55P-RL-JAN" id="fOj-m5-yzN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -303,6 +333,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buttonAdcMateria" destination="bbc-b7-PMe" id="SMx-dM-WNu"/>
+                        <outlet property="tableView" destination="6WX-fy-bLd" id="tIL-af-u4i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqC-ER-Zg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,7 +345,7 @@
         <!--Adicionar Matéria-->
         <scene sceneID="dwi-35-3Hc">
             <objects>
-                <tableViewController id="ubT-v5-1rO" sceneMemberID="viewController">
+                <tableViewController id="ubT-v5-1rO" customClass="AdicionarMateriaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="soJ-4u-UsY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,16 +465,34 @@
                             <outlet property="delegate" destination="ubT-v5-1rO" id="Xqw-6r-iNJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Adicionar Matéria" id="ask-iL-GDB"/>
+                    <navigationItem key="navigationItem" title="Adicionar Matéria" id="ask-iL-GDB">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="pR8-EV-vdp">
+                            <connections>
+                                <action selector="buttonCancelar:" destination="ubT-v5-1rO" id="L4o-cr-A4P"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="nr1-VX-ckn">
+                            <connections>
+                                <action selector="buttonSalvar:" destination="ubT-v5-1rO" id="4QY-hN-aMJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cargaHoraria" destination="KUA-mg-oki" id="4PQ-mh-3hD"/>
+                        <outlet property="datePicker" destination="Tlu-z0-zuZ" id="C3y-N5-gNO"/>
+                        <outlet property="nomeMateria" destination="cW9-Ky-LdG" id="ASH-Qb-I32"/>
+                        <outlet property="percentualFalta" destination="58w-AO-b2D" id="lTH-5A-YgG"/>
+                        <outlet property="professor" destination="fWw-fU-YyH" id="jN9-wi-ABi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAZ-J6-UO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="466" y="2077"/>
         </scene>
-        <!--View Controller-->
+        <!--Dias da Semana-->
         <scene sceneID="Tws-Fg-5j1">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HEa-EB-e8Y" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HEa-EB-e8Y" customClass="DiasDaSemanaViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mlJ-2B-byy"/>
                         <viewControllerLayoutGuide type="bottom" id="TF6-Gh-Wh8"/>
@@ -453,7 +505,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="Tmw-1d-slU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="Tmw-1d-slU" customClass="DiasDaSemanaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tmw-1d-slU" id="uMI-Me-YDr">
@@ -467,12 +519,25 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblDiaSemana" destination="KSf-KX-RaE" id="hMI-CS-OTi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Dias da Semana" id="ZdA-OL-Qt0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="ula-2c-Q3y"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="0WE-y0-jcd"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="buttonCancelar" destination="ula-2c-Q3y" id="kJu-N7-mhL"/>
+                        <outlet property="buttonSalvar" destination="0WE-y0-jcd" id="FaD-fH-Y01"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u99-c4-cgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -481,7 +546,7 @@
         <!--Faltas-->
         <scene sceneID="Eg6-ha-zDC">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="DYs-Il-BJi" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="DYs-Il-BJi" customClass="FaltasViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kaa-1Z-LAC"/>
                         <viewControllerLayoutGuide type="bottom" id="2ag-Oc-nSR"/>
@@ -494,7 +559,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="zg9-xB-jaQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zg9-xB-jaQ" id="EG9-SL-kTZ">
@@ -525,9 +590,17 @@
                                                     <state key="normal" title="+">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
+                                                        <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblMateria" destination="gzX-Sx-UdS" id="mB9-tM-9JW"/>
+                                            <outlet property="lblPercentualFalta" destination="7Ag-UD-Uzy" id="8cF-dh-ve3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -535,6 +608,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Faltas" id="J9V-TV-J9B"/>
+                    <connections>
+                        <outlet property="tableView" destination="i6F-iw-Wp4" id="KqB-2k-XOh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-DG-HXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -634,7 +710,7 @@
         <!--Principal-->
         <scene sceneID="rF0-HS-qdV">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QrN-Hb-q7N" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QrN-Hb-q7N" customClass="PrincipalViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dn5-z8-U4L"/>
                         <viewControllerLayoutGuide type="bottom" id="Zv0-9K-GbK"/>
@@ -647,7 +723,7 @@
                                 <rect key="frame" x="0.0" y="264" width="600" height="287"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="Fwk-m2-jXA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="Fwk-m2-jXA" customClass="PrincipalCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fwk-m2-jXA" id="4ut-bi-86u">
@@ -694,6 +770,14 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagemIcone" destination="wt7-zb-pPk" id="uXl-WB-kXT"/>
+                                            <outlet property="lblMateria" destination="sZk-21-s6k" id="0EZ-n0-z9j"/>
+                                            <outlet property="lblPercentualFalta" destination="sBG-m4-Iym" id="DpR-DB-Brm"/>
+                                            <outlet property="lblPercentualMedia" destination="hzR-u3-myr" id="IWh-zG-1AF"/>
+                                            <outlet property="lblPercentualNota" destination="sBG-m4-Iym" id="Eex-6x-RFQ"/>
+                                            <outlet property="lblProfessor" destination="Ul4-5u-Xsc" id="jgA-Xk-Cqw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -714,9 +798,41 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonFalta:" destination="QrN-Hb-q7N" eventType="touchUpInside" id="Fhd-OI-9gV"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpD-aY-Ggz" customClass="JMView" customModule="MC03" customModuleProvider="target">
+                                <rect key="frame" x="215" y="80" width="149" height="149"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="maio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVg-r8-69q">
+                                        <rect key="frame" x="53" y="88" width="38" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlZ-kd-re8">
+                                        <rect key="frame" x="53" y="38" width="51" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="74"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-X6-ULa" customClass="JMButton" customModule="MC03" customModuleProvider="target">
-                                <rect key="frame" x="34" y="151" width="93" height="30"/>
+                                <rect key="frame" x="56" y="151" width="93" height="30"/>
                                 <state key="normal" title="+ Nota">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -732,27 +848,20 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonNota:" destination="QrN-Hb-q7N" eventType="touchUpInside" id="cR7-4Z-SSH"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpD-aY-Ggz" customClass="JMView" customModule="MC03" customModuleProvider="target">
-                                <rect key="frame" x="215" y="80" width="171" height="171"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="85"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Principal" id="Ppb-Wn-5RF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="labelDia" destination="UlZ-kd-re8" id="3tO-2h-PyN"/>
+                        <outlet property="labelMes" destination="bVg-r8-69q" id="YGl-pC-1cU"/>
+                        <outlet property="tableView" destination="0u8-d5-q7y" id="aJq-c9-cfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDC-4m-UBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -761,7 +870,7 @@
         <!--Notas-->
         <scene sceneID="0Ge-65-dxu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RqN-JV-vSz" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RqN-JV-vSz" customClass="NotasViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xMY-nF-BT2"/>
                         <viewControllerLayoutGuide type="bottom" id="wQW-w9-sNc"/>
@@ -774,12 +883,30 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="O56-dP-zq3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="O56-dP-zq3" customClass="NotasTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O56-dP-zq3" id="WZZ-bd-JN2">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twX-8L-vi0">
+                                                    <rect key="frame" x="78" y="24" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epm-6B-n8d">
+                                                    <rect key="frame" x="487" y="24" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblNomeNota" destination="twX-8L-vi0" id="WRr-Sz-Phx"/>
+                                            <outlet property="lblNota" destination="epm-6B-n8d" id="q3U-9l-lfj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

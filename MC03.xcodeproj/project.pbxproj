@@ -9,12 +9,30 @@
 /* Begin PBXBuildFile section */
 		10C5773E1B0507A500081B96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5773D1B0507A500081B96 /* AppDelegate.swift */; };
 		10C577411B0507A500081B96 /* MC03.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10C5773F1B0507A500081B96 /* MC03.xcdatamodeld */; };
-		10C577431B0507A500081B96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C577421B0507A500081B96 /* ViewController.swift */; };
 		10C577461B0507A500081B96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C577441B0507A500081B96 /* Main.storyboard */; };
 		10C577481B0507A500081B96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C577471B0507A500081B96 /* Images.xcassets */; };
 		10C5774B1B0507A500081B96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10C577491B0507A500081B96 /* LaunchScreen.xib */; };
 		10C577571B0507A500081B96 /* MC03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C577561B0507A500081B96 /* MC03Tests.swift */; };
 		10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CDCA7E1B0531C4009AC45A /* DesignableView.swift */; };
+		177131721B0A75B0006D31D0 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131711B0A75B0006D31D0 /* Materia.swift */; };
+		177131741B0A75B0006D31D0 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131731B0A75B0006D31D0 /* Nota.swift */; };
+		177131761B0A75B0006D31D0 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131751B0A75B0006D31D0 /* Tarefa.swift */; };
+		177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */; };
+		177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */; };
+		177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */; };
+		177EC74A1B0A601000FC36E2 /* MateriasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7421B0A601000FC36E2 /* MateriasViewController.swift */; };
+		177EC74B1B0A601000FC36E2 /* NotasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7431B0A601000FC36E2 /* NotasViewController.swift */; };
+		177EC74C1B0A601000FC36E2 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */; };
+		177EC74D1B0A601000FC36E2 /* SelecionarMateriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */; };
+		177EC74E1B0A601000FC36E2 /* TarefasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7461B0A601000FC36E2 /* TarefasViewController.swift */; };
+		177EC7501B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */; };
+		177EC7521B0A61A500FC36E2 /* FaltasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */; };
+		177EC7541B0A627B00FC36E2 /* PrincipalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7531B0A627B00FC36E2 /* PrincipalCell.swift */; };
+		177EC7561B0A62A100FC36E2 /* TarefasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7551B0A62A100FC36E2 /* TarefasTableViewCell.swift */; };
+		177EC7581B0A62D400FC36E2 /* NotasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7571B0A62D400FC36E2 /* NotasTableViewCell.swift */; };
+		177EC75A1B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */; };
+		177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */; };
+		177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +50,6 @@
 		10C5773C1B0507A500081B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C5773D1B0507A500081B96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C577401B0507A500081B96 /* MC03.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC03.xcdatamodel; sourceTree = "<group>"; };
-		10C577421B0507A500081B96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10C577451B0507A500081B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10C577471B0507A500081B96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10C5774A1B0507A500081B96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +57,25 @@
 		10C577551B0507A500081B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C577561B0507A500081B96 /* MC03Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC03Tests.swift; sourceTree = "<group>"; };
 		10CDCA7E1B0531C4009AC45A /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		177131711B0A75B0006D31D0 /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		177131731B0A75B0006D31D0 /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nota.swift; sourceTree = "<group>"; };
+		177131751B0A75B0006D31D0 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
+		177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaTableViewCell.swift; sourceTree = "<group>"; };
+		177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarMateriaTableViewController.swift; path = MC03/AdicionarMateriaTableViewController.swift; sourceTree = "<group>"; };
+		177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiasDaSemanaViewController.swift; path = MC03/DiasDaSemanaViewController.swift; sourceTree = "<group>"; };
+		177EC7421B0A601000FC36E2 /* MateriasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MateriasViewController.swift; path = MC03/MateriasViewController.swift; sourceTree = "<group>"; };
+		177EC7431B0A601000FC36E2 /* NotasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotasViewController.swift; path = MC03/NotasViewController.swift; sourceTree = "<group>"; };
+		177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrincipalViewController.swift; path = MC03/PrincipalViewController.swift; sourceTree = "<group>"; };
+		177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelecionarMateriaViewController.swift; path = MC03/SelecionarMateriaViewController.swift; sourceTree = "<group>"; };
+		177EC7461B0A601000FC36E2 /* TarefasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TarefasViewController.swift; path = MC03/TarefasViewController.swift; sourceTree = "<group>"; };
+		177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarTarefaTableViewController.swift; path = MC03/AdicionarTarefaTableViewController.swift; sourceTree = "<group>"; };
+		177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltasViewController.swift; path = MC03/FaltasViewController.swift; sourceTree = "<group>"; };
+		177EC7531B0A627B00FC36E2 /* PrincipalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalCell.swift; sourceTree = "<group>"; };
+		177EC7551B0A62A100FC36E2 /* TarefasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefasTableViewCell.swift; sourceTree = "<group>"; };
+		177EC7571B0A62D400FC36E2 /* NotasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotasTableViewCell.swift; sourceTree = "<group>"; };
+		177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarMateriaTableViewCell.swift; sourceTree = "<group>"; };
+		177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasDaSemanaTableViewCell.swift; sourceTree = "<group>"; };
+		177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaltaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +118,14 @@
 			isa = PBXGroup;
 			children = (
 				10C5773D1B0507A500081B96 /* AppDelegate.swift */,
-				10C577421B0507A500081B96 /* ViewController.swift */,
 				10C577441B0507A500081B96 /* Main.storyboard */,
 				10C577471B0507A500081B96 /* Images.xcassets */,
 				10C577491B0507A500081B96 /* LaunchScreen.xib */,
 				10C5773F1B0507A500081B96 /* MC03.xcdatamodeld */,
+				177131771B0A7608006D31D0 /* Modelos */,
+				177EC73E1B0A5F5000FC36E2 /* ViewControllers */,
 				10C5773B1B0507A500081B96 /* Supporting Files */,
+				177EC75F1B0A643800FC36E2 /* Celulas */,
 			);
 			path = MC03;
 			sourceTree = "<group>";
@@ -116,6 +154,47 @@
 				10C577551B0507A500081B96 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		177131771B0A7608006D31D0 /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				177131751B0A75B0006D31D0 /* Tarefa.swift */,
+				177131731B0A75B0006D31D0 /* Nota.swift */,
+				177131711B0A75B0006D31D0 /* Materia.swift */,
+			);
+			name = Modelos;
+			sourceTree = "<group>";
+		};
+		177EC73E1B0A5F5000FC36E2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
+				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
+				177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */,
+				177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */,
+				177EC7421B0A601000FC36E2 /* MateriasViewController.swift */,
+				177EC7431B0A601000FC36E2 /* NotasViewController.swift */,
+				177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */,
+				177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */,
+				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
+			);
+			name = ViewControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		177EC75F1B0A643800FC36E2 /* Celulas */ = {
+			isa = PBXGroup;
+			children = (
+				177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */,
+				177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */,
+				177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */,
+				177EC7571B0A62D400FC36E2 /* NotasTableViewCell.swift */,
+				177EC7531B0A627B00FC36E2 /* PrincipalCell.swift */,
+				177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */,
+				177EC7551B0A62A100FC36E2 /* TarefasTableViewCell.swift */,
+			);
+			name = Celulas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,10 +297,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177EC7541B0A627B00FC36E2 /* PrincipalCell.swift in Sources */,
 				10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */,
-				10C577431B0507A500081B96 /* ViewController.swift in Sources */,
 				10C577411B0507A500081B96 /* MC03.xcdatamodeld in Sources */,
+				177EC7501B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift in Sources */,
+				177EC7561B0A62A100FC36E2 /* TarefasTableViewCell.swift in Sources */,
+				177EC74B1B0A601000FC36E2 /* NotasViewController.swift in Sources */,
+				177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */,
+				177EC74D1B0A601000FC36E2 /* SelecionarMateriaViewController.swift in Sources */,
+				177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */,
+				177EC74A1B0A601000FC36E2 /* MateriasViewController.swift in Sources */,
 				10C5773E1B0507A500081B96 /* AppDelegate.swift in Sources */,
+				177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */,
+				177EC74E1B0A601000FC36E2 /* TarefasViewController.swift in Sources */,
+				177131721B0A75B0006D31D0 /* Materia.swift in Sources */,
+				177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */,
+				177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */,
+				177131741B0A75B0006D31D0 /* Nota.swift in Sources */,
+				177131761B0A75B0006D31D0 /* Tarefa.swift in Sources */,
+				177EC7581B0A62D400FC36E2 /* NotasTableViewCell.swift in Sources */,
+				177EC74C1B0A601000FC36E2 /* PrincipalViewController.swift in Sources */,
+				177EC75A1B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift in Sources */,
+				177EC7521B0A61A500FC36E2 /* FaltasViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
