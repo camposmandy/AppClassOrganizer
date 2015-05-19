@@ -15,5 +15,4 @@ class Nota: NSManagedObject {
     @NSManaged var nota: NSNumber
     @NSManaged var pesoNota: NSNumber
     @NSManaged var pertenceMateria: Materia
-
 }

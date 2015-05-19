@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Materia)
 class Materia: NSManagedObject {
 
     @NSManaged var nomeMateria: String
@@ -20,4 +21,24 @@ class Materia: NSManagedObject {
     @NSManaged var possuiNota: NSSet
     @NSManaged var possuiTarefa: NSSet
 
+    
+    func adcNota (nota : Nota) {
+        var possuiNota = self.mutableSetValueForKey("possuiNota")
+        possuiNota.addObject(nota)
+    }
+    
+    func adcTarefa (tarefa : Tarefa) {
+        var possuiTarefa = self.mutableSetValueForKey("possuiTarefa")
+        possuiTarefa.addObject(tarefa)
+    }
+    
+    func removerNota (nota : Nota) {
+        var removeNota = self.mutableSetValueForKey("possuiNota")
+        removeNota.removeObject(nota)
+    }
+    
+    func removerTarefa (tarefa : Tarefa) {
+        var removeTarefa = self.mutableSetValueForKey("possuiTarefa")
+        removeTarefa.removeObject(tarefa)
+    }
 }
