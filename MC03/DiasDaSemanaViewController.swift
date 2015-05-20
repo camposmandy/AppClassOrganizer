@@ -19,7 +19,15 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func butotnSalvar(sender: AnyObject) {
+        
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,7 +51,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("celula", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
         cell.lblDiaSemana.text = diasSemana[indexPath.row]
         
         return cell

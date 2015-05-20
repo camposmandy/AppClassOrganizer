@@ -178,15 +178,15 @@
 		177EC73E1B0A5F5000FC36E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
+				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
 				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
 				177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */,
 				177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */,
 				177EC7421B0A601000FC36E2 /* MateriasViewController.swift */,
-				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
 				177EC7431B0A601000FC36E2 /* NotasViewController.swift */,
 				177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */,
 				177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */,
+				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
 			);
 			name = ViewControllers;
 			path = ..;

@@ -19,62 +19,60 @@ class AdicionarMateriaTableViewController: UITableViewController {
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBAction func buttonCancelar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func buttonSalvar(sender: AnyObject) {
         
-        verificaCampoVazio()
-        
-        var materia = MateriaManager.sharedInstance.novaMateria()
-        
-        
-        materia.nomeMateria = nomeMateria.text
-        materia.nomeProfessor = professor.text
-        materia.cargaHoraria = cargaHoraria.text.toInt()!
-        materia.faltas = percentualFalta.text.toInt()!
-        
-        MateriaManager.sharedInstance.salvar()
+        if verificaCampoVazio() {
+            var materia = MateriaManager.sharedInstance.novaMateria()
+            
+            materia.nomeMateria = nomeMateria.text
+            materia.nomeProfessor = professor.text
+            materia.cargaHoraria = cargaHoraria.text.toInt()!
+            materia.faltas = percentualFalta.text.toInt()!
+            
+            MateriaManager.sharedInstance.salvar()
+        }
     }
     
-    
-    func verificaCampoVazio () {
+    func verificaCampoVazio () -> Bool {
+        
+        var aux: Bool?
+        
+        var alertaMensagem = "Favor preencher o(s) campo(s):\n"
         
         if (nomeMateria.text == "") {
-            alertMensagem = "Favor preencher o nome da matéria."
+            alertaMensagem += "- Nome da Matéria\n"
         }
         
         if (professor.text == "") {
-            alertMensagem = "Favor preencher o nome do professor."
-            
+            alertaMensagem += "- Nome do Professor\n"
         }
         
         if (percentualFalta.text == "") {
-            
-            alertMensagem = "Favor preencher o percentual de faltas."
-            
+            alertaMensagem += "- Percentual de Faltas\n"
         }
         
         if(cargaHoraria.text == "") {
-            
-            alertMensagem = "Favor preencher a carga horária."
-            
+            alertaMensagem += "- Carga Horaria\n"
         }
         
-        if(alertMensagem != ""){
-            
-        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: alertMensagem, preferredStyle: .Alert)
-        
-        let acao: UIAlertAction = UIAlertAction (title: "Ok", style: .Default) {
-            action -> Void in
-            println("Acão BOTAO OK.")
+        if(nomeMateria.text != "" && professor.text != "" && percentualFalta.text != "" && cargaHoraria.text != ""){
+            alertaMensagem = "Matéria Adicionada"
+            aux = true
+        }else{
+            aux = false
         }
+
+            
+        let alerta: UIAlertController = UIAlertController(title: "Oi! :)", message: alertaMensagem, preferredStyle: .Alert)
         
-        alerta.addAction(acao)
+        let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        
+        alerta.addAction(ok)
         
         self.presentViewController(alerta, animated: true, completion: nil)
-            
-        alertMensagem = ""
-            
-        }
+        return aux!
     }
 }
