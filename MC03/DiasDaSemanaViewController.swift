@@ -8,8 +8,44 @@
 
 import UIKit
 
-class DiasDaSemanaViewController: UIViewController {
+class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var buttonCancelar: UIBarButtonItem!
-    @IBOutlet weak var buttonSalvar: UIBarButtonItem!
+    let diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    var wek = [false, false, false, false, false, false, false]
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func buttonCancelar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    @IBAction func butotnSalvar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return diasSemana.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark){
+            cell?.accessoryType = UITableViewCellAccessoryType.None
+            wek[indexPath.row] = false
+        }
+        else {
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+            wek[indexPath.row] = true
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("celula", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
+        cell.lblDiaSemana.text = diasSemana[indexPath.row]
+        
+        return cell
+    }
 }

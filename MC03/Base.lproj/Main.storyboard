@@ -530,13 +530,20 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Dias da Semana" id="ZdA-OL-Qt0">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="ula-2c-Q3y"/>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="0WE-y0-jcd"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="ula-2c-Q3y">
+                            <connections>
+                                <action selector="buttonCancelar:" destination="HEa-EB-e8Y" id="bBc-UI-nVZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="0WE-y0-jcd">
+                            <connections>
+                                <action selector="butotnSalvar:" destination="HEa-EB-e8Y" id="IcJ-Ym-2XU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="buttonCancelar" destination="ula-2c-Q3y" id="kJu-N7-mhL"/>
-                        <outlet property="buttonSalvar" destination="0WE-y0-jcd" id="FaD-fH-Y01"/>
+                        <outlet property="tableView" destination="mod-Pg-Lxg" id="NGF-lO-AEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u99-c4-cgB" userLabel="First Responder" sceneMemberID="firstResponder"/>

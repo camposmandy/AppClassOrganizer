@@ -127,10 +127,10 @@
 			children = (
 				10C5773D1B0507A500081B96 /* AppDelegate.swift */,
 				10C577441B0507A500081B96 /* Main.storyboard */,
-				10C577471B0507A500081B96 /* Images.xcassets */,
-				177131771B0A7608006D31D0 /* Modelos */,
 				10C577491B0507A500081B96 /* LaunchScreen.xib */,
 				10C5773F1B0507A500081B96 /* MC03.xcdatamodeld */,
+				10C577471B0507A500081B96 /* Images.xcassets */,
+				177131771B0A7608006D31D0 /* Modelos */,
 				10C5773B1B0507A500081B96 /* Supporting Files */,
 				177EC73E1B0A5F5000FC36E2 /* ViewControllers */,
 				177EC75F1B0A643800FC36E2 /* Celulas */,
