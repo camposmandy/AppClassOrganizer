@@ -176,13 +176,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a2g-1d-QGh" id="JpB-hR-Vhb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="j4P-sH-E2D">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="j4P-sH-E2D">
                                                     <rect key="frame" x="0.0" y="-4" width="600" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453406101.98536599">
                                                         <!--2015-05-15 18:08:21 +0000-->
                                                     </date>
                                                 </datePicker>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="j4P-sH-E2D" firstAttribute="centerY" secondItem="JpB-hR-Vhb" secondAttribute="centerY" id="Hxg-Ig-LoR"/>
+                                                <constraint firstItem="j4P-sH-E2D" firstAttribute="leading" secondItem="JpB-hR-Vhb" secondAttribute="leading" id="asz-IO-jOr"/>
+                                                <constraint firstAttribute="trailing" secondItem="j4P-sH-E2D" secondAttribute="trailing" id="mPW-wd-6y4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -217,19 +222,23 @@
                     <navigationItem key="navigationItem" title="Adicionar Tarefa" id="uY5-zv-UB6">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="E2X-fp-kYf">
                             <connections>
-                                <segue destination="K39-ei-Fd7" kind="unwind" unwindAction="unwindToViewController:" id="fMl-96-r1a"/>
+                                <action selector="btnCancelar:" destination="1Fu-8j-595" id="PZ9-PI-sqD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="ZiN-xp-akB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="ZiN-xp-akB">
+                            <connections>
+                                <action selector="btnSalvar:" destination="1Fu-8j-595" id="4Fu-mN-6pl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="j4P-sH-E2D" id="FTL-9X-FW4"/>
                         <outlet property="descricao" destination="YX3-Mn-m8r" id="d0f-9a-Bme"/>
+                        <outlet property="nomeTarefa" destination="4jN-jl-Y6e" id="bNe-tO-jvC"/>
                         <outlet property="opcao" destination="6lz-3V-k02" id="Jze-tz-MaW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCA-xZ-akM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="K39-ei-Fd7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-490" y="1315"/>
         </scene>
