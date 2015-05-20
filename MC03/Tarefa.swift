@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Tarefa)
 class Tarefa: NSManagedObject {
 
     @NSManaged var nomeTarefa: String

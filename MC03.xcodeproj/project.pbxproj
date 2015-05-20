@@ -33,10 +33,10 @@
 		177EC75A1B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */; };
 		177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */; };
 		177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */; };
+		17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */; };
+		17B38ABE1B0D0D9B008B192E /* NotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABD1B0D0D9B008B192E /* NotaManager.swift */; };
+		17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */; };
 		B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483821B0BA2D90029DDFE /* MateriaManager.swift */; };
-		B2D483851B0BA6A10029DDFE /* NotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483841B0BA6A10029DDFE /* NotaManager.swift */; };
-		B2D483871B0BA7950029DDFE /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483861B0BA7950029DDFE /* TarefaManager.swift */; };
-		B2D483891B0BA98D0029DDFE /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483881B0BA98D0029DDFE /* CoreDataPersistencia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,10 +80,10 @@
 		177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarMateriaTableViewCell.swift; sourceTree = "<group>"; };
 		177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasDaSemanaTableViewCell.swift; sourceTree = "<group>"; };
 		177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaltaTableViewCell.swift; sourceTree = "<group>"; };
+		17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
+		17B38ABD1B0D0D9B008B192E /* NotaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotaManager.swift; sourceTree = "<group>"; };
+		17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
 		B2D483821B0BA2D90029DDFE /* MateriaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaManager.swift; sourceTree = "<group>"; };
-		B2D483841B0BA6A10029DDFE /* NotaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotaManager.swift; sourceTree = "<group>"; };
-		B2D483861B0BA7950029DDFE /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
-		B2D483881B0BA98D0029DDFE /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +134,7 @@
 				10C5773B1B0507A500081B96 /* Supporting Files */,
 				177EC73E1B0A5F5000FC36E2 /* ViewControllers */,
 				177EC75F1B0A643800FC36E2 /* Celulas */,
-				B2D483821B0BA2D90029DDFE /* MateriaManager.swift */,
-				B2D483841B0BA6A10029DDFE /* NotaManager.swift */,
-				B2D483861B0BA7950029DDFE /* TarefaManager.swift */,
-				B2D483881B0BA98D0029DDFE /* CoreDataPersistencia.swift */,
+				178E99A11B0CF5CD00597FB5 /* Persistencia */,
 			);
 			path = MC03;
 			sourceTree = "<group>";
@@ -207,6 +204,17 @@
 				177EC7551B0A62A100FC36E2 /* TarefasTableViewCell.swift */,
 			);
 			name = Celulas;
+			sourceTree = "<group>";
+		};
+		178E99A11B0CF5CD00597FB5 /* Persistencia */ = {
+			isa = PBXGroup;
+			children = (
+				17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */,
+				B2D483821B0BA2D90029DDFE /* MateriaManager.swift */,
+				17B38ABD1B0D0D9B008B192E /* NotaManager.swift */,
+				17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */,
+			);
+			name = Persistencia;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +321,8 @@
 				10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */,
 				10C577411B0507A500081B96 /* MC03.xcdatamodeld in Sources */,
 				177EC7501B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift in Sources */,
+				17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */,
 				177EC7561B0A62A100FC36E2 /* TarefasTableViewCell.swift in Sources */,
-				B2D483871B0BA7950029DDFE /* TarefaManager.swift in Sources */,
 				177EC74B1B0A601000FC36E2 /* NotasViewController.swift in Sources */,
 				177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */,
 				177EC74D1B0A601000FC36E2 /* SelecionarMateriaViewController.swift in Sources */,
@@ -327,9 +335,9 @@
 				177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */,
 				177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */,
 				177131741B0A75B0006D31D0 /* Nota.swift in Sources */,
-				B2D483851B0BA6A10029DDFE /* NotaManager.swift in Sources */,
 				177131761B0A75B0006D31D0 /* Tarefa.swift in Sources */,
-				B2D483891B0BA98D0029DDFE /* CoreDataPersistencia.swift in Sources */,
+				17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */,
+				17B38ABE1B0D0D9B008B192E /* NotaManager.swift in Sources */,
 				B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */,
 				177EC7581B0A62D400FC36E2 /* NotasTableViewCell.swift in Sources */,
 				177EC74C1B0A601000FC36E2 /* PrincipalViewController.swift in Sources */,

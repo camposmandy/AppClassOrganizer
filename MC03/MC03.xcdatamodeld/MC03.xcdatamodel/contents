@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Materia" representedClassName="PRODUCT_MODULE_NAME.Materia" syncable="YES">
+    <entity name="Materia" representedClassName="Materia" syncable="YES">
         <attribute name="cargaHoraria" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="diasAula" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="faltas" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>

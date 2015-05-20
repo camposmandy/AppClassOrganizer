@@ -20,36 +20,30 @@ class AdicionarMateriaTableViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBAction func buttonCancelar(sender: AnyObject) {
     }
+    
     @IBAction func buttonSalvar(sender: AnyObject) {
         
         verificaCampoVazio()
         
-       // MateriaManager.sharedInstance.novaMateria()
-        
-
         var materia = MateriaManager.sharedInstance.novaMateria()
+        
+        
         materia.nomeMateria = nomeMateria.text
         materia.nomeProfessor = professor.text
-//        materia.faltas = percentualFalta.text // CONVERTER.
-//        materia.cargaHoraria = cargaHoraria.text
+        materia.cargaHoraria = cargaHoraria.text.toInt()!
+        materia.faltas = percentualFalta.text.toInt()!
         
         MateriaManager.sharedInstance.salvar()
-        
-        
-        
     }
     
     
     func verificaCampoVazio () {
         
         if (nomeMateria.text == "") {
-            
             alertMensagem = "Favor preencher o nome da matéria."
-            
         }
         
         if (professor.text == "") {
-            
             alertMensagem = "Favor preencher o nome do professor."
             
         }
