@@ -65,7 +65,7 @@ class AdicionarMateriaTableViewController: UITableViewController {
             aux = false
         }
             
-        let alerta: UIAlertController = UIAlertController(title: "Oi! :)", message: alertaMensagem, preferredStyle: .Alert)
+        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: alertaMensagem, preferredStyle: .Alert)
         
         let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
             if (aux == true) {
