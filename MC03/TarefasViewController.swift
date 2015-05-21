@@ -12,12 +12,10 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var buttonAdcTarefa: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    
     @IBAction func buttonEditarTarefa(sender: AnyObject) {
         tableView.editing = true;
-        
-        
     }
+    
     
     var tarefa: Array<Tarefa>?
     
@@ -42,8 +40,33 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         //        let materia = materias[indexPath.row]
         celula!.lblNomeTarefa?.text = tarefa?[indexPath.row].nomeTarefa
         
+        
+        //TENTANDO PEGAR APENAS AS DUAS PRIMEIRAS LETRAS DA STRINS!
+        var nomeT = tarefa?[indexPath.row].nomeTarefa
+        var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!)
+        
+        celula!.primeirasLetras?.text = pegaPrimeirasLetras
+        
         return celula!
     }
+    
+    
+    
+    func getSubstringUpToIndex(index: Int,
+        fromString str: String) -> String
+    {
+        let (head, tail) = (str[str.startIndex], dropFirst(str))
+        
+        if index == 1 {
+            return String(head)
+        }
+        
+        return String(head) +
+            getSubstringUpToIndex(index - 1, fromString: tail)
+    }
+    
+    
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if editingStyle == UITableViewCellEditingStyle.Delete {
