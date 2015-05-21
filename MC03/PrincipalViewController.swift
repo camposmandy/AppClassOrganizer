@@ -14,7 +14,7 @@ class PrincipalViewController: UIViewController {
     @IBOutlet weak var labelMes: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var materiaPrincipal = Array<Materia>()
     
     @IBAction func buttonNota(sender: AnyObject) {
     }
@@ -36,9 +36,9 @@ class PrincipalViewController: UIViewController {
         
         labelDia.text = dayString
         labelMes.text = monthString
+        
+       // materiaPrincipal = MateriaManager.sharedInstance.Materia()
     }
     
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
-        
-    }
+    
 }
