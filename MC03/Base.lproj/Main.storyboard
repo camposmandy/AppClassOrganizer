@@ -267,7 +267,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="ctT-u3-QyB" customClass="SelecionarMateriaTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celMateria" rowHeight="68" id="ctT-u3-QyB" customClass="SelecionarMateriaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ctT-u3-QyB" id="PfO-cC-QWa">
@@ -290,6 +290,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="daA-AJ-nDo" id="YWt-bZ-Rpc"/>
+                                    <outlet property="delegate" destination="daA-AJ-nDo" id="JLV-6L-wDd"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,6 +305,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Selecionar Matéria" id="kD6-d2-JUt"/>
+                    <connections>
+                        <outlet property="tableView" destination="O7p-vU-NHH" id="tUo-2b-saa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
