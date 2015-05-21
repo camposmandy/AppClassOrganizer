@@ -28,7 +28,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materiasSelecionadas!.count
+        return materiasSelecionadas!.count 
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
