@@ -7,7 +7,42 @@
 //
 
 import UIKit
+import CoreData
 
-class NotasViewController: UIViewController {
+class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var materiaS: Array<Materia>?
+    var notas: Array<Nota>?
+    
+    @IBOutlet weak var tableView: UITableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        materiaS = MateriaManager.sharedInstance.Materia()
+        notas = NotaManager.sharedInstance.Nota()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return materiaS!.count
+    }
+
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notas!.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
+        
+        celula!.lblNomeNota.text = notas![indexPath.row].tipoNota
+       // celula!.lblNota.text?.toInt() = notas![indexPath.row].nota
+        
+        return celula!
+    }
+    
 }
