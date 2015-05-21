@@ -11,18 +11,24 @@ import UIKit
 class AdicionarTarefaTableViewController: UITableViewController {
    
     var alertMensagem = ""
+    var materiaSelecionada: Int!
     
     @IBOutlet weak var nomeTarefa: UITextField!
     @IBOutlet weak var descricao: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var opcao: UISwitch!
     
+    var tarefa: Tarefa!
+    var materia: Materia?
+    
     @IBAction func btnSalvar(sender: AnyObject) {
         
         if verificaCampoVazio() {
         
-        var tarefa = TarefaManager.sharedInstance.novaTarefa()
-        
+        tarefa = TarefaManager.sharedInstance.novaTarefa()
+        if let m = materia {
+            tarefa.pertenceMateria = m
+        }
         tarefa.nomeTarefa = nomeTarefa.text
         tarefa.descricaoTarefa = descricao.text
 //MATÉRIA
@@ -61,7 +67,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
                 self.navigationController?.popViewControllerAnimated(true)
             }
     }
-        
         alerta.addAction(ok)
     
         self.presentViewController(alerta, animated: true, completion: nil)
@@ -69,9 +74,21 @@ class AdicionarTarefaTableViewController: UITableViewController {
     }
     
     @IBAction func btnCancelar(sender: AnyObject) {
-        
         self.navigationController?.popViewControllerAnimated(true)
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if tarefa != nil {
+            println("Materia Selecionada = \(tarefa.pertenceMateria)")
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selecionarMateria" {
+            if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
+                vc.senderViewController = self
+            }
+        }
     }
     
 }

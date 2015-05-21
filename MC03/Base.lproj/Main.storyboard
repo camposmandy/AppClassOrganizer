@@ -173,7 +173,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="daA-AJ-nDo" kind="show" id="6I4-dp-BZ7"/>
+                                            <segue destination="daA-AJ-nDo" kind="show" identifier="selecionarMateria" id="6I4-dp-BZ7"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="2022"/>
+            <point key="canvasLocation" x="-490" y="2056"/>
         </scene>
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">

@@ -12,6 +12,11 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
 
     var materiasSelecionadas: Array<Materia>?
     var select: NSIndexPath?
+    
+    var tarefa: Tarefa?
+    
+    var senderViewController: AdicionarTarefaTableViewController?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -39,6 +44,13 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         celula2?.accessoryType = .Checkmark
         
         self.select = indexPath
+        
+        if let materia = materiasSelecionadas?[indexPath.row] {
+            if senderViewController != nil {
+                senderViewController?.materia = materia
+            }
+            
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -46,5 +58,9 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         var cell = tableView.dequeueReusableCellWithIdentifier("celMateria", forIndexPath: indexPath) as! SelecionarMateriaTableViewCell
         cell.lblMateria.text = materiasSelecionadas?[indexPath.row].nomeMateria
         return cell
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        println("select = \(select?.row)")
     }
 }
