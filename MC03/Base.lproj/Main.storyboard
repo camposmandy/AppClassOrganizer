@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="u1Z-bs-yjA" customClass="TarefasTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celTarefa" rowHeight="99" id="u1Z-bs-yjA" customClass="TarefasTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u1Z-bs-yjA" id="7tm-Mv-IZT">
@@ -93,6 +93,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Taferas" id="bcd-kg-4jY">
+                        <barButtonItem key="leftBarButtonItem" title="Editar" id="38P-th-QfC">
+                            <connections>
+                                <action selector="buttonEditarTarefa:" destination="fBJ-rT-pa9" id="THA-2g-PZw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yop-OX-eAN">
                             <connections>
                                 <segue destination="1Fu-8j-595" kind="show" id="7qz-96-p13"/>
@@ -100,6 +105,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="buttonAdcTarefa" destination="Yop-OX-eAN" id="eJB-EA-lDu"/>
+                        <outlet property="tableView" destination="vHp-qy-fCa" id="2Xh-8N-xUu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CD-m9-Lhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
