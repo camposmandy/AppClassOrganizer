@@ -46,4 +46,12 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         //Editar
     }
     
+    var verMateria: Materia!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "VerMateria" {
+            let VC = segue.destinationViewController as! VerMateriaTableTableViewController
+            let cell = sender as? UITableViewCell
+            VC.i = tableView.indexPathForCell(cell!)!.row
+        }
+    }
 }
