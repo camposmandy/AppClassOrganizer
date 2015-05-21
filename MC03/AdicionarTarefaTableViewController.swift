@@ -17,6 +17,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var descricao: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var opcao: UISwitch!
+    @IBOutlet weak var labelMateria: UILabel!
     
     var tarefa: Tarefa!
     var materia: Materia?
@@ -78,8 +79,8 @@ class AdicionarTarefaTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if tarefa != nil {
-            println("Materia Selecionada = \(tarefa.pertenceMateria)")
+        if materia != nil {
+            labelMateria.text = materia?.nomeMateria
         }
     }
     

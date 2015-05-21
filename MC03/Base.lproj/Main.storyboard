@@ -82,7 +82,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q67-dA-vVX">
                                                     <rect key="frame" x="20" y="8" width="82" height="82"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -199,6 +199,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iaiaiaiaiaiia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gro-MG-ZVg">
+                                                    <rect key="frame" x="307" y="14" width="83" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -272,6 +278,7 @@
                     <connections>
                         <outlet property="datePicker" destination="j4P-sH-E2D" id="FTL-9X-FW4"/>
                         <outlet property="descricao" destination="YX3-Mn-m8r" id="d0f-9a-Bme"/>
+                        <outlet property="labelMateria" destination="Gro-MG-ZVg" id="Q3z-Kt-0GQ"/>
                         <outlet property="nomeTarefa" destination="4jN-jl-Y6e" id="bNe-tO-jvC"/>
                         <outlet property="opcao" destination="6lz-3V-k02" id="Jze-tz-MaW"/>
                     </connections>
