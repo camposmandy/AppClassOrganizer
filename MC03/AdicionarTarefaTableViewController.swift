@@ -28,6 +28,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
 //OPÇÃO               tarefa.opcao = opcao.XXXX
         
         TarefaManager.sharedInstance.salvar()
+        self.navigationController?.popViewControllerAnimated(true)
 
     }
     

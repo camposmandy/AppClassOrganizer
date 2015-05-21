@@ -15,9 +15,7 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var buttonAdcMateria: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    
     var materia: Array<Materia>?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +23,6 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         
         materia = MateriaManager.sharedInstance.Materia()
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,12 +32,18 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celMateria") as? MateriaTableViewCell
-        
-        //        let materia = materias[indexPath.row]
         celula!.labelNome?.text = materia?[indexPath.row].nomeMateria
         
         return celula!
     }
     
+    override func viewDidAppear(animated: Bool) {
+        materia = MateriaManager.sharedInstance.Materia()
+        tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //Editar
+    }
     
 }

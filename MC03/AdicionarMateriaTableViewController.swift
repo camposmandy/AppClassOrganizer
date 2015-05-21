@@ -64,11 +64,14 @@ class AdicionarMateriaTableViewController: UITableViewController {
         }else{
             aux = false
         }
-
             
         let alerta: UIAlertController = UIAlertController(title: "Oi! :)", message: alertaMensagem, preferredStyle: .Alert)
         
-        let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+            if (aux == true) {
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
         
         alerta.addAction(ok)
         
