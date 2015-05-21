@@ -1043,7 +1043,6 @@
                                             <outlet property="lblMateria" destination="sZk-21-s6k" id="0EZ-n0-z9j"/>
                                             <outlet property="lblPercentualFalta" destination="sBG-m4-Iym" id="DpR-DB-Brm"/>
                                             <outlet property="lblPercentualMedia" destination="hzR-u3-myr" id="IWh-zG-1AF"/>
-                                            <outlet property="lblPercentualNota" destination="sBG-m4-Iym" id="Eex-6x-RFQ"/>
                                             <outlet property="lblProfessor" destination="Ul4-5u-Xsc" id="jgA-Xk-Cqw"/>
                                         </connections>
                                     </tableViewCell>
@@ -1151,7 +1150,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="O56-dP-zq3" customClass="NotasTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celNota" rowHeight="70" id="O56-dP-zq3" customClass="NotasTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O56-dP-zq3" id="WZZ-bd-JN2">
@@ -1183,6 +1182,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notas" id="BD2-jJ-Ev0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="WzC-p9-wFO" id="gf1-9s-zIY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Son-IA-hv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
