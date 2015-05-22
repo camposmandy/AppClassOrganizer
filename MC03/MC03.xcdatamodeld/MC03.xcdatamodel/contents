@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DiasSemana" representedClassName="PRODUCT_MODULE_NAME.DiasSemana" syncable="YES">
+        <attribute name="domingo" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="quarta" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="quinta" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sabado" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="segunda" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sexta" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="terca" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="pertenceMateria" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiSemana" inverseEntity="Materia" syncable="YES"/>
+    </entity>
     <entity name="Materia" representedClassName="Materia" syncable="YES">
         <attribute name="cargaHoraria" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="diasAula" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -8,6 +18,7 @@
         <attribute name="nomeMateria" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomeProfessor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="possuiNota" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nota" inverseName="pertenceMateria" inverseEntity="Nota" syncable="YES"/>
+        <relationship name="possuiSemana" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiasSemana" inverseName="pertenceMateria" inverseEntity="DiasSemana" syncable="YES"/>
         <relationship name="possuiTarefa" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tarefa" inverseName="pertenceMateria" inverseEntity="Tarefa" syncable="YES"/>
     </entity>
     <entity name="Nota" representedClassName="Nota" syncable="YES">
@@ -21,12 +32,14 @@
         <attribute name="descricaoTarefa" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomeTarefa" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nota" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="notificacao" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="statusTarefa" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="pertenceMateria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiTarefa" inverseEntity="Materia" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Materia" positionX="-63" positionY="-180" width="128" height="163"/>
-        <element name="Nota" positionX="-234" positionY="153" width="128" height="105"/>
-        <element name="Tarefa" positionX="90" positionY="128" width="128" height="135"/>
+        <element name="Materia" positionX="-72" positionY="-171" width="128" height="178"/>
+        <element name="Nota" positionX="-315" positionY="-33" width="128" height="105"/>
+        <element name="Tarefa" positionX="-243" positionY="288" width="128" height="148"/>
+        <element name="DiasSemana" positionX="-272" positionY="90" width="128" height="163"/>
     </elements>
 </model>

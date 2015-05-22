@@ -17,7 +17,6 @@
 		176A35B11B0E50B100C0D952 /* VerMateriaTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */; };
 		177131721B0A75B0006D31D0 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131711B0A75B0006D31D0 /* Materia.swift */; };
 		177131741B0A75B0006D31D0 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131731B0A75B0006D31D0 /* Nota.swift */; };
-		177131761B0A75B0006D31D0 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131751B0A75B0006D31D0 /* Tarefa.swift */; };
 		177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */; };
 		177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */; };
 		177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */; };
@@ -37,6 +36,10 @@
 		17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */; };
 		17B38ABE1B0D0D9B008B192E /* NotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABD1B0D0D9B008B192E /* NotaManager.swift */; };
 		17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */; };
+		17BA54C41B0F97E700FE0A87 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C31B0F97E700FE0A87 /* Tarefa.swift */; };
+		17BA54C61B0F9A8400FE0A87 /* DiasSemana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C51B0F9A8400FE0A87 /* DiasSemana.swift */; };
+		17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */; };
+		17BA54CC1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */; };
 		B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483821B0BA2D90029DDFE /* MateriaManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +68,6 @@
 		176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerMateriaTableTableViewController.swift; path = MC03/VerMateriaTableTableViewController.swift; sourceTree = "<group>"; };
 		177131711B0A75B0006D31D0 /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		177131731B0A75B0006D31D0 /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nota.swift; sourceTree = "<group>"; };
-		177131751B0A75B0006D31D0 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
 		177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaTableViewCell.swift; sourceTree = "<group>"; };
 		177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarMateriaTableViewController.swift; path = MC03/AdicionarMateriaTableViewController.swift; sourceTree = "<group>"; };
 		177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiasDaSemanaViewController.swift; path = MC03/DiasDaSemanaViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,10 @@
 		17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
 		17B38ABD1B0D0D9B008B192E /* NotaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotaManager.swift; sourceTree = "<group>"; };
 		17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
+		17BA54C31B0F97E700FE0A87 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
+		17BA54C51B0F9A8400FE0A87 /* DiasSemana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasSemana.swift; sourceTree = "<group>"; };
+		17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarNotaTableViewCell.swift; sourceTree = "<group>"; };
+		17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarNotaViewController.swift; path = MC03/AdicionarNotaViewController.swift; sourceTree = "<group>"; };
 		B2D483821B0BA2D90029DDFE /* MateriaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,9 +176,10 @@
 		177131771B0A7608006D31D0 /* Modelos */ = {
 			isa = PBXGroup;
 			children = (
-				177131751B0A75B0006D31D0 /* Tarefa.swift */,
+				17BA54C51B0F9A8400FE0A87 /* DiasSemana.swift */,
 				177131731B0A75B0006D31D0 /* Nota.swift */,
 				177131711B0A75B0006D31D0 /* Materia.swift */,
+				17BA54C31B0F97E700FE0A87 /* Tarefa.swift */,
 			);
 			name = Modelos;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
+				17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */,
 				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
 				177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */,
 				177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */,
@@ -198,6 +206,7 @@
 		177EC75F1B0A643800FC36E2 /* Celulas */ = {
 			isa = PBXGroup;
 			children = (
+				17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */,
 				177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */,
 				177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */,
 				177131781B0A7706006D31D0 /* MateriaTableViewCell.swift */,
@@ -321,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177EC7541B0A627B00FC36E2 /* PrincipalCell.swift in Sources */,
+				17BA54C41B0F97E700FE0A87 /* Tarefa.swift in Sources */,
 				10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */,
 				10C577411B0507A500081B96 /* MC03.xcdatamodeld in Sources */,
 				177EC7501B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift in Sources */,
@@ -332,6 +342,7 @@
 				177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */,
 				176A35B11B0E50B100C0D952 /* VerMateriaTableTableViewController.swift in Sources */,
 				177EC74A1B0A601000FC36E2 /* MateriasViewController.swift in Sources */,
+				17BA54C61B0F9A8400FE0A87 /* DiasSemana.swift in Sources */,
 				10C5773E1B0507A500081B96 /* AppDelegate.swift in Sources */,
 				177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */,
 				177EC74E1B0A601000FC36E2 /* TarefasViewController.swift in Sources */,
@@ -339,9 +350,10 @@
 				177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */,
 				177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */,
 				177131741B0A75B0006D31D0 /* Nota.swift in Sources */,
-				177131761B0A75B0006D31D0 /* Tarefa.swift in Sources */,
+				17BA54CC1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift in Sources */,
 				17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */,
 				17B38ABE1B0D0D9B008B192E /* NotaManager.swift in Sources */,
+				17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */,
 				B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */,
 				177EC7581B0A62D400FC36E2 /* NotasTableViewCell.swift in Sources */,
 				177EC74C1B0A601000FC36E2 /* PrincipalViewController.swift in Sources */,

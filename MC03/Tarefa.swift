@@ -2,7 +2,7 @@
 //  Tarefa.swift
 //  MC03
 //
-//  Created by João Marcos on 18/05/15.
+//  Created by João Marcos on 22/05/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
@@ -12,10 +12,12 @@ import CoreData
 @objc(Tarefa)
 class Tarefa: NSManagedObject {
 
-    @NSManaged var nomeTarefa: String
-    @NSManaged var descricaoTarefa: String
     @NSManaged var dataEntrega: NSDate
-    @NSManaged var statusTarefa: NSNumber
+    @NSManaged var descricaoTarefa: String
+    @NSManaged var nomeTarefa: String
     @NSManaged var nota: NSNumber
+    @NSManaged var statusTarefa: NSNumber
+    @NSManaged var notificacao: NSNumber
     @NSManaged var pertenceMateria: Materia
-}//FALTA A OPÇÃO. True or False.
+
+}
