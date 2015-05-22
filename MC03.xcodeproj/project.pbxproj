@@ -41,6 +41,7 @@
 		17BA54C41B0F97E700FE0A87 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C31B0F97E700FE0A87 /* Tarefa.swift */; };
 		17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */; };
 		17BA54CC1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */; };
+		B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */; };
 		B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483821B0BA2D90029DDFE /* MateriaManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		17BA54C31B0F97E700FE0A87 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
 		17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarNotaTableViewCell.swift; sourceTree = "<group>"; };
 		17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarNotaViewController.swift; path = MC03/AdicionarNotaViewController.swift; sourceTree = "<group>"; };
+		B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerTarefaTableViewController.swift; sourceTree = "<group>"; };
 		B2D483821B0BA2D90029DDFE /* MateriaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 				177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */,
 				177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */,
 				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
+				B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */,
 				176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -352,6 +355,7 @@
 				177131721B0A75B0006D31D0 /* Materia.swift in Sources */,
 				177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */,
 				177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */,
+				B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */,
 				177131741B0A75B0006D31D0 /* Nota.swift in Sources */,
 				17BA54CC1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift in Sources */,
 				17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */,

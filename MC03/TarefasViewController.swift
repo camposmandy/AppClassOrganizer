@@ -74,6 +74,15 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "verTarefa" {
+            let VC = segue.destinationViewController as! VerTarefaTableViewController
+            let cell = sender as? UITableViewCell
+            VC.i = tableView.indexPathForCell(cell!)!.row
+        }
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if editingStyle == UITableViewCellEditingStyle.Delete {
             TarefaManager.sharedInstance.deletar(tarefa![indexPath.row])
@@ -84,4 +93,5 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
+    
 }

@@ -37,7 +37,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
         var date = datePicker.date
         tarefa.dataEntrega = date
         tarefa.notificacao = valorNotificacao
-        println(tarefa.notificacao)
             
             
     
