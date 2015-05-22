@@ -14,7 +14,11 @@ class AdicionarMateriaTableViewController: UITableViewController {
     var alertMensagem = ""
     var teste = ""
     var materia: Materia!
+    var nota: Nota?
     var diaSemana: DiasSemana?
+    
+    
+    
     
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
@@ -28,10 +32,14 @@ class AdicionarMateriaTableViewController: UITableViewController {
 //    @IBAction func buttonSalvar(sender: AnyObject) {
 //        
 //        if verificaCampoVazio() {
-//            materia = MateriaManager.sharedInstance.novaMateria()
+//            
+//        //  materia = MateriaManager.sharedInstance.Materia()
+//        //  materia?.setByAddingObject(MateriaManager.sharedInstance.Materia()!)
+//            materia = MateriaManager.sharedInstance.Materia()
+//            materia = MateriaManager.sharedInstance.Materia() 
 //            
 //            if let semana = materia {
-//                materia.pertenceMateria = semana
+////                materia.pertenceMateria = semana
 //            }
 //            
 //            materia.nomeMateria = nomeMateria.text
@@ -90,6 +98,12 @@ class AdicionarMateriaTableViewController: UITableViewController {
         if segue.identifier == "cellSemana" {
             if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
                     proxVC.senderViewController = self
+            }
+        }
+        
+        if segue.identifier == "celNotas" {
+            if let proxVc = segue.destinationViewController as? AdicionarNotaViewController {
+                proxVc.senderViewController = self
             }
         }
     }

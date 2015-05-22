@@ -11,7 +11,12 @@ import UIKit
 class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var quantNotas: Int = 1
+    var materia: Materia?
+    var senderViewController: AdicionarMateriaTableViewController?
+    var notasExistentes: Array<Nota>?
     
+    var tipoNota: UITextField!
+    var pesoNota: UITextField!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stepper: UIStepper!
@@ -19,11 +24,13 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func stepperChange(sender: AnyObject) {
         quantNotas = Int(stepper.value)
         tableView.reloadData()
+        insereNota();
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notasExistentes = NotaManager.sharedInstance.Nota()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,15 +43,49 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quantNotas
+        return notasExistentes!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellAdicionarNota", forIndexPath: indexPath) as! AdicionarNotaTableViewCell
-        cell.textFieldPesoNota.text = "Oi"
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellAdicionarNota", forIndexPath: indexPath) as! AdicionarNotaTableViewCell
+        cell.textFieldPesoNota.text = "\(notasExistentes?[indexPath.row].pesoNota)"
+        cell.textFieldTipoNota.text = notasExistentes?[indexPath.row].tipoNota
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func insereNota() {
+        var alertController = UIAlertController(title: "Nota", message: nil, preferredStyle: .Alert)
+        
+        let buttonOk: UIAlertAction = UIAlertAction(title: "OK", style: .Default) { (UIAlertAction) -> Void in
+            var nota = NotaManager.sharedInstance.novaNota()
+            nota.tipoNota = self.tipoNota!.text
+            nota.pesoNota = self.pesoNota!.text.toInt()!
+            NotaManager.sharedInstance.salvar()
+            self.tableView.reloadData()
+        }
+        
+        let buttonCancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (UIAlertAction) -> Void in}
+        
+        alertController.addAction(buttonOk)
+        alertController.addAction(buttonCancel)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+            textField.placeholder = "Tipo da Nota"
+            self.tipoNota = textField
+        }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+            textField.placeholder = "Peso da Nota"
+            self.pesoNota = textField
+        }
+        
+        self.presentViewController (alertController, animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation
