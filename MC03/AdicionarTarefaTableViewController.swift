@@ -19,6 +19,8 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var opcao: UISwitch!
     @IBOutlet weak var labelMateria: UILabel!
     
+    
+    var valorNotificacao: NSNumber = 0
     var tarefa: Tarefa!
     var materia: Materia?
     
@@ -32,17 +34,39 @@ class AdicionarTarefaTableViewController: UITableViewController {
         }
         tarefa.nomeTarefa = nomeTarefa.text
         tarefa.descricaoTarefa = descricao.text
-//MATÉRIA
         var date = datePicker.date
         tarefa.dataEntrega = date
-
+        tarefa.notificacao = valorNotificacao
+        println(tarefa.notificacao)
+            
+            
+    
 //OPÇÃO               tarefa.opcao = opcao.XXXX
+            
+        
+            
+            
         
         TarefaManager.sharedInstance.salvar()
         }
 //        self.navigationController?.popViewControllerAnimated(true)
 
     }
+    
+    
+    
+    @IBAction func estadoNotificacao(sender: AnyObject) {
+        
+        
+        if (opcao.on) {
+            valorNotificacao = 1
+        } else {
+            valorNotificacao = 0
+        }
+        
+    }
+    
+    
     
     func verificaCampoVazio () -> Bool {
         

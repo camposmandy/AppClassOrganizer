@@ -248,6 +248,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-3V-k02">
                                                     <rect key="frame" x="296" y="14" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="estadoNotificacao:" destination="1Fu-8j-595" eventType="valueChanged" id="RTQ-kU-7NB"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>

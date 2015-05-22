@@ -37,11 +37,11 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celTarefa") as? TarefasTableViewCell
         
-        //        let materia = materias[indexPath.row]
+        
         celula!.lblNomeTarefa?.text = tarefa?[indexPath.row].nomeTarefa
         
         
-        //TENTANDO PEGAR APENAS AS DUAS PRIMEIRAS LETRAS DA STRINS!
+        //PEGAR APENAS AS DUAS PRIMEIRAS LETRAS DA STRING!
         if (tarefa?[indexPath.row].nomeTarefa != "") {
         var nomeT = tarefa?[indexPath.row].nomeTarefa
         var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
