@@ -37,9 +37,9 @@
         <relationship name="pertenceMateria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiTarefa" inverseEntity="Materia" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Materia" positionX="-72" positionY="-171" width="128" height="178"/>
+        <element name="DiasSemana" positionX="-272" positionY="90" width="128" height="163"/>
+        <element name="Materia" positionX="-72" positionY="-171" width="128" height="180"/>
         <element name="Nota" positionX="-315" positionY="-33" width="128" height="105"/>
         <element name="Tarefa" positionX="-243" positionY="288" width="128" height="148"/>
-        <element name="DiasSemana" positionX="-272" positionY="90" width="128" height="163"/>
     </elements>
 </model>

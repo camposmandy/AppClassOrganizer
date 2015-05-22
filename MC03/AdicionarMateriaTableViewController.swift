@@ -13,6 +13,9 @@ class AdicionarMateriaTableViewController: UITableViewController {
     
     var alertMensagem = ""
     var teste = ""
+    var materia: Materia!
+    var diaSemana: DiasSemana?
+    
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
     @IBOutlet weak var percentualFalta: UITextField!
@@ -22,19 +25,23 @@ class AdicionarMateriaTableViewController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func buttonSalvar(sender: AnyObject) {
-        
-        if verificaCampoVazio() {
-            var materia = MateriaManager.sharedInstance.novaMateria()
-            
-            materia.nomeMateria = nomeMateria.text
-            materia.nomeProfessor = professor.text
-            materia.cargaHoraria = cargaHoraria.text.toInt()!
-            materia.faltas = percentualFalta.text.toInt()!
-            
-            MateriaManager.sharedInstance.salvar()
-        }
-    }
+//    @IBAction func buttonSalvar(sender: AnyObject) {
+//        
+//        if verificaCampoVazio() {
+//            materia = MateriaManager.sharedInstance.novaMateria()
+//            
+//            if let semana = materia {
+//                materia.pertenceMateria = semana
+//            }
+//            
+//            materia.nomeMateria = nomeMateria.text
+//            materia.nomeProfessor = professor.text
+//            materia.cargaHoraria = cargaHoraria.text.toInt()!
+//            materia.faltas = percentualFalta.text.toInt()!
+//            
+//            MateriaManager.sharedInstance.salvar()
+//        }
+//    }
     
     func verificaCampoVazio () -> Bool {
         
@@ -77,5 +84,13 @@ class AdicionarMateriaTableViewController: UITableViewController {
         
         self.presentViewController(alerta, animated: true, completion: nil)
         return aux!
+    }
+    
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "cellSemana" {
+            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
+                    proxVC.senderViewController = self
+            }
+        }
     }
 }

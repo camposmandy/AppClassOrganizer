@@ -26,6 +26,7 @@ class VerMateriaTableTableViewController: UITableViewController {
     
     var materia: Array<Materia>!
     var i: Int!
+    var semana: Array<DiasSemana>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class VerMateriaTableTableViewController: UITableViewController {
     }
 
     func preencherLabels(){
+        
         materia = MateriaManager.sharedInstance.Materia()
         self.navigationItem.title = materia?[i].nomeMateria
         lblNomeMateria.text = materia[i].nomeMateria
@@ -48,6 +50,8 @@ class VerMateriaTableTableViewController: UITableViewController {
         var ix = materia[i].cargaHoraria.doubleValue * materia[i].faltas.doubleValue * 0.01
         var ii = Int(ix)
         lblAulasFaltas.text = "\(ii) Aulas"
+        
+        
         
     }
     // MARK: - Table view data source

@@ -10,6 +10,8 @@ import UIKit
 
 class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var senderViewController: AdicionarMateriaTableViewController?
+    
     let diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     var wek = [false, false, false, false, false, false, false]
     

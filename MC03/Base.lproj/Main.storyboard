@@ -667,18 +667,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Dias da Semana" id="ZdA-OL-Qt0">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="ula-2c-Q3y">
-                            <connections>
-                                <action selector="buttonCancelar:" destination="HEa-EB-e8Y" id="bBc-UI-nVZ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="0WE-y0-jcd">
-                            <connections>
-                                <action selector="butotnSalvar:" destination="HEa-EB-e8Y" id="IcJ-Ym-2XU"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dias da Semana" id="ZdA-OL-Qt0"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="mod-Pg-Lxg" id="NGF-lO-AEa"/>
