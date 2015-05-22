@@ -42,12 +42,14 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //TENTANDO PEGAR APENAS AS DUAS PRIMEIRAS LETRAS DA STRINS!
+        if (tarefa?[indexPath.row].nomeTarefa != "") {
         var nomeT = tarefa?[indexPath.row].nomeTarefa
-        var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!)
+        var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
         
         celula!.primeirasLetras?.text = pegaPrimeirasLetras
-        
+        }
         return celula!
+        
     }
     
     
@@ -66,6 +68,10 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    override func viewDidAppear(animated: Bool) {
+        tarefa = TarefaManager.sharedInstance.Tarefa()
+        tableView.reloadData()
+    }
     
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
