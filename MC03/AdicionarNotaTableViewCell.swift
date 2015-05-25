@@ -11,8 +11,8 @@ import UIKit
 class AdicionarNotaTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var textFieldTipoNota: UITextField!
-    @IBOutlet weak var textFieldPesoNota: UITextField!
+    @IBOutlet weak var tipoNota: UILabel!
+    @IBOutlet weak var pesoNota: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
