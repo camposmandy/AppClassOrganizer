@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>512FE9E3-D0E6-4153-BD59-DA1E12FC7BB5</string>
 	<key>IDESourceControlProjectName</key>
-	<string>MC03</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>9D73BA0CF902ECD00FF5C9EE50E2E8CEE46F187E</key>
 		<string>https://github.com/camposmandy/MiniChallenge03.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MC03.xcodeproj</string>
+	<string>MC03.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9D73BA0CF902ECD00FF5C9EE50E2E8CEE46F187E</key>
