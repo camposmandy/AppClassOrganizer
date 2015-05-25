@@ -47,9 +47,9 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var aux2 = materiaAux.possuiNota.allObjects as NSArray
         var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
-        
+        var nota = (aux2.objectAtIndex(indexPath.row) as! Nota).nota
         celula!.lblNomeNota.text = nomeNota
-        
+        celula!.lblNota.text = "\(nota)"
         return celula!
     }
     

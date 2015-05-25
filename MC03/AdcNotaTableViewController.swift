@@ -13,6 +13,7 @@ class AdcNotaTableViewController: UITableViewController {
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var textFieldPesoNota: UITextField!
     @IBOutlet weak var textFieldTipoNota: UITextField!
+    @IBOutlet weak var textFieldNota: UITextField!
     
     var nota: Nota!
     var materia: Materia?
@@ -28,6 +29,7 @@ class AdcNotaTableViewController: UITableViewController {
         if let n = materia {
             nota.tipoNota = textFieldTipoNota.text
             nota.pesoNota = textFieldPesoNota.text.toInt()!
+            nota.nota = textFieldNota.text.toInt()! 
             nota.pertenceMateria = materia!
             materia?.adcNota(nota)
             
@@ -48,9 +50,12 @@ class AdcNotaTableViewController: UITableViewController {
             aux = true
         }
         
+        if (textFieldNota.text == ""){
+            alertaM += "- Nota"
+            aux = true
+        }
         
-        
-        if(textFieldPesoNota.text != "" && textFieldPesoNota.text != ""){
+        if(textFieldPesoNota.text != "" && textFieldPesoNota.text != "" && textFieldNota.text != ""){
             alertaM = "Nota adicionada"
             aux = true
         } else {

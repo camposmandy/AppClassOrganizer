@@ -391,6 +391,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lblMateria" destination="dcT-ja-cRO" id="vkE-ec-FKD"/>
+                        <outlet property="textFieldNota" destination="cKW-64-fYI" id="KGq-En-Cr2"/>
                         <outlet property="textFieldPesoNota" destination="SfW-PQ-hjL" id="kKM-K3-KVl"/>
                         <outlet property="textFieldTipoNota" destination="QVi-qy-oJy" id="ZHT-i2-dEq"/>
                     </connections>
@@ -1477,7 +1478,7 @@ Desenvolvido por:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epm-6B-n8d">
-                                                    <rect key="frame" x="487" y="24" width="34" height="21"/>
+                                                    <rect key="frame" x="190" y="24" width="34" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
