@@ -19,13 +19,14 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     var pesoNota: UITextField!
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var lblAdicionar: UILabel!
-    @IBAction func stepperChange(sender: AnyObject) {
-        quantNotas = Int(stepper.value)
+    
+    @IBAction func maisNota(sender: AnyObject) {
+        quantNotas++
         tableView.reloadData()
         insereNota();
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +49,8 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellAdicionarNota", forIndexPath: indexPath) as! AdicionarNotaTableViewCell
-        cell.textFieldPesoNota.text = "\(notasExistentes?[indexPath.row].pesoNota)"
-        cell.textFieldTipoNota.text = notasExistentes?[indexPath.row].tipoNota
+        cell.pesoNota.text = "\(notasExistentes?[indexPath.row].pesoNota)"
+        cell.tipoNota.text = notasExistentes?[indexPath.row].tipoNota
         return cell
     }
     
@@ -65,7 +66,6 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
             nota.tipoNota = self.tipoNota!.text
             nota.pesoNota = self.pesoNota!.text.toInt()!
             NotaManager.sharedInstance.salvar()
-            self.tableView.reloadData()
         }
         
         let buttonCancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (UIAlertAction) -> Void in}
@@ -83,7 +83,13 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
             self.pesoNota = textField
         }
         
-        self.presentViewController (alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true) { () -> Void in
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
     }
     
 
