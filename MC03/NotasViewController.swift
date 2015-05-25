@@ -12,7 +12,6 @@ import CoreData
 class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var materiaS: Array<Materia>?
-    var notas: Array<Nota>?
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -20,7 +19,6 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         materiaS = MateriaManager.sharedInstance.Materia()
-        notas = NotaManager.sharedInstance.Nota()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,13 +29,26 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notas!.count
+        let materiaAux = materiaS![section]
+        
+        return materiaAux.possuiNota.count
+        //return notas!.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let materiaAux = materiaS![section]
+        return materiaAux.nomeMateria
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
-        celula!.lblNomeNota.text = "Olaaa"//notas![indexPath.row].tipoNota
+        let materiaAux = materiaS![indexPath.section]
+        
+        var aux2 = materiaAux.possuiNota.allObjects as NSArray
+        var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
+        
+        celula!.lblNomeNota.text = nomeNota
         
         return celula!
     }

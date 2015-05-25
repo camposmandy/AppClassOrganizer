@@ -44,9 +44,11 @@ class AdcNotaTableViewController: UITableViewController {
         }
         
         if (textFieldTipoNota.text == ""){
-            alertaM += "-Tipo da nota"
+            alertaM += "- Tipo da nota"
             aux = true
         }
+        
+        
         
         if(textFieldPesoNota.text != "" && textFieldPesoNota.text != ""){
             alertaM = "Nota adicionada"
