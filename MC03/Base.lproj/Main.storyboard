@@ -880,6 +880,46 @@
             </objects>
             <point key="canvasLocation" x="1095" y="1330"/>
         </scene>
+        <!--Sobre View Controller-->
+        <scene sceneID="UBv-FG-q9i">
+            <objects>
+                <viewController id="6Xy-r0-Snh" customClass="SobreViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RcY-vu-pjX"/>
+                        <viewControllerLayoutGuide type="bottom" id="dog-QK-r23"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SX3-QK-via">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
+                                <rect key="frame" x="158" y="110" width="285" height="162"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
+                                <rect key="frame" x="16" y="302" width="298" height="288"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">O NomeDoAplicativo é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
+Com o NomeDoAplicativo, você poderá adicionar suas matérias, tarefas, controlar suas faltas e suas notas, além de ter uma tudo informando em uma única tela principal.
+
+Desenvolvido por:
+- Amanda Campos - João Marcos
+- Leonardo Brunassi</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aha-J4-ku7"/>
+                    <connections>
+                        <outlet property="logoApp" destination="Vxm-Ac-PFL" id="BgA-F9-ecp"/>
+                        <outlet property="sobreApp" destination="Umm-FP-WWj" id="8zN-Kn-fyD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIQ-QX-6o7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="586"/>
+        </scene>
         <!--Faltas-->
         <scene sceneID="Eg6-ha-zDC">
             <objects>
@@ -1015,6 +1055,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="6Xy-r0-Snh" kind="push" id="PAg-36-vEL"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="zsP-SO-RLg">
                                         <autoresizingMask key="autoresizingMask"/>

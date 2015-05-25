@@ -42,6 +42,7 @@
 		17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */; };
 		17BA54CC1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */; };
 		B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */; };
+		B23C2ABB1B138C8A00B8C13D /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */; };
 		B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483821B0BA2D90029DDFE /* MateriaManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarNotaTableViewCell.swift; sourceTree = "<group>"; };
 		17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdicionarNotaViewController.swift; path = MC03/AdicionarNotaViewController.swift; sourceTree = "<group>"; };
 		B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerTarefaTableViewController.swift; sourceTree = "<group>"; };
+		B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
 		B2D483821B0BA2D90029DDFE /* MateriaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 		177EC73E1B0A5F5000FC36E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */,
 				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
 				17BA54CB1B0F9DB900FE0A87 /* AdicionarNotaViewController.swift */,
 				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
@@ -353,6 +356,7 @@
 				177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */,
 				177EC74E1B0A601000FC36E2 /* TarefasViewController.swift in Sources */,
 				177131721B0A75B0006D31D0 /* Materia.swift in Sources */,
+				B23C2ABB1B138C8A00B8C13D /* SobreViewController.swift in Sources */,
 				177EC7491B0A601000FC36E2 /* DiasDaSemanaViewController.swift in Sources */,
 				177131791B0A7706006D31D0 /* MateriaTableViewCell.swift in Sources */,
 				B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */,
