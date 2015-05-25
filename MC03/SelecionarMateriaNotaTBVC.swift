@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelecionarMateriaNotaTBVCTableViewController: UITableViewController {
+class SelecionarMateriaNotaTBVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
