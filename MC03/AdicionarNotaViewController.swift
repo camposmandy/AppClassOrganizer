@@ -90,13 +90,13 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "selecionarMateriaNota" {
+            if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
+                vc.senderViewControllerNota = self
+            }
+        }
     }
-    */
+
 }

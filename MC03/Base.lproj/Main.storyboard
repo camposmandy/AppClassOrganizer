@@ -292,7 +292,80 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCA-xZ-akM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="2095"/>
+            <point key="canvasLocation" x="-884" y="1337"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="94C-af-CSJ">
+            <objects>
+                <tableViewController id="1vK-Mg-Gln" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="37" sectionFooterHeight="22" id="TOZ-mG-fRg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="lzx-nW-X0K">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="er5-8b-BdP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="er5-8b-BdP" id="4cR-px-O1u">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tipo Nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVi-qy-oJy">
+                                                    <rect key="frame" x="19" y="29" width="351" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="yRy-vh-0Mh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yRy-vh-0Mh" id="ISA-uo-QvG">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Peso Nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SfW-PQ-hjL">
+                                                    <rect key="frame" x="19" y="29" width="351" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="88" id="cN7-NA-4gN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cN7-NA-4gN" id="lbX-hf-Ubx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecionar Matéria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ru-Dd-HZh">
+                                                    <rect key="frame" x="27" y="33" width="143" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AquiVaiVirAMateria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-ja-cRO">
+                                                    <rect key="frame" x="316" y="33" width="146" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="daA-AJ-nDo" kind="show" id="IRJ-kb-PK7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1vK-Mg-Gln" id="gMe-EA-MVD"/>
+                            <outlet property="delegate" destination="1vK-Mg-Gln" id="uJD-r1-tnP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-74-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258" y="1337"/>
         </scene>
         <!--Selecionar Matéria-->
         <scene sceneID="Hp0-JS-9sN">
@@ -354,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="2859"/>
+            <point key="canvasLocation" x="-878" y="2119"/>
         </scene>
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">
@@ -418,7 +491,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="soJ-4u-UsY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="6Nf-ll-TAu">
                                 <cells>
@@ -897,12 +970,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
                                 <rect key="frame" x="16" y="302" width="298" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">O NomeDoAplicativo é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
+                                <string key="text">O NomeDoAplicativo é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
 Com o NomeDoAplicativo, você poderá adicionar suas matérias, tarefas, controlar suas faltas e suas notas, além de ter uma tudo informando em uma única tela principal.
 
 Desenvolvido por:
 - Amanda Campos - João Marcos
-- Leonardo Brunassi</mutableString>
+- Leonardo Brunassi</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1354,7 +1427,7 @@ Desenvolvido por:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPN-fS-ecS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1159" y="1315"/>
+            <point key="canvasLocation" x="-1557" y="1337"/>
         </scene>
         <!--Notas-->
         <scene sceneID="0Ge-65-dxu">
@@ -1402,7 +1475,13 @@ Desenvolvido por:
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notas" id="BD2-jJ-Ev0"/>
+                    <navigationItem key="navigationItem" title="Notas" id="BD2-jJ-Ev0">
+                        <barButtonItem key="rightBarButtonItem" title="Adicionar" id="m7G-Ij-ooh">
+                            <connections>
+                                <segue destination="1vK-Mg-Gln" kind="show" id="0m7-cy-MT4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="WzC-p9-wFO" id="gf1-9s-zIY"/>
@@ -1490,4 +1569,7 @@ Desenvolvido por:
             <point key="canvasLocation" x="836" y="-126"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IRJ-kb-PK7"/>
+    </inferredMetricsTieBreakers>
 </document>

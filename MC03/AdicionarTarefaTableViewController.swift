@@ -11,7 +11,6 @@ import UIKit
 class AdicionarTarefaTableViewController: UITableViewController {
    
     var alertMensagem = ""
-    var materiaSelecionada: Int!
     
     @IBOutlet weak var nomeTarefa: UITextField!
     @IBOutlet weak var descricao: UITextField!
@@ -21,7 +20,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-        view.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
     }
     
     
@@ -55,15 +54,9 @@ class AdicionarTarefaTableViewController: UITableViewController {
         var date = datePicker.date
         tarefa.dataEntrega = date
         tarefa.notificacao = valorNotificacao
-            
-            
-    
+
 //OPÇÃO               tarefa.opcao = opcao.XXXX
-            
-        
-            
-            
-        
+
         TarefaManager.sharedInstance.salvar()
         }
 //        self.navigationController?.popViewControllerAnimated(true)
@@ -73,18 +66,13 @@ class AdicionarTarefaTableViewController: UITableViewController {
     
     
     @IBAction func estadoNotificacao(sender: AnyObject) {
-        
-        
         if (opcao.on) {
             valorNotificacao = 1
         } else {
             valorNotificacao = 0
         }
-        
     }
-    
-    
-    
+
     func verificaCampoVazio () -> Bool {
         
         var aux: Bool?
@@ -125,7 +113,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
         }
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selecionarMateria" {
             if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
@@ -133,6 +120,5 @@ class AdicionarTarefaTableViewController: UITableViewController {
             }
         }
     }
-    
 }
 
