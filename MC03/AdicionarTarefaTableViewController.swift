@@ -19,6 +19,24 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var opcao: UISwitch!
     @IBOutlet weak var labelMateria: UILabel!
     
+    override func viewDidLoad() {
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    func esconderTeclado () {
+        view.endEditing(true)
+    }
+    
+    @IBAction func nomeTarefaTF(sender: AnyObject) {
+        self.resignFirstResponder()
+    }
+    
+    @IBAction func descricaoTF(sender: AnyObject) {
+        self.resignFirstResponder()
+    }
+    
     
     var valorNotificacao: NSNumber = 0
     var tarefa: Tarefa!
@@ -106,6 +124,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
             labelMateria.text = materia?.nomeMateria
         }
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selecionarMateria" {

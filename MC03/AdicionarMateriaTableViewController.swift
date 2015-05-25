@@ -29,6 +29,17 @@ class AdicionarMateriaTableViewController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    
+    
+    override func viewDidLoad() {
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    func esconderTeclado () {
+        view.endEditing(true)
+    }
 //    @IBAction func buttonSalvar(sender: AnyObject) {
 //        
 //        if verificaCampoVazio() {
