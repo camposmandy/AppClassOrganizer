@@ -16,7 +16,6 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
     var tarefa: Tarefa?
     
     var senderViewController: AdicionarTarefaTableViewController?
-    var senderViewControllerNota: AdicionarNotaViewController?
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -93,8 +93,8 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selecionarMateriaNota" {
-            if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
-                vc.senderViewControllerNota = self
+            if let vc = segue.destinationViewController as? SelecionarMateriaNotaViewController {
+                vc.senderViewController = self
             }
         }
     }
