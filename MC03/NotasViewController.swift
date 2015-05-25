@@ -37,7 +37,7 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
-        celula!.lblNomeNota.text = notas![indexPath.row].tipoNota
+        celula!.lblNomeNota.text = "Olaaa"//notas![indexPath.row].tipoNota
         
         return celula!
     }
@@ -45,5 +45,4 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
-    
 }

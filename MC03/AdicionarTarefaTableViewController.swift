@@ -96,7 +96,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
             if (aux == true) {
                 self.navigationController?.popViewControllerAnimated(true)
             }
-    }
+        }
         alerta.addAction(ok)
     
         self.presentViewController(alerta, animated: true, completion: nil)

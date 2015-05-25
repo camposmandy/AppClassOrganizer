@@ -294,16 +294,16 @@
             </objects>
             <point key="canvasLocation" x="-884" y="1337"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Adicionar nota-->
         <scene sceneID="94C-af-CSJ">
             <objects>
-                <tableViewController id="1vK-Mg-Gln" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="37" sectionFooterHeight="22" id="TOZ-mG-fRg">
+                <tableViewController id="1vK-Mg-Gln" customClass="AdcNotaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TOZ-mG-fRg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection id="lzx-nW-X0K">
+                            <tableViewSection id="bu7-hI-Ylc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="er5-8b-BdP">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -351,8 +351,21 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="VZA-Fn-Dsw" kind="show" identifier="selecionarMateriaNota" id="mfs-N4-Zmg"/>
+                                            <segue destination="Vs9-rd-rou" kind="show" identifier="selcMateria" id="0pB-IV-soP"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="E0A-b3-B7l">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E0A-b3-B7l" id="l99-mn-QGC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKW-64-fYI">
+                                                    <rect key="frame" x="8" y="29" width="312" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -362,6 +375,25 @@
                             <outlet property="delegate" destination="1vK-Mg-Gln" id="uJD-r1-tnP"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Adicionar nota" id="49d-Qh-WnK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="gZ6-AO-fzh">
+                            <connections>
+                                <action selector="buttonCancelar:" destination="1vK-Mg-Gln" id="xuh-MW-pXq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="S4X-ym-RTk">
+                            <connections>
+                                <action selector="buttonSalvar:" destination="1vK-Mg-Gln" id="ZOq-63-421"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lblMateria" destination="dcT-ja-cRO" id="vkE-ec-FKD"/>
+                        <outlet property="textFieldPesoNota" destination="SfW-PQ-hjL" id="kKM-K3-KVl"/>
+                        <outlet property="textFieldTipoNota" destination="QVi-qy-oJy" id="ZHT-i2-dEq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-74-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,7 +459,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-878" y="2119"/>
+            <point key="canvasLocation" x="-892" y="2103"/>
+        </scene>
+        <!--Selecionar Materia NotaVC-->
+        <scene sceneID="n2j-9t-EVl">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Vs9-rd-rou" customClass="SelecionarMateriaNotaVC" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g96-O0-6e0"/>
+                        <viewControllerLayoutGuide type="bottom" id="s7R-lO-bFo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XWY-VH-8iy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-7J-pdD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMateriaNota" rowHeight="110" id="gsV-qa-NDY" customClass="SelecionarMateriaNotaTBCell" customModule="MC03" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsV-qa-NDY" id="2HI-dk-M7f">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="doasdnfjnfinaifa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-yN-4ae">
+                                                    <rect key="frame" x="69" y="44" width="122" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblNomeMateria" destination="5gA-yN-4ae" id="cvq-4P-mda"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s7R-lO-bFo" firstAttribute="top" secondItem="5D7-7J-pdD" secondAttribute="bottom" id="LII-M9-qpE"/>
+                            <constraint firstItem="5D7-7J-pdD" firstAttribute="top" secondItem="g96-O0-6e0" secondAttribute="bottom" id="P2B-Zx-YZn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5D7-7J-pdD" secondAttribute="trailing" constant="-16" id="e2N-kI-bc3"/>
+                            <constraint firstItem="5D7-7J-pdD" firstAttribute="leading" secondItem="XWY-VH-8iy" secondAttribute="leadingMargin" constant="-16" id="zZ4-ru-WOy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5D7-7J-pdD" id="ZKN-Yu-vNx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTV-6U-ngM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258" y="2086"/>
         </scene>
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">
@@ -483,43 +568,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqC-ER-Zg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="373" y="1330"/>
-        </scene>
-        <!--Selecionar Materia NotaTBVC Table View Controller-->
-        <scene sceneID="I3d-KV-viC">
-            <objects>
-                <tableViewController id="VZA-Fn-Dsw" customClass="SelecionarMateriaNotaTBVCTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="DoS-Dm-tfq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMateriaNota" rowHeight="66" id="E4Z-9K-32K" customClass="SelecionarMateriaNotaTBCell" customModule="MC03" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E4Z-9K-32K" id="3k2-ES-dMJ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aojdoakdodakads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-2m-W3k">
-                                            <rect key="frame" x="138" y="22" width="138" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="lblNomeMateria" destination="pdT-2m-W3k" id="KDj-Gu-dt6"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="VZA-Fn-Dsw" id="8ww-Sm-7nM"/>
-                            <outlet property="delegate" destination="VZA-Fn-Dsw" id="HrU-hY-pzf"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9FQ-o6-o1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-245" y="2112"/>
         </scene>
         <!--Adicionar Matéria-->
         <scene sceneID="dwi-35-3Hc">
@@ -632,9 +680,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="O5G-9X-cdI" kind="show" id="Qwt-Cz-ziy"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -667,78 +712,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAZ-J6-UO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="373" y="2095"/>
-        </scene>
-        <!--Adicionar Nota-->
-        <scene sceneID="xvU-b1-A8n">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="O5G-9X-cdI" customClass="AdicionarNotaViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oCK-9q-acn"/>
-                        <viewControllerLayoutGuide type="bottom" id="PcF-wC-hWZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1PO-P6-Ckw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g9h-3H-djI">
-                                <rect key="frame" x="0.0" y="149" width="600" height="451"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellAdicionarNota" rowHeight="81" id="dca-Cq-oor" customClass="AdicionarNotaTableViewCell" customModule="MC03" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dca-Cq-oor" id="4nP-Dg-7Di">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome Nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DD-qI-cMZ">
-                                                    <rect key="frame" x="18" y="34" width="130" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Peso Nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdj-tr-Kkf">
-                                                    <rect key="frame" x="207" y="34" width="81" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="pesoNota" destination="vdj-tr-Kkf" id="uIs-wK-vF2"/>
-                                            <outlet property="tipoNota" destination="6DD-qI-cMZ" id="r7p-FD-aXz"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="O5G-9X-cdI" id="8HT-3u-0yP"/>
-                                    <outlet property="delegate" destination="O5G-9X-cdI" id="rfD-Tb-gva"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-u0-xnw">
-                                <rect key="frame" x="11" y="95" width="112" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Adicionar Nota" id="D7G-a9-jJd">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="Egt-Yv-s8A">
-                            <connections>
-                                <action selector="maisNota:" destination="O5G-9X-cdI" id="lXA-LJ-d1q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="lblAdicionar" destination="bQP-u0-xnw" id="84o-TS-yHm"/>
-                        <outlet property="tableView" destination="g9h-3H-djI" id="M4S-ve-P9k"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mk2-VU-nfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="373" y="2859"/>
         </scene>
         <!--Dias da Semana-->
         <scene sceneID="Tws-Fg-5j1">

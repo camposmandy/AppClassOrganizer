@@ -17,9 +17,6 @@ class AdicionarMateriaTableViewController: UITableViewController {
     var nota: Nota?
     var diaSemana: DiasSemana?
     
-    
-    
-    
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
     @IBOutlet weak var percentualFalta: UITextField!
@@ -28,8 +25,6 @@ class AdicionarMateriaTableViewController: UITableViewController {
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
     
     override func viewDidLoad() {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
@@ -108,12 +103,6 @@ class AdicionarMateriaTableViewController: UITableViewController {
         if segue.identifier == "cellSemana" {
             if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
                     proxVC.senderViewController = self
-            }
-        }
-        
-        if segue.identifier == "celNotas" {
-            if let proxVc = segue.destinationViewController as? AdicionarNotaViewController {
-                proxVc.senderViewController = self
             }
         }
     }
