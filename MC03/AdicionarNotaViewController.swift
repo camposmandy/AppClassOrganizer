@@ -31,7 +31,6 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         notasExistentes = NotaManager.sharedInstance.Nota()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,8 +90,6 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -102,5 +99,4 @@ class AdicionarNotaViewController: UIViewController, UITableViewDelegate, UITabl
         // Pass the selected object to the new view controller.
     }
     */
-
 }

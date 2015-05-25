@@ -33,34 +33,33 @@ class AdicionarMateriaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-        view.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
     }
     
     
     func esconderTeclado () {
         view.endEditing(true)
     }
-//    @IBAction func buttonSalvar(sender: AnyObject) {
-//        
-//        if verificaCampoVazio() {
-//            
-//        //  materia = MateriaManager.sharedInstance.Materia()
-//        //  materia?.setByAddingObject(MateriaManager.sharedInstance.Materia()!)
-//            materia = MateriaManager.sharedInstance.Materia()
-//            materia = MateriaManager.sharedInstance.Materia() 
-//            
-//            if let semana = materia {
-////                materia.pertenceMateria = semana
-//            }
-//            
-//            materia.nomeMateria = nomeMateria.text
-//            materia.nomeProfessor = professor.text
-//            materia.cargaHoraria = cargaHoraria.text.toInt()!
-//            materia.faltas = percentualFalta.text.toInt()!
-//            
-//            MateriaManager.sharedInstance.salvar()
-//        }
-//    }
+    @IBAction func buttonSalvar(sender: AnyObject) {
+        
+        if verificaCampoVazio() {
+            
+        //  materia = MateriaManager.sharedInstance.Materia()
+        //  materia?.setByAddingObject(MateriaManager.sharedInstance.Materia()!)
+            materia = MateriaManager.sharedInstance.novaMateria()
+            
+            if let semana = materia {
+//                materia.pertenceMateria = semana
+            }
+            
+            materia.nomeMateria = nomeMateria.text
+            materia.nomeProfessor = professor.text
+            materia.cargaHoraria = cargaHoraria.text.toInt()!
+            materia.faltas = percentualFalta.text.toInt()!
+            
+            MateriaManager.sharedInstance.salvar()
+        }
+    }
     
     func verificaCampoVazio () -> Bool {
         

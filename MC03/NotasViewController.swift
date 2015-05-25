@@ -24,13 +24,11 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return materiaS!.count
     }
-
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notas!.count
@@ -40,9 +38,12 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
         celula!.lblNomeNota.text = notas![indexPath.row].tipoNota
-       // celula!.lblNota.text?.toInt() = notas![indexPath.row].nota
         
         return celula!
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
     }
     
 }
