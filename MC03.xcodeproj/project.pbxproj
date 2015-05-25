@@ -43,6 +43,7 @@
 		17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */; };
 		17BA54C41B0F97E700FE0A87 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C31B0F97E700FE0A87 /* Tarefa.swift */; };
 		17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */; };
+		B2316D551B13B0D1002A889D /* MaisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2316D541B13B0D1002A889D /* MaisTableViewController.swift */; };
 		B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */; };
 		B23C2ABB1B138C8A00B8C13D /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */; };
 		B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D483821B0BA2D90029DDFE /* MateriaManager.swift */; };
@@ -99,6 +100,7 @@
 		17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
 		17BA54C31B0F97E700FE0A87 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
 		17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarNotaTableViewCell.swift; sourceTree = "<group>"; };
+		B2316D541B13B0D1002A889D /* MaisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaisTableViewController.swift; sourceTree = "<group>"; };
 		B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerTarefaTableViewController.swift; sourceTree = "<group>"; };
 		B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
 		B2D483821B0BA2D90029DDFE /* MateriaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaManager.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		177EC73E1B0A5F5000FC36E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2316D541B13B0D1002A889D /* MaisTableViewController.swift */,
 				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
 				174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */,
 				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
@@ -361,6 +364,7 @@
 				108052611B0FADE200C834F8 /* DiaSemanaManager.swift in Sources */,
 				176A35B11B0E50B100C0D952 /* VerMateriaTableTableViewController.swift in Sources */,
 				177EC74A1B0A601000FC36E2 /* MateriasViewController.swift in Sources */,
+				B2316D551B13B0D1002A889D /* MaisTableViewController.swift in Sources */,
 				10C5773E1B0507A500081B96 /* AppDelegate.swift in Sources */,
 				177EC7471B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift in Sources */,
 				177EC74E1B0A601000FC36E2 /* TarefasViewController.swift in Sources */,

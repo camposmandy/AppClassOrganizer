@@ -1075,10 +1075,10 @@ Desenvolvido por:
             </objects>
             <point key="canvasLocation" x="1749" y="1330"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Mais Table View Controller-->
         <scene sceneID="nIn-wF-ssm">
             <objects>
-                <tableViewController id="qDU-ca-dzR" sceneMemberID="viewController">
+                <tableViewController id="qDU-ca-dzR" customClass="MaisTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="7Vc-Hh-C8Y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1152,6 +1152,15 @@ Desenvolvido por:
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpM-8K-juY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="botaoFeedback:" destination="qDU-ca-dzR" eventType="touchUpInside" id="Y5s-xa-Zvc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
