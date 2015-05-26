@@ -1437,7 +1437,14 @@ Desenvolvido por:
                             <outlet property="delegate" destination="Lis-wP-uSh" id="hg1-5x-ytc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nome da Tarefa" id="7iA-09-wdq"/>
+                    <navigationItem key="navigationItem" title="Nome da Tarefa" id="7iA-09-wdq">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="oeI-Or-eoU">
+                            <connections>
+                                <action selector="botaoEditar:" destination="Lis-wP-uSh" id="aEY-Q6-Orx"/>
+                                <segue destination="1Fu-8j-595" kind="push" identifier="teste" id="Pp2-E3-C73"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lblDataEntrega" destination="BpD-5p-QoR" id="Bb5-gx-Cix"/>
                         <outlet property="lblDescTarefa" destination="zFC-LG-Jq3" id="04B-JU-moI"/>
@@ -1589,4 +1596,7 @@ Desenvolvido por:
             <point key="canvasLocation" x="836" y="-126"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pp2-E3-C73"/>
+    </inferredMetricsTieBreakers>
 </document>
