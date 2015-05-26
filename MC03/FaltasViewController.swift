@@ -11,6 +11,8 @@ import UIKit
 class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var mat: Array<Materia>?
+    
+    //var faltas = 0
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,16 +44,49 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var faltas = 0
-        var selecionada = indexPath.row
+        var i: Int!
+        var carga = (mat?[indexPath.row].cargaHoraria)!.integerValue
+        var percentual = (mat?[indexPath.row].faltas)!.integerValue
+        
+        var total = (carga * percentual) / 100
+        
         if let materia = mat?[indexPath.row] {
-            faltas = materia.quantFaltas.integerValue + 1
-            materia.quantFaltas = faltas
-            MateriaManager.sharedInstance.salvar()
+            var aux = materia.quantFaltas.integerValue
+            if aux <= total {
+                faltas = aux + 1
+                materia.quantFaltas = faltas
+                
+                MateriaManager.sharedInstance.salvar()
+            }
+            
+            if aux == total {
+                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você não pode faltar mais nessa matéria senão reprovará", preferredStyle: .Alert)
+                let canc: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in  
+                }
+                alerta.addAction(canc)
+                self.presentViewController(alerta, animated: true, completion: nil)
+            }
+            
+            if aux > total {
+                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você já reprovou por falta nessa matéria 😢", preferredStyle: .Alert)
+                let cancelar: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+                }
+                alerta.addAction(cancelar)
+                self.presentViewController(alerta, animated: true, completion: nil)
+            }
         }
         tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+    }
+    
+    func verificaFaltas(){
+        var i: Int!
+      var carga = (mat?[i].cargaHoraria)!.integerValue
+      var percentual = (mat?[i].faltas)!.integerValue
+        
+        var total = (carga * percentual) / 100
     }
 }
