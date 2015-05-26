@@ -23,16 +23,11 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
     func alerta() {
         
         let nomeAlerta: UIAlertController = UIAlertController(title: "Caso queira uma resposta, favor escolher E-Mail", message: "", preferredStyle: .ActionSheet)
-        
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            
         }
-        
         nomeAlerta.addAction(cancelAction)
         
         let appStore: UIAlertAction = UIAlertAction (title: "App Store", style: .Default) { action -> Void in
-            
             
         }
         
@@ -47,19 +42,12 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
             } else {
                 self.showSendMailErrorAlert()
             }
-            
-            
         }
-        
-        
         nomeAlerta.addAction(eMail)
         
         self.presentViewController(nomeAlerta, animated: true, completion: nil)
-        
+
     }
-    
-    
-    
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()

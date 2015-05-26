@@ -36,10 +36,10 @@ class AdicionarTarefaTableViewController: UITableViewController {
         self.resignFirstResponder()
     }
     
-    
     var valorNotificacao: NSNumber = 0
     var tarefa: Tarefa!
     var materia: Materia?
+    var semana: DiasSemana?
     
     @IBAction func btnSalvar(sender: AnyObject) {
         
@@ -60,11 +60,8 @@ class AdicionarTarefaTableViewController: UITableViewController {
         TarefaManager.sharedInstance.salvar()
         }
 //        self.navigationController?.popViewControllerAnimated(true)
-
     }
-    
-    
-    
+ 
     @IBAction func estadoNotificacao(sender: AnyObject) {
         if (opcao.on) {
             valorNotificacao = 1
