@@ -21,7 +21,6 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func butotnSalvar(sender: AnyObject) {
-        
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -30,6 +29,8 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
