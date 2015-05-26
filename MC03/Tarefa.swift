@@ -19,5 +19,4 @@ class Tarefa: NSManagedObject {
     @NSManaged var statusTarefa: NSNumber
     @NSManaged var notificacao: NSNumber
     @NSManaged var pertenceMateria: Materia
-
 }

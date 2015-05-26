@@ -37,5 +37,4 @@ class DiaSemanaManager {
     func deletar(semana: MC03.DiasSemana) {
         coreData.managedObjectContext?.deleteObject(semana)
     }
-    
 }
