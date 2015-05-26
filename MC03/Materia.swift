@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Materia) 
 class Materia: NSManagedObject {
 
     @NSManaged var cargaHoraria: NSNumber

@@ -1031,8 +1031,19 @@ Desenvolvido por:
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Lo-mfK">
+                                                    <rect key="frame" x="537" y="21" width="30" height="30"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
+                                                        <action selector="buttonMais:" destination="DYs-Il-BJi" eventType="touchUpInside" id="1go-rz-4ZH"/>
+                                                        <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="   12%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ag-UD-Uzy" customClass="JMLabel" customModule="MC03" customModuleProvider="target">
-                                                    <rect key="frame" x="446" y="16" width="60" height="51"/>
+                                                    <rect key="frame" x="76" y="17" width="271" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1045,17 +1056,6 @@ Desenvolvido por:
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Lo-mfK">
-                                                    <rect key="frame" x="537" y="21" width="30" height="30"/>
-                                                    <state key="normal" title="+">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
-                                                        <action selector="buttonMais:" destination="DYs-Il-BJi" eventType="touchUpInside" id="1go-rz-4ZH"/>
-                                                        <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>

@@ -11,14 +11,7 @@ import UIKit
 class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var mat: Array<Materia>?
-    
-    
-    @IBAction func buttonMais(sender: AnyObject) {
-    
-        
-        
-    }
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,7 +21,6 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,9 +35,20 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
         celula!.lblMateria.text = mat?[indexPath.row].nomeMateria
-        celula!.lblPercentualFalta.text = "\(mat?[indexPath.row].faltas)"
+        celula!.lblPercentualFalta.text = "\(mat?[indexPath.row].quantFaltas)"
         
         return celula!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var faltas = 0
+        var selecionada = indexPath.row
+        if let materia = mat?[indexPath.row] {
+            faltas = materia.quantFaltas.integerValue + 1
+            materia.quantFaltas = faltas
+            MateriaManager.sharedInstance.salvar()
+        }
+        tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {

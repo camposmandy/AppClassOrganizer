@@ -51,6 +51,7 @@ class AdicionarMateriaTableViewController: UITableViewController {
             materia.nomeProfessor = professor.text
             materia.cargaHoraria = cargaHoraria.text.toInt()!
             materia.faltas = percentualFalta.text.toInt()!
+            materia.quantFaltas = 0
             
             MateriaManager.sharedInstance.salvar()
         }
