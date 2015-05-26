@@ -1019,7 +1019,7 @@ Desenvolvido por:
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celFaltas" rowHeight="86" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zg9-xB-jaQ" id="EG9-SL-kTZ">
@@ -1052,6 +1052,7 @@ Desenvolvido por:
                                                     </state>
                                                     <connections>
                                                         <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
+                                                        <action selector="buttonMais:" destination="DYs-Il-BJi" eventType="touchUpInside" id="1go-rz-4ZH"/>
                                                         <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
                                                     </connections>
                                                 </button>
@@ -1069,7 +1070,7 @@ Desenvolvido por:
                     </view>
                     <navigationItem key="navigationItem" title="Faltas" id="J9V-TV-J9B"/>
                     <connections>
-                        <outlet property="tableView" destination="i6F-iw-Wp4" id="KqB-2k-XOh"/>
+                        <outlet property="tableView" destination="i6F-iw-Wp4" id="2uZ-3Q-3Ch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-DG-HXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
