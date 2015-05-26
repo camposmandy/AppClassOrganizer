@@ -16,14 +16,29 @@ class VerTarefaTableViewController: UITableViewController {
     @IBOutlet weak var lblNomeMateria: UILabel!
     @IBOutlet weak var lblDataEntrega: UILabel!
     
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "teste" {
+//            if let vc = segue.destinationViewController as? AdicionarTarefaTableViewController {
+//                vc.senderViewController = self
+//            }
+//        }
+//    }
+
+    
+    
+//    @IBAction func botaoEditar(sender: AnyObject) {
+//        var addTarefa = AdicionarTarefaTableViewController ()
+//        addTarefa.nomeTarefa.text = lblNomeTarefa.text
+//    }
 
     var tarefa: Array<Tarefa>!
     var i: Int!
     
+    var materia: Array<Materia>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         preencherLabels()
     }
     
@@ -31,6 +46,8 @@ class VerTarefaTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     
     func preencherLabels() {
@@ -40,7 +57,7 @@ class VerTarefaTableViewController: UITableViewController {
         self.navigationItem.title = tarefa?[i].nomeTarefa
         lblNomeTarefa.text = tarefa[i].nomeTarefa
         lblDescTarefa.text = tarefa[i].descricaoTarefa
-        
+        lblNomeMateria.text = tarefa[i].pertenceMateria.nomeMateria
         //lblNomeTarefa.text = tarefa[i].pertenceMateria
         
         var dataEntrega = NSDateFormatter()

@@ -45,6 +45,7 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         }
         nomeAlerta.addAction(eMail)
         
+        
         self.presentViewController(nomeAlerta, animated: true, completion: nil)
 
     }
