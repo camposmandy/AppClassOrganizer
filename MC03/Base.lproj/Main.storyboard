@@ -129,7 +129,7 @@
                                         <connections>
                                             <outlet property="imagemTafera" destination="0hQ-jA-HH6" id="uZf-fu-KhL"/>
                                             <outlet property="lblNomeTarefa" destination="cyn-DP-8rO" id="tzb-3W-LBE"/>
-                                            <outlet property="lbldataEntrega" destination="F6f-c7-ZoR" id="sOA-5x-Amh"/>
+                                            <outlet property="lbldataEntrega" destination="OUp-Np-IVa" id="PWt-2i-T3M"/>
                                             <outlet property="primeirasLetras" destination="Q67-dA-vVX" id="wQy-hg-5Sx"/>
                                             <segue destination="Lis-wP-uSh" kind="show" identifier="verTarefa" id="q41-f6-5EL"/>
                                         </connections>
@@ -1108,8 +1108,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
-                                <rect key="frame" x="151" y="247" width="298" height="288"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
+                                <rect key="frame" x="158" y="72" width="285" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="uW7-mX-icf"/>
+                                    <constraint firstAttribute="width" constant="285" id="yhA-n7-Xal"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
+                                <rect key="frame" x="151" y="242" width="298" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">O NomeDoAplicativo é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
 Com o NomeDoAplicativo, você poderá adicionar suas matérias, tarefas, controlar suas faltas e suas notas, além de ter uma tudo informando em uma única tela principal.
@@ -1120,23 +1127,15 @@ Desenvolvido por:
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
-                                <rect key="frame" x="158" y="72" width="285" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="285" id="SGh-qW-nXZ"/>
-                                    <constraint firstAttribute="height" constant="162" id="nyR-bo-2p4"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Umm-FP-WWj" firstAttribute="top" secondItem="Vxm-Ac-PFL" secondAttribute="bottom" constant="13" id="Qcy-pG-PJS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vxm-Ac-PFL" secondAttribute="trailing" constant="141" id="Rtq-Nk-zKh"/>
-                            <constraint firstItem="dog-QK-r23" firstAttribute="top" secondItem="Umm-FP-WWj" secondAttribute="bottom" constant="16" id="eHo-Vx-gg7"/>
-                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="leading" secondItem="SX3-QK-via" secondAttribute="leadingMargin" constant="142" id="f7c-oM-6k3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Umm-FP-WWj" secondAttribute="trailing" constant="135" id="h4h-h0-YXJ"/>
-                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="top" secondItem="RcY-vu-pjX" secondAttribute="bottom" constant="8" id="mJK-bF-yes"/>
-                            <constraint firstItem="Umm-FP-WWj" firstAttribute="leading" secondItem="SX3-QK-via" secondAttribute="leadingMargin" constant="135" id="mYs-Nc-a4A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vxm-Ac-PFL" secondAttribute="trailing" constant="141" id="7NS-qk-1Nd"/>
+                            <constraint firstAttribute="centerX" secondItem="Umm-FP-WWj" secondAttribute="centerX" id="GLX-zn-Wbq"/>
+                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="top" secondItem="RcY-vu-pjX" secondAttribute="bottom" constant="8" id="MCH-aV-sYA"/>
+                            <constraint firstItem="Umm-FP-WWj" firstAttribute="top" secondItem="Vxm-Ac-PFL" secondAttribute="bottom" constant="8" id="NcH-wM-5cc"/>
+                            <constraint firstAttribute="centerY" secondItem="Umm-FP-WWj" secondAttribute="centerY" id="QxT-lv-j4T"/>
+                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="leading" secondItem="SX3-QK-via" secondAttribute="leadingMargin" constant="142" id="e9G-Zr-bYF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aha-J4-ku7"/>
@@ -1375,7 +1374,7 @@ Desenvolvido por:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faltas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txr-qZ-qGk">
-                                                    <rect key="frame" x="307" y="42" width="51" height="21"/>
+                                                    <rect key="frame" x="267" y="42" width="51" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1399,7 +1398,7 @@ Desenvolvido por:
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="txr-qZ-qGk" firstAttribute="leading" secondItem="Ul4-5u-Xsc" secondAttribute="trailing" constant="80" id="8CE-Hw-eIg"/>
+                                                <constraint firstItem="txr-qZ-qGk" firstAttribute="leading" secondItem="Ul4-5u-Xsc" secondAttribute="trailing" constant="40" id="8CE-Hw-eIg"/>
                                                 <constraint firstItem="sZk-21-s6k" firstAttribute="top" secondItem="4ut-bi-86u" secondAttribute="topMargin" constant="7" id="9J0-gV-BpI"/>
                                                 <constraint firstItem="Ul4-5u-Xsc" firstAttribute="top" secondItem="sZk-21-s6k" secondAttribute="bottom" constant="8" symbolic="YES" id="C8q-g6-LBf"/>
                                                 <constraint firstItem="sBG-m4-Iym" firstAttribute="top" secondItem="4ut-bi-86u" secondAttribute="topMargin" constant="34" id="ECu-IE-33f"/>
@@ -1413,7 +1412,7 @@ Desenvolvido por:
                                                 <constraint firstItem="sZk-21-s6k" firstAttribute="top" secondItem="4ut-bi-86u" secondAttribute="topMargin" constant="5" id="Nlm-Ok-481"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sBG-m4-Iym" secondAttribute="trailing" constant="46" id="Onu-KM-o47"/>
                                                 <constraint firstItem="txr-qZ-qGk" firstAttribute="top" secondItem="4ut-bi-86u" secondAttribute="topMargin" constant="34" id="RVy-Vc-rpt"/>
-                                                <constraint firstItem="sBG-m4-Iym" firstAttribute="leading" secondItem="txr-qZ-qGk" secondAttribute="trailing" constant="8" id="Ssx-qo-FiF"/>
+                                                <constraint firstItem="sBG-m4-Iym" firstAttribute="leading" secondItem="txr-qZ-qGk" secondAttribute="trailing" constant="3" id="Ssx-qo-FiF"/>
                                                 <constraint firstItem="txr-qZ-qGk" firstAttribute="leading" secondItem="Ul4-5u-Xsc" secondAttribute="trailing" constant="69" id="WMO-41-bWS"/>
                                                 <constraint firstItem="sZk-21-s6k" firstAttribute="leading" secondItem="Ul4-5u-Xsc" secondAttribute="leading" id="Y72-Xm-rhL"/>
                                                 <constraint firstItem="sZk-21-s6k" firstAttribute="leading" secondItem="4ut-bi-86u" secondAttribute="leading" constant="88" id="ZWF-zG-WX7"/>
