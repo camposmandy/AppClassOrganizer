@@ -17,6 +17,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     
     var nota: Nota!
     var materia: Materia?
+
     
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
@@ -93,7 +94,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textFieldTipoNota.delegate = self
         textFieldPesoNota.delegate = self
         textFieldNota.delegate = self
     }
