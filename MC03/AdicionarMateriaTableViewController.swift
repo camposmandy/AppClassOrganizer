@@ -9,38 +9,38 @@
 import UIKit
 import CoreData
 
-class AdicionarMateriaTableViewController: UITableViewController {
+class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
     
     var alertMensagem = ""
     var teste = ""
     var materia: Materia!
     var nota: Nota?
     var diaSemana: Array<DiasSemana>?
-    var semana: Array<Bool>?
+    var semana = [false, false, false, false, false, false, false]
     
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
     @IBOutlet weak var percentualFalta: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
-        
-        
+        percentualFalta.delegate = self
+        cargaHoraria.delegate = self
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
         //view.addGestureRecognizer(tap)
     }
     
-    
     func esconderTeclado () {
         view.endEditing(true)
     }
+    
     @IBAction func buttonSalvar(sender: AnyObject) {
-        
         if verificaCampoVazio() {
 
             materia = MateriaManager.sharedInstance.novaMateria()
@@ -53,13 +53,12 @@ class AdicionarMateriaTableViewController: UITableViewController {
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
-            for i in 0..<self.semana!.count {
-                if semana![i] == true {
+            for i in 0..<self.semana.count {
+                if semana[i] == true {
                     var dia = diaSemana?[i]
                     materia.adcDiaSemana(dia!)
                 }
             }
-
             MateriaManager.sharedInstance.salvar()
         }
     }
@@ -67,32 +66,41 @@ class AdicionarMateriaTableViewController: UITableViewController {
     func verificaCampoVazio () -> Bool {
         
         var aux: Bool?
-        
-        var alertaMensagem = "Favor preencher o(s) campo(s):\n"
+        var alert = false
+        var alertaMensagem = ""
         
         if (nomeMateria.text == "") {
-            alertaMensagem += "- Nome da Matéria\n"
+            alertaMensagem += "- Preencha o Nome da Matéria\n"
+            alert = true
         }
         
         if (professor.text == "") {
-            alertaMensagem += "- Nome do Professor\n"
+            alertaMensagem += "- Preencha o Nome do Professor\n"
+            alert = true
         }
         
         if (percentualFalta.text == "") {
-            alertaMensagem += "- Percentual de Faltas\n"
+            alertaMensagem += "- Preencha Percentual de Faltas\n"
+            alert = true
         }
         
         if(cargaHoraria.text == "") {
-            alertaMensagem += "- Carga Horaria\n"
+            alertaMensagem += "- Preencha a Carga Horaria\n"
+            alert = true
         }
         
-        if(nomeMateria.text != "" && professor.text != "" && percentualFalta.text != "" && cargaHoraria.text != ""){
+        if semana == [false, false, false, false, false, false, false] {
+            alertaMensagem += "- Escolha um dia da Semana"
+            alert = true
+        }
+        
+        if alert == false {
             alertaMensagem = "Matéria Adicionada"
             aux = true
         }else{
             aux = false
         }
-            
+ 
         let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: alertaMensagem, preferredStyle: .Alert)
         
         let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
@@ -113,5 +121,17 @@ class AdicionarMateriaTableViewController: UITableViewController {
                     proxVC.senderViewController = self
             }
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var result = true
+        if textField == percentualFalta || textField == cargaHoraria {
+            if count(string) > 0 {
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
+                let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
+                result = replacementStringIsLegal
+            }
+        }
+        return result
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdcNotaTableViewController: UITableViewController {
+class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var textFieldPesoNota: UITextField!
@@ -24,7 +24,6 @@ class AdcNotaTableViewController: UITableViewController {
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCamposVazio(){
             nota = NotaManager.sharedInstance.novaNota()
-            
         }
         if let n = materia {
             nota.tipoNota = textFieldTipoNota.text
@@ -32,37 +31,53 @@ class AdcNotaTableViewController: UITableViewController {
             nota.nota = textFieldNota.text.toInt()! 
             nota.pertenceMateria = materia!
             materia?.adcNota(nota)
-            
+
             NotaManager.sharedInstance.salvar()
         }
     }
     
     func verificaCamposVazio() -> Bool{
         var aux: Bool?
-        var alertaM = "Por favor, preencha o campo: \n"
+        var alert = false
+        var alertaM = ""
+        var alertaT = "Atenção"
         
         if (textFieldPesoNota.text == ""){
-            alertaM += "- Peso da nota \n"
+            alertaM += "- Preencha o Peso da nota\n"
+            alert = true
         }
         
         if (textFieldTipoNota.text == ""){
-            alertaM += "- Tipo da nota"
-            aux = true
+            alertaM += "- Preencha Tipo da nota\n"
+            alert = true
         }
         
         if (textFieldNota.text == ""){
-            alertaM += "- Nota"
-            aux = true
+            alertaM += "- Preencha a Nota\n"
+            alert = true
         }
         
-        if(textFieldPesoNota.text != "" && textFieldPesoNota.text != "" && textFieldNota.text != ""){
+        if (lblMateria.text == "") {
+            alertaM += "- Selecione uma Matéria\n"
+            alert = true
+        }
+        
+        var auxNota = (textFieldNota.text as NSString).doubleValue
+
+        if auxNota < 0 || auxNota > 10 {
+            alertaM += "- Nota de 0 a 10"
+            alert = true
+        }
+        
+        if alert == false {
             alertaM = "Nota adicionada"
+            alertaT = "Pronto"
             aux = true
         } else {
             aux = false
         }
         
-        let alerta: UIAlertController = UIAlertController(title: "Alerta!", message: alertaM, preferredStyle: .Alert)
+        let alerta: UIAlertController = UIAlertController(title: alertaT, message: alertaM, preferredStyle: .Alert)
         
         let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
             if (aux == true) {
@@ -78,12 +93,9 @@ class AdcNotaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        textFieldPesoNota.delegate = self
+        textFieldNota.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,5 +114,17 @@ class AdcNotaTableViewController: UITableViewController {
                 vc.senderViewController = self 
             }
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var result = true
+        if textField == textFieldPesoNota || textField == textFieldNota {
+            if count(string) > 0 {
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
+                let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
+                result = replacementStringIsLegal
+            }
+        }
+        return result
     }
 }
