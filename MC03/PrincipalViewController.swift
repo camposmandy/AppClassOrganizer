@@ -16,6 +16,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var materiaPrincipal: Array<Materia>?
+    var diasSemana: Array<DiasSemana>?
     
     @IBAction func buttonNota(sender: AnyObject) {
     }
@@ -45,18 +46,33 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         materiaPrincipal = MateriaManager.sharedInstance.Materia()
+        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return diasSemana!.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let dia = diasSemana![section]
+        return dia.nomeDia
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materiaPrincipal!.count
+        let diaAux = diasSemana![section]
+        var diaMat = diaAux.pertenceMateria.allObjects as NSArray
+        return diaMat.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-        celula!.lblMateria?.text = materiaPrincipal?[indexPath.row].nomeMateria
-        celula!.lblProfessor?.text = materiaPrincipal?[indexPath.row].nomeProfessor
+        let diaAux = diasSemana![indexPath.section]
+        var diaMat = diaAux.pertenceMateria.allObjects as NSArray
         
+        celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
+        celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeProfessor
+
         return celula!
     }
     
