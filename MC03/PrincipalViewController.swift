@@ -72,6 +72,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         
         celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
         celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeProfessor
+        celula!.lblPercentualFalta?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.faltas.stringValue 
 
         return celula!
     }

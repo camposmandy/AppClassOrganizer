@@ -58,7 +58,8 @@ class VerTarefaTableViewController: UITableViewController {
         lblNomeTarefa.text = tarefa[i].nomeTarefa
         lblDescTarefa.text = tarefa[i].descricaoTarefa
         lblNomeMateria.text = tarefa[i].pertenceMateria.nomeMateria
-        //lblNomeTarefa.text = tarefa[i].pertenceMateria
+    
+       //lblNomeTarefa.text = tarefa[i].pertenceMateria
         
         var dataEntrega = NSDateFormatter()
         dataEntrega.dateFormat = "dd/MM/yyyy"

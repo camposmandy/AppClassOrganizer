@@ -39,6 +39,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         celula!.lblNomeTarefa?.text = tarefa?[indexPath.row].nomeTarefa
+        celula!.lbldataEntrega?.text = "\(tarefa?[indexPath.row].dataEntrega)"
         
         
         //PEGAR APENAS AS DUAS PRIMEIRAS LETRAS DA STRING!
