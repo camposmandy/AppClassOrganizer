@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DiasSemana" representedClassName="PRODUCT_MODULE_NAME.DiasSemana" syncable="YES">
+    <entity name="DiasSemana" representedClassName="DiasSemana" syncable="YES">
         <attribute name="nomeDia" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pertenceMateria" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiSemana" inverseEntity="Materia" syncable="YES"/>
     </entity>

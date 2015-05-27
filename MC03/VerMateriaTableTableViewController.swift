@@ -51,8 +51,32 @@ class VerMateriaTableTableViewController: UITableViewController {
         var ii = Int(ix)
         lblAulasFaltas.text = "\(ii) Aulas"
         
-        
-        
+        let materiaAux = materia[i]
+        var dias = materiaAux.possuiSemana.allObjects as NSArray
+        for i in 0...dias.count-1 {
+            var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
+            if nomeDia == "Domingo" {
+                lblDom.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Segunda" {
+                lblSeg.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Terça" {
+                lblTer.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Quarta" {
+                lblQua.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Quinta" {
+                lblQui.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Sexta" {
+                lblSex.textColor = UIColor.greenColor()
+            }
+            if nomeDia == "Sábado" {
+                lblSab.textColor = UIColor.greenColor()
+            }
+        }
     }
     // MARK: - Table view data source
 

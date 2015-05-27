@@ -189,9 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				1702CACD1B14E0F900767B54 /* DiasSemana.swift */,
+				1702CACF1B14E18900767B54 /* Materia.swift */,
 				177131731B0A75B0006D31D0 /* Nota.swift */,
 				17BA54C31B0F97E700FE0A87 /* Tarefa.swift */,
-				1702CACF1B14E18900767B54 /* Materia.swift */,
 			);
 			name = Modelos;
 			sourceTree = "<group>";

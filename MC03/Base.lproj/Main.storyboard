@@ -634,7 +634,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="HEa-EB-e8Y" kind="show" id="HVr-id-ZS7"/>
+                                            <segue destination="HEa-EB-e8Y" kind="show" identifier="cellSemana" id="HVr-id-ZS7"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5SB-EX-h1o">

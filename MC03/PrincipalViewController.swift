@@ -25,6 +25,9 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        verificaPrimeiroAcesso()
+        
         var date = NSDate()
         
         var dayFormatter = NSDateFormatter()
@@ -57,4 +60,46 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         return celula!
     }
     
+    func verificaPrimeiroAcesso() {
+        var userDefault = NSUserDefaults()
+        var acesso = userDefault.objectForKey("Acesso") as? String
+        if acesso == nil {
+            var domingo: DiasSemana
+            domingo = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            domingo.nomeDia = "Domingo"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var segunda: DiasSemana
+            segunda = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            segunda.nomeDia = "Segunda"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var terca: DiasSemana
+            terca = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            terca.nomeDia = "Terça"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var quarta: DiasSemana
+            quarta = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            quarta.nomeDia = "Quarta"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var quinta: DiasSemana
+            quinta = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            quinta.nomeDia = "Quinta"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var sexta: DiasSemana
+            sexta = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            sexta.nomeDia = "Sexta"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            var sabado: DiasSemana
+            sabado = DiaSemanaManager.sharedInstance.novoDiaSemana()
+            sabado.nomeDia = "Sábado"
+            DiaSemanaManager.sharedInstance.salvar()
+            
+            userDefault.setObject("JaAcessou", forKey: "Acesso")
+        }
+    }
 }

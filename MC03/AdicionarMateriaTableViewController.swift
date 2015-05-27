@@ -15,7 +15,8 @@ class AdicionarMateriaTableViewController: UITableViewController {
     var teste = ""
     var materia: Materia!
     var nota: Nota?
-    var diaSemana: DiasSemana?
+    var diaSemana: Array<DiasSemana>?
+    var semana: Array<Bool>?
     
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
@@ -27,6 +28,9 @@ class AdicionarMateriaTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        
+        
+        
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
         //view.addGestureRecognizer(tap)
     }
@@ -38,20 +42,23 @@ class AdicionarMateriaTableViewController: UITableViewController {
     @IBAction func buttonSalvar(sender: AnyObject) {
         
         if verificaCampoVazio() {
-            
-        //  materia = MateriaManager.sharedInstance.Materia()
-        //  materia?.setByAddingObject(MateriaManager.sharedInstance.Materia()!)
+
             materia = MateriaManager.sharedInstance.novaMateria()
-            
-            if let semana = materia {
-//                materia.pertenceMateria = semana
-            }
             
             materia.nomeMateria = nomeMateria.text
             materia.nomeProfessor = professor.text
             materia.cargaHoraria = cargaHoraria.text.toInt()!
             materia.faltas = percentualFalta.text.toInt()!
             
+            diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+            
+            for i in 0..<self.semana!.count {
+                if semana![i] == true {
+                    var dia = diaSemana?[i]
+                    materia.adcDiaSemana(dia!)
+                }
+            }
+
             MateriaManager.sharedInstance.salvar()
         }
     }

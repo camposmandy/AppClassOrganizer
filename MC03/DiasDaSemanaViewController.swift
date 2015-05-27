@@ -12,8 +12,8 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     
     var senderViewController: AdicionarMateriaTableViewController?
     
-    let diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-    var wek = [false, false, false, false, false, false, false]
+    var diasSemana: Array<DiasSemana>?
+    var semana = [false, false, false, false, false, false, false]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,7 +30,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-        //diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -38,25 +38,37 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diasSemana.count
+        return diasSemana!.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark){
             cell?.accessoryType = UITableViewCellAccessoryType.None
-            wek[indexPath.row] = false
+            semana[indexPath.row] = false
         }
         else {
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            wek[indexPath.row] = true
+            semana[indexPath.row] = true
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
-        cell.lblDiaSemana.text = diasSemana[indexPath.row]
+
+        cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
         
         return cell
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        senderViewController?.semana = semana
+//        
+//        for i in 0..<semana.count {
+//            if semana[i] == true {
+//                var dia = diasSemana?[i]
+//                self.senderViewController?.materia.adcDiaSemana(dia!)
+//            }
+//        }
     }
 }

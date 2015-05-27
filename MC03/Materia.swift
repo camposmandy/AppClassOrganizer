@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Materia)
 class Materia: NSManagedObject {
 
     @NSManaged var cargaHoraria: NSNumber
@@ -40,5 +41,15 @@ class Materia: NSManagedObject {
     func removerTarefa (tarefa : Tarefa) {
         var removeTarefa = self.mutableSetValueForKey("possuiTarefa")
         removeTarefa.removeObject(tarefa)
+    }
+    
+    func adcDiaSemana (diaSemana : DiasSemana) {
+        var possuiDiaSemana = self.mutableSetValueForKey("possuiSemana")
+        possuiDiaSemana.addObject(diaSemana)
+    }
+    
+    func removerDiaSemana (diaSemana : DiasSemana) {
+        var removeDiaSemana = self.mutableSetValueForKey("possuiSemana")
+        removeDiaSemana.removeObject(diaSemana)
     }
 }

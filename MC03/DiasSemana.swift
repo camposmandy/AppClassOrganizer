@@ -9,9 +9,19 @@
 import Foundation
 import CoreData
 
+@objc(DiasSemana)
 class DiasSemana: NSManagedObject {
 
     @NSManaged var nomeDia: String
     @NSManaged var pertenceMateria: NSSet
 
+    func adcMateria (materia : Materia) {
+        var possuiMateria = self.mutableSetValueForKey("possuiMateria")
+        possuiMateria.addObject(materia)
+    }
+    
+    func removerMateria (materia : Materia) {
+        var removeMateria = self.mutableSetValueForKey("possuiMateria")
+        removeMateria.removeObject(materia)
+    }
 }
