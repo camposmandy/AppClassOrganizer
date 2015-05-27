@@ -1019,7 +1019,7 @@ Desenvolvido por:
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celFaltas" rowHeight="86" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zg9-xB-jaQ" id="EG9-SL-kTZ">
@@ -1031,8 +1031,19 @@ Desenvolvido por:
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Lo-mfK">
+                                                    <rect key="frame" x="537" y="21" width="30" height="30"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
+                                                        <action selector="buttonMais:" destination="DYs-Il-BJi" eventType="touchUpInside" id="1go-rz-4ZH"/>
+                                                        <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="   12%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ag-UD-Uzy" customClass="JMLabel" customModule="MC03" customModuleProvider="target">
-                                                    <rect key="frame" x="446" y="16" width="60" height="51"/>
+                                                    <rect key="frame" x="76" y="17" width="271" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1045,16 +1056,6 @@ Desenvolvido por:
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Lo-mfK">
-                                                    <rect key="frame" x="537" y="21" width="30" height="30"/>
-                                                    <state key="normal" title="+">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="buttonAdd:" destination="DYs-Il-BJi" eventType="touchUpInside" id="PC7-EE-meD"/>
-                                                        <action selector="buttonMaisFalta:" destination="zg9-xB-jaQ" eventType="touchUpInside" id="cPR-Tn-NAx"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1069,7 +1070,7 @@ Desenvolvido por:
                     </view>
                     <navigationItem key="navigationItem" title="Faltas" id="J9V-TV-J9B"/>
                     <connections>
-                        <outlet property="tableView" destination="i6F-iw-Wp4" id="KqB-2k-XOh"/>
+                        <outlet property="tableView" destination="i6F-iw-Wp4" id="2uZ-3Q-3Ch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-DG-HXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1437,7 +1438,14 @@ Desenvolvido por:
                             <outlet property="delegate" destination="Lis-wP-uSh" id="hg1-5x-ytc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nome da Tarefa" id="7iA-09-wdq"/>
+                    <navigationItem key="navigationItem" title="Nome da Tarefa" id="7iA-09-wdq">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="oeI-Or-eoU">
+                            <connections>
+                                <action selector="botaoEditar:" destination="Lis-wP-uSh" id="aEY-Q6-Orx"/>
+                                <segue destination="1Fu-8j-595" kind="push" identifier="teste" id="Pp2-E3-C73"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lblDataEntrega" destination="BpD-5p-QoR" id="Bb5-gx-Cix"/>
                         <outlet property="lblDescTarefa" destination="zFC-LG-Jq3" id="04B-JU-moI"/>
@@ -1589,4 +1597,7 @@ Desenvolvido por:
             <point key="canvasLocation" x="836" y="-126"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pp2-E3-C73"/>
+    </inferredMetricsTieBreakers>
 </document>
