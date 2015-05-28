@@ -48,7 +48,9 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "VerMateria" {
             let VC = segue.destinationViewController as! VerMateriaTableTableViewController
             let cell = sender as? UITableViewCell
-            VC.i = tableView.indexPathForCell(cell!)!.row
+            let i = tableView.indexPathForCell(cell!)!.row
+            //VC.i = tableView.indexPathForCell(cell!)!.row
+            VC.materiaAux = materia?[i]
         }
     }
     

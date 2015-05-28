@@ -11,39 +11,49 @@ import CoreData
 
 class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var materiaS: Array<Materia>?
+    var materia: Array<Materia>?
+    var materiaComNota: Array<Materia>!
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        materiaS = MateriaManager.sharedInstance.Materia()
+        materia = MateriaManager.sharedInstance.Materia()
+        materia?.sort({ (first: Materia, second: Materia) -> Bool in
+            return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
+        })
+        
+        materiaComNota = Array<Materia>()
+        for i in 0...materia!.count-1 {
+            var aux = materia![i].possuiNota.allObjects as NSArray
+            if aux.count != 0 {
+                materiaComNota.append(materia![i])
+            }
+        }
+
+        materia = materiaComNota
         
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return materiaS!.count
+        return materia!.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let materiaAux = materiaS![section]
-        //if materiaAux.possuiNota.count == 0 {
-        //    return 1
-        //} else {
-            return materiaAux.possuiNota.count
-        //}
+        let materiaAux = materia![section]
+        return materiaAux.possuiNota.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let materiaAux = materiaS![section]
+        let materiaAux = materia![section]
         return materiaAux.nomeMateria
     }
     
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        let materiaAux = materiaS![section]
+        let materiaAux = materia![section]
         var notas = materiaAux.possuiNota.allObjects as NSArray
         var media = 0.0
         
@@ -60,7 +70,7 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
-        let materiaAux = materiaS![indexPath.section]
+        let materiaAux = materia![indexPath.section]
         
         var aux2 = materiaAux.possuiNota.allObjects as NSArray
         var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota

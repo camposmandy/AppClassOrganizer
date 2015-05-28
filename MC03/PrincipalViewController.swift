@@ -52,17 +52,16 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
+        materiaPrincipal = MateriaManager.sharedInstance.Materia()
+        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
         tableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
-        //return diasSemana!.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//      let dia = diasSemana![section]
-//      return dia.nomeDia
         let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
         switch diaSemana {
             case 1: return "Domingo"
@@ -77,7 +76,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let diaAux = diasSemana![section]
+        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        let diaAux = diasSemana![diaSemana-1]
         var diaMat = diaAux.pertenceMateria.allObjects as NSArray
         return diaMat.count
     }
@@ -85,7 +85,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-        let diaAux = diasSemana![indexPath.section]
+        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        let diaAux = diasSemana![diaSemana-1]
         var diaMat = diaAux.pertenceMateria.allObjects as NSArray
         
         celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria

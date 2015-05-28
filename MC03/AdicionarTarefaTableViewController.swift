@@ -55,11 +55,8 @@ class AdicionarTarefaTableViewController: UITableViewController {
         tarefa.dataEntrega = date
         tarefa.notificacao = valorNotificacao
 
-//OPÇÃO               tarefa.opcao = opcao.XXXX
-
         TarefaManager.sharedInstance.salvar()
         }
-//        self.navigationController?.popViewControllerAnimated(true)
     }
  
     @IBAction func estadoNotificacao(sender: AnyObject) {

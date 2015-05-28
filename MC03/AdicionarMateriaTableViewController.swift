@@ -33,7 +33,12 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         cargaHoraria.delegate = self
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
+        self.tabBarController?.tabBar.hidden = true
         //view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func esconderTeclado () {

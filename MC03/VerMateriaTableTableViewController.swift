@@ -23,15 +23,12 @@ class VerMateriaTableTableViewController: UITableViewController {
     @IBOutlet weak var lblSab: UILabel!
     @IBOutlet weak var lblPercFaltas: UILabel!
     
-    var materia: Array<Materia>!
     var semana: Array<DiasSemana>!
     var materiaAux: Materia!
     var i: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        materia = MateriaManager.sharedInstance.Materia()
         
         preencherLabels()
     }
@@ -41,17 +38,16 @@ class VerMateriaTableTableViewController: UITableViewController {
     }
 
     func preencherLabels(){
-        self.navigationItem.title = materia?[i].nomeMateria
+        self.navigationItem.title = materiaAux.nomeMateria
         
-        lblNomeMateria.text = materia[i].nomeMateria
-        lblNomeProfessor.text = materia[i].nomeProfessor
-        lblCargaHoraria.text = "\(materia[i].cargaHoraria) Aulas"
-        
-        var ix = materia[i].cargaHoraria.doubleValue * materia[i].faltas.doubleValue * 0.01
+        lblNomeMateria.text = materiaAux.nomeMateria
+        lblNomeProfessor.text = materiaAux.nomeProfessor
+        lblCargaHoraria.text = "\(materiaAux.cargaHoraria) Aulas"
+
+        var ix = materiaAux.cargaHoraria.doubleValue * materiaAux.faltas.doubleValue * 0.01
         var ii = Int(ix)
-        lblPercFaltas.text = "\(materia[i].faltas)%  (\(ii) Aulas)"
+        lblPercFaltas.text = "\(materiaAux.faltas)%  (\(ii) Aulas)"
         
-        materiaAux = materia[i] as Materia
         var dias = materiaAux.possuiSemana.allObjects as NSArray
         for i in 0...dias.count-1 {
             var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
@@ -80,6 +76,7 @@ class VerMateriaTableTableViewController: UITableViewController {
     }
     
     @IBAction func btnApagarMateria(sender: AnyObject) {
-        //MateriaManager.deletar(materiaAux)
+        MateriaManager.sharedInstance.deletar(materiaAux)
+        MateriaManager.sharedInstance.salvar()
     }
 }

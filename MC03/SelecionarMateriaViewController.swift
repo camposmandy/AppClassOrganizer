@@ -10,7 +10,7 @@ import UIKit
 
 class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var materiasSelecionadas: Array<Materia>?
+    var materia: Array<Materia>?
     var select: NSIndexPath?
     
     var tarefa: Tarefa?
@@ -24,11 +24,14 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         tableView.delegate = self
         tableView.dataSource = self
         
-        materiasSelecionadas = MateriaManager.sharedInstance.Materia()
+        materia = MateriaManager.sharedInstance.Materia()
+        materia?.sort({ (first: Materia, second: Materia) -> Bool in
+            return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materiasSelecionadas!.count 
+        return materia!.count 
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -45,7 +48,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         
         self.select = indexPath
         
-        if let materia = materiasSelecionadas?[indexPath.row] {
+        if let materia = materia?[indexPath.row] {
             if senderViewController != nil {
                 senderViewController?.materia = materia
             }
@@ -56,7 +59,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("celMateria", forIndexPath: indexPath) as! SelecionarMateriaTableViewCell
-        cell.lblMateria.text = materiasSelecionadas?[indexPath.row].nomeMateria
+        cell.lblMateria.text = materia?[indexPath.row].nomeMateria
         return cell
     }
     
