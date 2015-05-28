@@ -35,6 +35,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         tarefa = TarefaManager.sharedInstance.Tarefa()
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tarefa!.count
     }

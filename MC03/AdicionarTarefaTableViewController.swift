@@ -23,8 +23,14 @@ class AdicionarTarefaTableViewController: UITableViewController {
     override func viewDidLoad() {
         
     }
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//
+//    }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        nomeTarefa.resignFirstResponder()
+        descricao.resignFirstResponder()
+        labelMateria.resignFirstResponder()
         return true;
     }
     
@@ -114,5 +120,14 @@ class AdicionarTarefaTableViewController: UITableViewController {
             }
         }
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        nomeTarefa = nil
+    }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        nomeTarefa = textField
+    }
+    
 }
+
 
