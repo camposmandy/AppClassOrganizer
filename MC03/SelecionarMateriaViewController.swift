@@ -25,6 +25,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         tableView.dataSource = self
         
         materia = MateriaManager.sharedInstance.Materia()
+        
         materia?.sort({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
