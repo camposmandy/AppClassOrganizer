@@ -44,11 +44,19 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celTarefa") as? TarefasTableViewCell
         
+        var dataString: String
+        
         if let t = tarefa?[indexPath.row] {
             celula!.lblNomeTarefa?.text = t.nomeTarefa
             celula!.lbldataEntrega?.text = "\(t.dataEntrega)"
+            
+            var dataEntrega = NSDateFormatter()
+            dataEntrega.dateFormat = "dd/MM/yyyy"
+            dataString = dataEntrega.stringFromDate(t.dataEntrega)
+            celula!.lbldataEntrega.text = "\(dataString)"
+            
         }
-        
+            
         if (tarefa?[indexPath.row].nomeTarefa != "") {
             var nomeT = tarefa?[indexPath.row].nomeTarefa
             var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
