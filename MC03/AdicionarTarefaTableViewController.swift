@@ -19,25 +19,13 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var labelMateria: UILabel!
     
     
-//    var senderViewController: VerTarefaTableViewController?
-//
-//    var testee = Tarefa?()
-//    
-//    func leo () {
-//        if senderViewController != nil {
-//        senderViewController?.tarefa = tarefa
-//    }
-//    }
-    
     
     override func viewDidLoad() {
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-        //view.addGestureRecognizer(tap)
+        
     }
     
-    
-    func esconderTeclado () {
-        view.endEditing(true)
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        return true;
     }
     
     @IBAction func nomeTarefaTF(sender: AnyObject) {
