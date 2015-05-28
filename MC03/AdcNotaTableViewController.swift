@@ -18,6 +18,12 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     var nota: Nota!
     var materia: Materia?
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textFieldPesoNota.resignFirstResponder()
+        textFieldTipoNota.resignFirstResponder()
+        textFieldNota.resignFirstResponder()
+        return true;
+    }
     
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)

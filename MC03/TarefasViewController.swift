@@ -29,6 +29,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tarefa!.count
     }

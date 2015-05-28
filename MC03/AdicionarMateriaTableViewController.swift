@@ -17,6 +17,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     var nota: Nota?
     var diaSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
+
     
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professor: UITextField!
@@ -24,11 +25,19 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        nomeMateria.resignFirstResponder()
+        professor.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
+        nomeMateria.delegate = self
+        professor.delegate = self
         percentualFalta.delegate = self
         cargaHoraria.delegate = self
         
