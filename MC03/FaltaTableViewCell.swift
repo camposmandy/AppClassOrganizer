@@ -12,6 +12,35 @@ class FaltaTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var lblPercentualFalta: JMLabel!
+    
+    var materia: Materia?
+    
     @IBAction func buttonMaisFalta(sender: AnyObject) {
+        if let m = materia {
+            var aux = m.quantFaltas.integerValue
+            var faltas = 0
+            faltas = aux + 1
+            m.quantFaltas = faltas
+            MateriaManager.sharedInstance.salvar()
+        }
+        updateUI()
+    }
+    
+    @IBAction func buttonMenosFalta(sender: AnyObject) {
+        if let m = materia {
+            var aux = m.quantFaltas.integerValue
+            var faltas = 0
+            faltas = aux - 1
+            m.quantFaltas = faltas
+            MateriaManager.sharedInstance.salvar()
+        }
+        updateUI()
+    }
+
+    func updateUI() {
+        if let m = materia {
+            lblPercentualFalta.text = "\(m.quantFaltas)"
+        }
+        setNeedsDisplay()
     }
 }

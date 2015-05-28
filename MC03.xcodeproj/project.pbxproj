@@ -185,6 +185,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		171321F71B16D84000E69171 /* Principal */ = {
+			isa = PBXGroup;
+			children = (
+				177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */,
+			);
+			name = Principal;
+			sourceTree = "<group>";
+		};
+		171321F81B16D84E00E69171 /* Tarefas */ = {
+			isa = PBXGroup;
+			children = (
+				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
+				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
+				B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */,
+			);
+			name = Tarefas;
+			sourceTree = "<group>";
+		};
+		171321F91B16D85600E69171 /* Notas */ = {
+			isa = PBXGroup;
+			children = (
+				174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */,
+				177EC7431B0A601000FC36E2 /* NotasViewController.swift */,
+				174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */,
+			);
+			name = Notas;
+			sourceTree = "<group>";
+		};
+		171321FA1B16D85E00E69171 /* Mais */ = {
+			isa = PBXGroup;
+			children = (
+				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
+				177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */,
+				177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */,
+				B2316D541B13B0D1002A889D /* MaisTableViewController.swift */,
+				177EC7421B0A601000FC36E2 /* MateriasViewController.swift */,
+				177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */,
+				B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */,
+				176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */,
+			);
+			name = Mais;
+			sourceTree = "<group>";
+		};
 		177131771B0A7608006D31D0 /* Modelos */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,21 +242,10 @@
 		177EC73E1B0A5F5000FC36E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				177EC73F1B0A601000FC36E2 /* AdicionarMateriaTableViewController.swift */,
-				174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */,
-				177EC74F1B0A608E00FC36E2 /* AdicionarTarefaTableViewController.swift */,
-				177EC7411B0A601000FC36E2 /* DiasDaSemanaViewController.swift */,
-				177EC7511B0A61A500FC36E2 /* FaltasViewController.swift */,
-				B2316D541B13B0D1002A889D /* MaisTableViewController.swift */,
-				177EC7421B0A601000FC36E2 /* MateriasViewController.swift */,
-				177EC7431B0A601000FC36E2 /* NotasViewController.swift */,
-				177EC7441B0A601000FC36E2 /* PrincipalViewController.swift */,
-				174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */,
-				177EC7451B0A601000FC36E2 /* SelecionarMateriaViewController.swift */,
-				B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */,
-				177EC7461B0A601000FC36E2 /* TarefasViewController.swift */,
-				B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */,
-				176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */,
+				171321F71B16D84000E69171 /* Principal */,
+				171321F81B16D84E00E69171 /* Tarefas */,
+				171321F91B16D85600E69171 /* Notas */,
+				171321FA1B16D85E00E69171 /* Mais */,
 			);
 			name = ViewControllers;
 			path = ..;

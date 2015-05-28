@@ -36,9 +36,12 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
-        celula!.lblMateria.text = mat?[indexPath.row].nomeMateria
-        celula!.lblPercentualFalta.text = "\(mat?[indexPath.row].quantFaltas)"
-        
+        if let materia = mat?[indexPath.row] {
+            celula!.materia = materia
+            celula!.lblMateria.text = materia.nomeMateria
+            celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
+        }
+
         return celula!
     }
     
@@ -50,31 +53,31 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var total = (carga * percentual) / 100
         
-        if let materia = mat?[indexPath.row] {
-            var aux = materia.quantFaltas.integerValue
-            if aux <= total {
-                faltas = aux + 1
-                materia.quantFaltas = faltas
-                
-                MateriaManager.sharedInstance.salvar()
-            }
-            
-            if aux == total {
-                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você não pode faltar mais nessa matéria senão reprovará", preferredStyle: .Alert)
-                let canc: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in  
-                }
-                alerta.addAction(canc)
-                self.presentViewController(alerta, animated: true, completion: nil)
-            }
-            
-            if aux > total {
-                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você já reprovou por falta nessa matéria 😢", preferredStyle: .Alert)
-                let cancelar: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-                }
-                alerta.addAction(cancelar)
-                self.presentViewController(alerta, animated: true, completion: nil)
-            }
-        }
+//        if let materia = mat?[indexPath.row] {
+//            var aux = materia.quantFaltas.integerValue
+//            if aux <= total {
+//                faltas = aux + 1
+//                materia.quantFaltas = faltas
+//                
+//                MateriaManager.sharedInstance.salvar()
+//            }
+//            
+//            if aux == total {
+//                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você não pode faltar mais nessa matéria senão reprovará", preferredStyle: .Alert)
+//                let canc: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in  
+//                }
+//                alerta.addAction(canc)
+//                self.presentViewController(alerta, animated: true, completion: nil)
+//            }
+//            
+//            if aux > total {
+//                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você já reprovou por falta nessa matéria 😢", preferredStyle: .Alert)
+//                let cancelar: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+//                }
+//                alerta.addAction(cancelar)
+//                self.presentViewController(alerta, animated: true, completion: nil)
+//            }
+//        }
         tableView.reloadData()
     }
     

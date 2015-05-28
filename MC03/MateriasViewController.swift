@@ -21,9 +21,9 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        materia = MateriaManager.sharedInstance.Materia()
+        reloadData()
     }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return materia!.count
@@ -38,12 +38,10 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewDidAppear(animated: Bool) {
-        materia = MateriaManager.sharedInstance.Materia()
-        tableView.reloadData()
+        reloadData()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        //Editar
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -52,5 +50,14 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = sender as? UITableViewCell
             VC.i = tableView.indexPathForCell(cell!)!.row
         }
+    }
+    
+    func reloadData(){
+        materia = MateriaManager.sharedInstance.Materia()
+        materia?.sort({ (first: Materia, second: Materia) -> Bool in
+            return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
+        })
+
+        tableView.reloadData()
     }
 }

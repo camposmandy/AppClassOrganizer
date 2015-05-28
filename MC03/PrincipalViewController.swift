@@ -24,12 +24,14 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func buttonFalta(sender: AnyObject) {
     }
 
+    var date: NSDate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         verificaPrimeiroAcesso()
         
-        var date = NSDate()
+        date = NSDate()
         
         var dayFormatter = NSDateFormatter()
         dayFormatter.dateFormat = "dd"
@@ -38,7 +40,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         var monthFormatter = NSDateFormatter()
         monthFormatter.dateFormat = "MMMM"
         var monthString = monthFormatter.stringFromDate(date)
-        
+
         labelDia.text = dayString
         labelMes.text = monthString
         
@@ -49,13 +51,29 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return diasSemana!.count
+        return 1
+        //return diasSemana!.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dia = diasSemana![section]
-        return dia.nomeDia
+//      let dia = diasSemana![section]
+//      return dia.nomeDia
+        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        switch diaSemana {
+            case 1: return "Domingo"
+            case 2: return "Segunda"
+            case 3: return "Terça"
+            case 4: return "Quarta"
+            case 5: return "Quinta"
+            case 6: return "Sexta"
+            case 7: return "Sábado"
+            default: return ""
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,8 +89,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         var diaMat = diaAux.pertenceMateria.allObjects as NSArray
         
         celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
-        celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeProfessor
-        celula!.lblPercentualFalta?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.faltas.stringValue 
+        celula!.lblProfessor?.text = "Prof. \((diaMat.objectAtIndex(indexPath.row) as! Materia).nomeProfessor)"
+        celula!.lblPercentualFalta?.text = "\((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas)%"
 
         return celula!
     }

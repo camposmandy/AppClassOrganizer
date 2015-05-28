@@ -22,36 +22,36 @@ class VerMateriaTableTableViewController: UITableViewController {
     @IBOutlet weak var lblSex: UILabel!
     @IBOutlet weak var lblSab: UILabel!
     @IBOutlet weak var lblPercFaltas: UILabel!
-    @IBOutlet weak var lblAulasFaltas: UILabel!
     
     var materia: Array<Materia>!
-    var i: Int!
     var semana: Array<DiasSemana>!
+    var materiaAux: Materia!
+    var i: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        materia = MateriaManager.sharedInstance.Materia()
+        
         preencherLabels()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func preencherLabels(){
-        
-        materia = MateriaManager.sharedInstance.Materia()
         self.navigationItem.title = materia?[i].nomeMateria
+        
         lblNomeMateria.text = materia[i].nomeMateria
         lblNomeProfessor.text = materia[i].nomeProfessor
-        lblCargaHoraria.text = materia[i].cargaHoraria.stringValue
-        lblPercFaltas.text = materia[i].faltas.stringValue
+        lblCargaHoraria.text = "\(materia[i].cargaHoraria) Aulas"
+        
         var ix = materia[i].cargaHoraria.doubleValue * materia[i].faltas.doubleValue * 0.01
         var ii = Int(ix)
-        lblAulasFaltas.text = "\(ii) Aulas"
+        lblPercFaltas.text = "\(materia[i].faltas)%  (\(ii) Aulas)"
         
-        let materiaAux = materia[i]
+        materiaAux = materia[i] as Materia
         var dias = materiaAux.possuiSemana.allObjects as NSArray
         for i in 0...dias.count-1 {
             var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
@@ -78,73 +78,8 @@ class VerMateriaTableTableViewController: UITableViewController {
             }
         }
     }
-    // MARK: - Table view data source
-
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Potentially incomplete method implementation.
-//        // Return the number of sections.
-//        return 0
-//    }
-//
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete method implementation.
-//        // Return the number of rows in the section.
-//        return 0
-//    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBAction func btnApagarMateria(sender: AnyObject) {
+        //MateriaManager.deletar(materiaAux)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

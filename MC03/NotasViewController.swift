@@ -30,14 +30,31 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let materiaAux = materiaS![section]
-        
-        return materiaAux.possuiNota.count
-        //return notas!.count
+        //if materiaAux.possuiNota.count == 0 {
+        //    return 1
+        //} else {
+            return materiaAux.possuiNota.count
+        //}
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let materiaAux = materiaS![section]
         return materiaAux.nomeMateria
+    }
+    
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let materiaAux = materiaS![section]
+        var notas = materiaAux.possuiNota.allObjects as NSArray
+        var media = 0.0
+        
+        for i in notas {
+            var nota = (i as! Nota).nota
+            var peso = (i as! Nota).pesoNota
+            var calc = nota.doubleValue * peso.doubleValue * 0.01
+            media += calc
+        }
+        
+        return "\t\t\t\t\t\t\t\t\tMédia = \(media)"
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,8 +65,12 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var aux2 = materiaAux.possuiNota.allObjects as NSArray
         var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
         var nota = (aux2.objectAtIndex(indexPath.row) as! Nota).nota
+        var peso = (aux2.objectAtIndex(indexPath.row) as! Nota).pesoNota
+        
         celula!.lblNomeNota.text = nomeNota
-        celula!.lblNota.text = "\(nota)"
+        celula!.lblNota.text = "\(nota.doubleValue)"
+        celula!.lblPeso.text = "\(peso)%"
+        
         return celula!
     }
     

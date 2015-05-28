@@ -14,11 +14,8 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
     
     
     @IBAction func botaoFeedback(sender: AnyObject) {
-        
         alerta()
-        
     }
-    
     
     func alerta() {
         
@@ -47,7 +44,6 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         
         
         self.presentViewController(nomeAlerta, animated: true, completion: nil)
-
     }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
@@ -72,8 +68,4 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         controller.dismissViewControllerAnimated(true, completion: nil)
         
     }
-    
-    
-    
-    
 }
