@@ -21,11 +21,9 @@ class AdicionarTarefaTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        
+        let data = NSDate()
+        datePicker.minimumDate = data
     }
-//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-//
-//    }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         nomeTarefa.resignFirstResponder()
@@ -50,18 +48,18 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBAction func btnSalvar(sender: AnyObject) {
         
         if verificaCampoVazio() {
-        
-        tarefa = TarefaManager.sharedInstance.novaTarefa()
-        if let m = materia {
-            tarefa.pertenceMateria = m
-        }
-        tarefa.nomeTarefa = nomeTarefa.text
-        tarefa.descricaoTarefa = descricao.text
-        var date = datePicker.date
-        tarefa.dataEntrega = date
-        tarefa.notificacao = valorNotificacao
-
-        TarefaManager.sharedInstance.salvar()
+            
+            tarefa = TarefaManager.sharedInstance.novaTarefa()
+            if let m = materia {
+                tarefa.pertenceMateria = m
+            }
+            tarefa.nomeTarefa = nomeTarefa.text
+            tarefa.descricaoTarefa = descricao.text
+            var date = datePicker.date
+            tarefa.dataEntrega = date
+            tarefa.notificacao = valorNotificacao
+            
+            TarefaManager.sharedInstance.salvar()
         }
     }
  

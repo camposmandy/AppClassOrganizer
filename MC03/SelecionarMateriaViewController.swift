@@ -54,6 +54,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
             }
             
         }
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

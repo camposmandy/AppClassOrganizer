@@ -46,7 +46,11 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let t = tarefa?[indexPath.row] {
             celula!.lblNomeTarefa?.text = t.nomeTarefa
-            celula!.lbldataEntrega?.text = "\(t.dataEntrega)"
+            var dataEntrega = NSDateFormatter()
+            dataEntrega.dateFormat = "dd/MM/yyyy"
+            var dataString = dataEntrega.stringFromDate(t.dataEntrega)
+            celula!.lbldataEntrega.text = "para o dia \(dataString)"
+            celula!.lblNomeMateria?.text = "(\(t.pertenceMateria.nomeMateria))"
         }
         
         if (tarefa?[indexPath.row].nomeTarefa != "") {
@@ -80,14 +84,4 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
             VC.i = tableView.indexPathForCell(cell!)!.row
         }
     }
-    
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-//        if editingStyle == UITableViewCellEditingStyle.Delete {
-//            TarefaManager.sharedInstance.deletar(tarefa![indexPath.row])
-//            TarefaManager.sharedInstance.salvar()
-//            tarefa?.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//
-//        }
-//    }
 }

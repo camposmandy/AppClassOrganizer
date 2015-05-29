@@ -31,15 +31,15 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCamposVazio(){
             nota = NotaManager.sharedInstance.novaNota()
-        }
-        if let n = materia {
-            nota.tipoNota = textFieldTipoNota.text
-            nota.pesoNota = textFieldPesoNota.text.toInt()!
-            nota.nota = textFieldNota.text.toInt()! 
-            nota.pertenceMateria = materia!
-            materia?.adcNota(nota)
-
-            NotaManager.sharedInstance.salvar()
+            if let n = materia {
+                nota.tipoNota = textFieldTipoNota.text
+                nota.pesoNota = textFieldPesoNota.text.toInt()!
+                nota.nota = textFieldNota.text.toInt()!
+                nota.pertenceMateria = materia!
+                materia?.adcNota(nota)
+                
+                NotaManager.sharedInstance.salvar()
+            }
         }
     }
     

@@ -23,6 +23,8 @@ class VerMateriaTableTableViewController: UITableViewController {
     @IBOutlet weak var lblSab: UILabel!
     @IBOutlet weak var lblPercFaltas: UILabel!
     
+    var myColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+    
     var semana: Array<DiasSemana>!
     var materiaAux: Materia!
     var i: Int!
@@ -52,25 +54,25 @@ class VerMateriaTableTableViewController: UITableViewController {
         for i in 0...dias.count-1 {
             var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
             if nomeDia == "Domingo" {
-                lblDom.textColor = UIColor.greenColor()
+                lblDom.textColor = myColor
             }
             if nomeDia == "Segunda" {
-                lblSeg.textColor = UIColor.greenColor()
+                lblSeg.textColor = myColor
             }
             if nomeDia == "Terça" {
-                lblTer.textColor = UIColor.greenColor()
+                lblTer.textColor = myColor
             }
             if nomeDia == "Quarta" {
-                lblQua.textColor = UIColor.greenColor()
+                lblQua.textColor = myColor
             }
             if nomeDia == "Quinta" {
-                lblQui.textColor = UIColor.greenColor()
+                lblQui.textColor = myColor
             }
             if nomeDia == "Sexta" {
-                lblSex.textColor = UIColor.greenColor()
+                lblSex.textColor = myColor
             }
             if nomeDia == "Sábado" {
-                lblSab.textColor = UIColor.greenColor()
+                lblSab.textColor = myColor
             }
         }
     }

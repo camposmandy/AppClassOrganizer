@@ -15,6 +15,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var labelMes: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var myColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+    
     var materiaPrincipal: Array<Materia>?
     var diasSemana: Array<DiasSemana>?
     
@@ -29,6 +31,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController!.tabBar.tintColor = myColor
         verificaPrimeiroAcesso()
         
         date = NSDate()

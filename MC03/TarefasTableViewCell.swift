@@ -15,5 +15,6 @@ class TarefasTableViewCell: UITableViewCell {
     @IBOutlet weak var lbldataEntrega: UILabel!
     @IBOutlet weak var lblNomeTarefa: UILabel!
     @IBOutlet weak var primeirasLetras: UILabel!
+    @IBOutlet weak var lblNomeMateria: UILabel!
     
 }

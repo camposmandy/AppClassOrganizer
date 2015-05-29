@@ -53,6 +53,7 @@ class SelecionarMateriaNotaVC: UIViewController, UITableViewDelegate, UITableVie
                 senderViewController?.materia = materia
             }
         }
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
