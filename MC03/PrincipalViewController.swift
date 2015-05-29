@@ -94,7 +94,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         
         celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
         celula!.lblProfessor?.text = "Prof. \((diaMat.objectAtIndex(indexPath.row) as! Materia).nomeProfessor)"
-        celula!.lblPercentualFalta?.text = "\((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas)%"
+        celula!.lblPercentualFalta?.text = "Faltas \((diaMat.objectAtIndex(indexPath.row) as! Materia).quantFaltas) de \((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas) permitidas"
 
         return celula!
     }

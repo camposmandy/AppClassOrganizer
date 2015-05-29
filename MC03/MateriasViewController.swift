@@ -57,13 +57,27 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.Delete{
-//            MateriaManager.sharedInstance.deletar(materia!.removeAtIndex(indexPath.row))
-//            MateriaManager.sharedInstance.salvar()
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+        MateriaManager.sharedInstance.deletar(self.materia![indexPath.row])
+        MateriaManager.sharedInstance.salvar()
+        tableView.reloadData()
+        reloadData()
+        }
+    }
+    
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//    
+//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+//        
+//        let apagar = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Apagar") { (action, indexPath) -> Void in
+//                    MateriaManager.sharedInstance.deletar(indexPath.row as! Int)
+//                    MateriaManager.sharedInstance.salvar()
 //        }
 //    }
-    
+//    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "VerMateria" {
             let VC = segue.destinationViewController as! VerMateriaTableTableViewController
