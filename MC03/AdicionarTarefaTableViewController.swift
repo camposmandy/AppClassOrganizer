@@ -23,6 +23,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
     override func viewDidLoad() {
         let data = NSDate()
         datePicker.minimumDate = data
+        valorNotificacao = 1
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -55,9 +56,36 @@ class AdicionarTarefaTableViewController: UITableViewController {
             }
             tarefa.nomeTarefa = nomeTarefa.text
             tarefa.descricaoTarefa = descricao.text
+        
+            
             var date = datePicker.date
+            
             tarefa.dataEntrega = date
             tarefa.notificacao = valorNotificacao
+            
+            if(opcao.on) {
+                let localNotification = UILocalNotification()
+                //Mensagem
+                localNotification.alertBody = "A tarefa \(nomeTarefa.text) deve ser entregue amanhã."
+                
+                
+                //Som
+                localNotification.soundName = UILocalNotificationDefaultSoundName
+                
+                
+                //Incrementa o applicationIconBadgeNumber
+                localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber+1
+                
+                
+                //configura para daqui a 5 segundos
+                localNotification.timeZone = NSTimeZone.defaultTimeZone()
+                localNotification.fireDate = tarefa.dataEntrega
+                
+                
+                //Agenda a notificação
+                UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            }
+            
             
             TarefaManager.sharedInstance.salvar()
         }
