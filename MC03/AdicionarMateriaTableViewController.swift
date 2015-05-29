@@ -42,12 +42,12 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         cargaHoraria.delegate = self
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-        self.tabBarController?.tabBar.hidden = true
+        //self.tabBarController?.tabBar.hidden = true
         //view.addGestureRecognizer(tap)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false
+        //self.tabBarController?.tabBar.hidden = false
     }
     
     func esconderTeclado () {
@@ -78,44 +78,53 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     }
     
     func verificaCampoVazio () -> Bool {
-        
         var aux: Bool?
         var alert = false
-        var alertaMensagem = ""
+        var alertaM = ""
+        var alertaT = "Atenção ⚠️"
         
         if (nomeMateria.text == "") {
-            alertaMensagem += "- Preencha o Nome da Matéria\n"
+            alertaM += "- Preencha o Nome da Matéria\n"
             alert = true
         }
         
         if (professor.text == "") {
-            alertaMensagem += "- Preencha o Nome do Professor\n"
+            alertaM += "- Preencha o Nome do Professor\n"
             alert = true
         }
         
         if (percentualFalta.text == "") {
-            alertaMensagem += "- Preencha Percentual de Faltas\n"
+            alertaM += "- Preencha Percentual de Faltas\n"
             alert = true
         }
         
+        var auxPerFalta = (percentualFalta.text as NSString).doubleValue
+        
+        if auxPerFalta < 0 || auxPerFalta > 100 {
+            alertaM += "- Peso de 0% a 100%\n"
+            alert = true
+        }
+        
+        
         if(cargaHoraria.text == "") {
-            alertaMensagem += "- Preencha a Carga Horaria\n"
+            alertaM += "- Preencha a Carga Horaria\n"
             alert = true
         }
         
         if semana == [false, false, false, false, false, false, false] {
-            alertaMensagem += "- Escolha um dia da Semana"
+            alertaM += "- Escolha um dia da Semana"
             alert = true
         }
         
         if alert == false {
-            alertaMensagem = "Matéria Adicionada"
+            alertaM = "Matéria Adicionada ✔️"
+            alertaT = "Pronto 😃"
             aux = true
         }else{
             aux = false
         }
  
-        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: alertaMensagem, preferredStyle: .Alert)
+        let alerta: UIAlertController = UIAlertController(title: alertaT, message: alertaM, preferredStyle: .Alert)
         
         let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
             if (aux == true) {

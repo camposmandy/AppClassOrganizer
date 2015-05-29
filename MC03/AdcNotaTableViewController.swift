@@ -47,15 +47,22 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         var aux: Bool?
         var alert = false
         var alertaM = ""
-        var alertaT = "Atenção"
+        var alertaT = "Atenção ⚠️"
+        
+        if (textFieldTipoNota.text == ""){
+            alertaM += "- Preencha Tipo da nota\n"
+            alert = true
+        }
         
         if (textFieldPesoNota.text == ""){
             alertaM += "- Preencha o Peso da nota\n"
             alert = true
         }
         
-        if (textFieldTipoNota.text == ""){
-            alertaM += "- Preencha Tipo da nota\n"
+        var auxPeso = (textFieldPesoNota.text as NSString).doubleValue
+        
+        if auxPeso < 0 || auxPeso > 100 {
+            alertaM += "- Peso de 0% a 100%\n"
             alert = true
         }
         
@@ -64,21 +71,21 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             alert = true
         }
         
+        var auxNota = (textFieldNota.text as NSString).doubleValue
+        
+        if auxNota < 0 || auxNota > 10 {
+            alertaM += "- Nota de 0 a 10\n"
+            alert = true
+        }
+        
         if (lblMateria.text == "") {
             alertaM += "- Selecione uma Matéria\n"
             alert = true
         }
-        
-        var auxNota = (textFieldNota.text as NSString).doubleValue
 
-        if auxNota < 0 || auxNota > 10 {
-            alertaM += "- Nota de 0 a 10"
-            alert = true
-        }
-        
         if alert == false {
-            alertaM = "Nota adicionada"
-            alertaT = "Pronto"
+            alertaM = "Nota adicionada ✔️"
+            alertaT = "Pronto 😃"
             aux = true
         } else {
             aux = false

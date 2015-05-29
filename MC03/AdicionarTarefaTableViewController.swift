@@ -18,8 +18,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var opcao: UISwitch!
     @IBOutlet weak var labelMateria: UILabel!
     
-    
-    
     override func viewDidLoad() {
         let data = NSDate()
         datePicker.minimumDate = data
@@ -72,23 +70,30 @@ class AdicionarTarefaTableViewController: UITableViewController {
     }
 
     func verificaCampoVazio () -> Bool {
-        
         var aux: Bool?
-        
-        var alertaMensagem = "Favor preencher o campo:\n"
+        var alert = false
+        var alertaM = ""
+        var alertaT = "Atenção ⚠️"
         
         if (nomeTarefa.text == "") {
-            alertaMensagem += "- Nome da Tarefa"
+            alertaM += "- Preencha o Nome da Tarefa\n"
+            alert = true
         }
         
-        if (nomeTarefa.text != "") {
-            alertaMensagem = "Tarefa Adicionada"
+        if (labelMateria.text == ""){
+            alertaM += "- Selecione uma Matéria\n"
+            alert = true
+        }
+        
+        if alert == false {
+            alertaM = "Tarefa adicionada ✔️"
+            alertaT = "Pronto 😃"
             aux = true
         } else {
             aux = false
         }
         
-        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: alertaMensagem, preferredStyle: .Alert)
+        let alerta: UIAlertController = UIAlertController(title: alertaT, message: alertaM, preferredStyle: .Alert)
         
         let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
             if (aux == true) {

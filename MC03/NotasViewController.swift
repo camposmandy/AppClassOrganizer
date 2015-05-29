@@ -51,7 +51,7 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return ""
         } else {
             let materiaAux = materia![section]
-            return "- \(materiaAux.nomeMateria)"
+            return "• \(materiaAux.nomeMateria)"
         }
     }
     
