@@ -14,6 +14,9 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonEditar: UIBarButtonItem!
     
+    var materias: Array<Materia>?
+    var tarefa: Array<Tarefa>?
+    
     @IBAction func buttonEditarTarefa(sender: AnyObject) {
         if tableView.editing == true {
             self.tableView.editing == false
@@ -24,42 +27,65 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    var tarefa: Array<Tarefa>?
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
         tarefa = TarefaManager.sharedInstance.Tarefa()
+        materias = MateriaManager.sharedInstance.Materia()
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tarefa!.count
+        if materias?.count == 0 || tarefa?.count == 0 {
+            return 1
+        } else {
+            return tarefa!.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celTarefa") as? TarefasTableViewCell
-        
-        var dataString: String
-        
-        if let t = tarefa?[indexPath.row] {
-            celula!.lblNomeTarefa?.text = t.nomeTarefa
-            var dataEntrega = NSDateFormatter()
-            dataEntrega.dateFormat = "dd/MM/yyyy"
-            var dataString = dataEntrega.stringFromDate(t.dataEntrega)
-            celula!.lbldataEntrega.text = "para o dia \(dataString)"
-            celula!.lblNomeMateria?.text = "(\(t.pertenceMateria.nomeMateria))"
-        }
+        if materias?.count != 0 && tarefa?.count != 0{
             
-        if (tarefa?[indexPath.row].nomeTarefa != "") {
-            var nomeT = tarefa?[indexPath.row].nomeTarefa
-            var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
+            if let t = tarefa?[indexPath.row] {
+                celula!.lblNomeTarefa.hidden = false
+                celula!.lbldataEntrega.hidden = false
+                celula!.imageCheck.hidden = false
+                celula!.accessoryType = .DisclosureIndicator
+                tableView.userInteractionEnabled = true
+                
+                celula!.lblNomeTarefa?.text = t.nomeTarefa
+                celula!.lbldataEntrega?.text = "\(t.dataEntrega)"
+                
+                var dataEntrega = NSDateFormatter()
+                dataEntrega.dateFormat = "dd/MM/yyyy"
+                var dataString = dataEntrega.stringFromDate(t.dataEntrega)
+                celula!.lbldataEntrega.text = "para o dia \(dataString)"
+                celula!.lblNomeMateria?.text = "(\(t.pertenceMateria.nomeMateria))"
+            }
             
-            celula!.primeirasLetras?.text = pegaPrimeirasLetras
+            if (tarefa?[indexPath.row].nomeTarefa != "") {
+                var nomeT = tarefa?[indexPath.row].nomeTarefa
+                var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
+            }
+        } else {
+            celula!.lblNomeTarefa.hidden = true
+            celula!.lbldataEntrega.hidden = true
+            celula!.imageCheck.hidden = true
+            celula!.accessoryType = .None
+            tableView.userInteractionEnabled = false
+            
+            if materias?.count == 0 {
+                celula!.lblNomeMateria.text = "Não há materias cadastradas"
+            } else {
+                celula!.lblNomeMateria.text = "Não há tarefas registradas"
+            }
         }
         return celula!
     }
@@ -76,6 +102,14 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         tarefa = TarefaManager.sharedInstance.Tarefa()
+        materias = MateriaManager.sharedInstance.Materia()
+        
+        if materias?.count == 0 {
+            buttonAdcTarefa.enabled = false
+        } else {
+            buttonAdcTarefa.enabled = true
+        }
+        
         tableView.reloadData()
     }
 
