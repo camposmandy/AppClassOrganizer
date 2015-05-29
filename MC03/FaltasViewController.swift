@@ -94,6 +94,7 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //                self.presentViewController(alerta, animated: true, completion: nil)
 //            }
 //        }
+        
         tableView.reloadData()
     }
     

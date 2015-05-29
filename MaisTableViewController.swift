@@ -16,6 +16,7 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
     @IBAction func botaoFeedback(sender: AnyObject) {
         alerta()
     }
+
     
     func alerta() {
         

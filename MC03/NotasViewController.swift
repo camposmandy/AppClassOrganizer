@@ -105,6 +105,13 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return celula!
     }
     
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        //alert()
+//        if editingStyle == UITableViewCellEditingStyle.Delete{
+//           
+//        }
+//    }
+    
     override func viewDidAppear(animated: Bool) {
         materia = MateriaManager.sharedInstance.Materia()
         notas = NotaManager.sharedInstance.Nota()
