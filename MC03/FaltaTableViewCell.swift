@@ -13,6 +13,9 @@ class FaltaTableViewCell: UITableViewCell {
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var lblPercentualFalta: JMLabel!
     
+    @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnMenos: UIButton!
+    
     var materia: Materia?
     
     @IBAction func buttonMaisFalta(sender: AnyObject) {

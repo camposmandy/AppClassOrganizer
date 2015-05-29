@@ -24,15 +24,31 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materia!.count
+        if materia?.count == 0 {
+            return 1
+        } else {
+            return materia!.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celMateria") as? MateriaTableViewCell
-        celula!.labelNome?.text = materia?[indexPath.row].nomeMateria
+        
+        if materia?.count != 0 {
+            celula!.labelNome?.text = materia?[indexPath.row].nomeMateria
+            tableView.userInteractionEnabled = true
+            celula!.accessoryType = .DisclosureIndicator
+        } else {
+            celula?.labelNome.text = "Não há materias registradas"
+            tableView.userInteractionEnabled = false
+            celula?.accessoryType = .None
+        }
         
         return celula!
     }
@@ -41,15 +57,18 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete{
+//            MateriaManager.sharedInstance.deletar(materia!.removeAtIndex(indexPath.row))
+//            MateriaManager.sharedInstance.salvar()
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "VerMateria" {
             let VC = segue.destinationViewController as! VerMateriaTableTableViewController
             let cell = sender as? UITableViewCell
             let i = tableView.indexPathForCell(cell!)!.row
-            //VC.i = tableView.indexPathForCell(cell!)!.row
             VC.materiaAux = materia?[i]
         }
     }

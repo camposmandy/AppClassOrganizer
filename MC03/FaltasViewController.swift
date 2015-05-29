@@ -30,29 +30,45 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mat!.count
+        if mat?.count == 0 {
+            return 1
+        } else {
+            return mat!.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
-        if let materia = mat?[indexPath.row] {
-            celula!.materia = materia
-            celula!.lblMateria.text = materia.nomeMateria
-            celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
+        if mat?.count != 0 {
+            if let materia = mat?[indexPath.row] {
+                celula!.materia = materia
+                celula!.lblMateria.text = materia.nomeMateria
+                celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
+                celula?.lblPercentualFalta.hidden = false
+                celula!.btnAdd.enabled = true
+                celula?.btnMenos.enabled = true
+                tableView.userInteractionEnabled = true
+            }
+        } else {
+            celula?.lblMateria.text = "Não há materias cadastradas"
+            celula?.lblPercentualFalta.hidden = true
+            celula!.btnAdd.enabled = false
+            celula?.btnMenos.enabled = false
+            tableView.userInteractionEnabled = false
         }
-
+        
         return celula!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var faltas = 0
-        var i: Int!
-        var carga = (mat?[indexPath.row].cargaHoraria)!.integerValue
-        var percentual = (mat?[indexPath.row].faltas)!.integerValue
-        
-        var total = (carga * percentual) / 100
-        
+//        var faltas = 0
+//        var i: Int!
+//        var carga = (mat?[indexPath.row].cargaHoraria)!.integerValue
+//        var percentual = (mat?[indexPath.row].faltas)!.integerValue
+//        
+//        var total = (carga * percentual) / 100
+//        
 //        if let materia = mat?[indexPath.row] {
 //            var aux = materia.quantFaltas.integerValue
 //            if aux <= total {
@@ -78,6 +94,7 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //                self.presentViewController(alerta, animated: true, completion: nil)
 //            }
 //        }
+        
         tableView.reloadData()
     }
     

@@ -62,7 +62,7 @@ class SelecionarMateriaNotaVC: UIViewController, UITableViewDelegate, UITableVie
         cell.lblNomeMateria.text = materia?[indexPath.row].nomeMateria
         return cell
     }
-    
+
     override func viewDidDisappear(animated: Bool) {
         println("select = \(select?.row)")
     }
