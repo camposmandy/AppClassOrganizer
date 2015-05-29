@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-55" y="-1021"/>
         </scene>
-        <!--Taferas-->
+        <!--Tarefas-->
         <scene sceneID="2cV-2A-DtM">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="fBJ-rT-pa9" customClass="TarefasViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,7 +133,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Taferas" id="bcd-kg-4jY">
+                    <navigationItem key="navigationItem" title="Tarefas" id="bcd-kg-4jY">
                         <barButtonItem key="rightBarButtonItem" image="adicionar" id="Yop-OX-eAN">
                             <connections>
                                 <segue destination="1Fu-8j-595" kind="show" id="7qz-96-p13"/>
