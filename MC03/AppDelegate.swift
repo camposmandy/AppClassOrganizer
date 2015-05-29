@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let notiftypes: UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        
+        let notifsettings: UIUserNotificationSettings = UIUserNotificationSettings (forTypes: notiftypes, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notifsettings)
+        
+        
         return true
     }
 
@@ -25,9 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
+//    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+//        println("didReceiveLocalNotification \(notification)")
+//        println("Alert Action \(notification.alertAction)")
+//        println("Alert Body \(notification.alertBody)")
+//        application.applicationIconBadgeNumber = 0
+//    }
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -43,4 +59,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         CoreDataPersistencia.sharedInstance.saveContext()
     }
+    
 }
