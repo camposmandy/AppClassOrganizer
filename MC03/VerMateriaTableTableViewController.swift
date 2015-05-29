@@ -77,8 +77,25 @@ class VerMateriaTableTableViewController: UITableViewController {
         }
     }
     
+    func alert(){
+        let alerta: UIAlertController = UIAlertController(title: "Atenção", message: "Certeza que deseja apagar essa matéria?", preferredStyle: .Alert)
+        
+        let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+            MateriaManager.sharedInstance.deletar(self.materiaAux)
+            MateriaManager.sharedInstance.salvar()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alerta.addAction(ok)
+        
+        let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in
+            
+        }
+        alerta.addAction(cancelar)
+        self.presentViewController(alerta, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func btnApagarMateria(sender: AnyObject) {
-        MateriaManager.sharedInstance.deletar(materiaAux)
-        MateriaManager.sharedInstance.salvar()
+       alert()
     }
 }
