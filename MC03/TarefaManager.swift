@@ -37,4 +37,11 @@ class TarefaManager {
         coreData.managedObjectContext?.deleteObject(tarefa)
     }
 
+    func deletarTudo() {
+        let todosObjetos: Array<MC03.Tarefa> = self.Tarefa()!
+        
+        for item : MC03.Tarefa in todosObjetos as Array<MC03.Tarefa> {
+            self.deletar(item)
+        }
+    }
 }

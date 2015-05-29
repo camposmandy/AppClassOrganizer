@@ -20,23 +20,30 @@ class FaltaTableViewCell: UITableViewCell {
     
     @IBAction func buttonMaisFalta(sender: AnyObject) {
         if let m = materia {
+            var carga = (materia?.quantFaltas)!.integerValue
             var aux = m.quantFaltas.integerValue
             var faltas = 0
+
             faltas = aux + 1
             m.quantFaltas = faltas
             MateriaManager.sharedInstance.salvar()
-        }
+            }
         updateUI()
-    }
+}
     
     @IBAction func buttonMenosFalta(sender: AnyObject) {
         if let m = materia {
             var aux = m.quantFaltas.integerValue
             var faltas = 0
+            if aux == 0 {
+                
+            } else {
             faltas = aux - 1
             m.quantFaltas = faltas
             MateriaManager.sharedInstance.salvar()
+            }
         }
+        
         updateUI()
     }
 
@@ -46,4 +53,6 @@ class FaltaTableViewCell: UITableViewCell {
         }
         setNeedsDisplay()
     }
+    
+    
 }

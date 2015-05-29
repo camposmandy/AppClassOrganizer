@@ -17,6 +17,10 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         alerta()
     }
 
+    @IBAction func buttonDeletarTudo(sender: AnyObject) {
+       alerta2()
+    }
+   
     
     func alerta() {
         
@@ -46,6 +50,29 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         
         self.presentViewController(nomeAlerta, animated: true, completion: nil)
     }
+    
+    
+    func alerta2() {
+        
+        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: "Você tem certeza que deseja apagar tudo?", preferredStyle: .Alert)
+        
+        let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            MateriaManager.sharedInstance.deletarTudo()
+            MateriaManager.sharedInstance.salvar()
+            NotaManager.sharedInstance.deletarTudo()
+            NotaManager.sharedInstance.salvar()
+            TarefaManager.sharedInstance.deletarTudo()
+            TarefaManager.sharedInstance.salvar() 
+        }
+        alerta.addAction(ok)
+        
+        let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { (action) in
+
+        }
+        alerta.addAction(cancelar)
+        self.presentViewController(alerta, animated: true, completion: nil)
+    }
+    
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()

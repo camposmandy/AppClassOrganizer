@@ -113,6 +113,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
 
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "verTarefa" {
             let VC = segue.destinationViewController as! VerTarefaTableViewController
