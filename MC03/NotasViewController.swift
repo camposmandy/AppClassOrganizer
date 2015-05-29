@@ -105,14 +105,20 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return celula!
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        //alert()
-//        if editingStyle == UITableViewCellEditingStyle.Delete{
-//           
-//        }
-//    }
-    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            NotaManager.sharedInstance.deletar(self.notas![indexPath.row])
+            NotaManager.sharedInstance.salvar()
+            tableView.reloadData()
+            reloadD()
+        }
+    }
+
     override func viewDidAppear(animated: Bool) {
+      reloadD()
+    }
+    
+    func reloadD(){
         materia = MateriaManager.sharedInstance.Materia()
         notas = NotaManager.sharedInstance.Nota()
         

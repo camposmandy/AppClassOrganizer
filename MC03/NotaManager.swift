@@ -36,5 +36,12 @@ class NotaManager {
     func deletar(nota: MC03.Nota) {
         coreData.managedObjectContext?.deleteObject(nota)
     }
-
+    
+    func deletarTudo() {
+        let todosObjetos: Array<MC03.Nota> = self.Nota()!
+        
+        for item : MC03.Nota in todosObjetos as Array<MC03.Nota> {
+            self.deletar(item)
+        }
+    }
 }
