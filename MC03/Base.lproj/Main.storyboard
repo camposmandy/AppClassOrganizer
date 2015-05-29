@@ -1932,6 +1932,9 @@ Desenvolvido por:
                                                         <color key="titleColor" red="1" green="0.16679966339999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="buttonApagar:" destination="Lis-wP-uSh" eventType="touchUpInside" id="jGT-pP-mVC"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

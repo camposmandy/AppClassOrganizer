@@ -24,7 +24,6 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return materia!.count
     }
@@ -41,8 +40,12 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete{
+//            MateriaManager.sharedInstance.deletar(materia!.removeAtIndex(indexPath.row))
+//            MateriaManager.sharedInstance.salvar()
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "VerMateria" {
