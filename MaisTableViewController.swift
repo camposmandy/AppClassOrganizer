@@ -64,12 +64,13 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
             TarefaManager.sharedInstance.deletarTudo()
             TarefaManager.sharedInstance.salvar() 
         }
-        alerta.addAction(ok)
+
         
         let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { (action) in
 
         }
         alerta.addAction(cancelar)
+        alerta.addAction(ok)
         self.presentViewController(alerta, animated: true, completion: nil)
     }
     
