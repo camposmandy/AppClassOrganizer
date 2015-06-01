@@ -22,6 +22,7 @@ class VerMateriaTableTableViewController: UITableViewController {
     @IBOutlet weak var lblSex: UILabel!
     @IBOutlet weak var lblSab: UILabel!
     @IBOutlet weak var lblPercFaltas: UILabel!
+    @IBOutlet weak var lblMedia: UILabel!
     
     var myColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
     
@@ -44,6 +45,7 @@ class VerMateriaTableTableViewController: UITableViewController {
         
         lblNomeMateria.text = materiaAux.nomeMateria
         lblNomeProfessor.text = materiaAux.nomeProfessor
+        lblMedia.text = "\(materiaAux.media)"
         lblCargaHoraria.text = "\(materiaAux.cargaHoraria) Aulas"
 
         var ix = materiaAux.cargaHoraria.doubleValue * materiaAux.faltas.doubleValue * 0.01

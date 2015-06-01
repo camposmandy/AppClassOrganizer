@@ -34,7 +34,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             if let n = materia {
                 nota.tipoNota = textFieldTipoNota.text
                 nota.pesoNota = textFieldPesoNota.text.toInt()!
-                nota.nota = textFieldNota.text.toInt()!
+                nota.nota = (textFieldNota.text as NSString).doubleValue
                 nota.pertenceMateria = materia!
                 materia?.adcNota(nota)
                 

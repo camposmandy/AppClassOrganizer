@@ -15,6 +15,10 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var materiaComNota: Array<Materia>!
     var notas: Array<Nota>!
     
+    var corAmarela = UIColor(red: 249/255, green: 191/255, blue: 59/255, alpha: 1)
+    var corVerde = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+    var corVermelha = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1)
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAdicionar: UIBarButtonItem!
     @IBOutlet weak var btnEditar: UIBarButtonItem!
@@ -87,11 +91,19 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
             var nota = (aux2.objectAtIndex(indexPath.row) as! Nota).nota
             var peso = (aux2.objectAtIndex(indexPath.row) as! Nota).pesoNota
+            var media = materiaAux.media.doubleValue
             
             celula!.lblNomeNota.text = nomeNota
             celula!.lblNota.text = "\(nota.doubleValue)"
             celula!.lblPeso.text = "\(peso)%"
             
+            if nota.doubleValue < media - 0.1 {
+              celula?.lblNota.textColor = corVermelha
+            } else if nota.doubleValue == media - 0.1 || nota.doubleValue == media - 0.1 {
+                celula?.lblNota.textColor = corAmarela
+            } else {
+                celula?.lblNota.textColor = corVerde
+            }
         } else {
             celula!.lblNota.hidden = true
             celula!.lblNomeNota.hidden = true

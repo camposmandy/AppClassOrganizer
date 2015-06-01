@@ -396,7 +396,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Peso Nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SfW-PQ-hjL">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -415,7 +415,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKW-64-fYI">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -749,7 +749,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Média" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dn-P8-932">
                                                     <rect key="frame" x="18" y="8" width="563" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -772,7 +772,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Percentual de Faltas Permitidas" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="58w-AO-b2D">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -791,7 +791,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Carga horária" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUA-mg-oki">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -850,6 +850,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cargaHoraria" destination="KUA-mg-oki" id="4PQ-mh-3hD"/>
+                        <outlet property="media" destination="8Dn-P8-932" id="uzy-Wd-tAr"/>
                         <outlet property="nomeMateria" destination="cW9-Ky-LdG" id="ASH-Qb-I32"/>
                         <outlet property="percentualFalta" destination="58w-AO-b2D" id="lTH-5A-YgG"/>
                         <outlet property="professor" destination="fWw-fU-YyH" id="jN9-wi-ABi"/>
@@ -984,6 +985,34 @@
                                                 <constraint firstItem="T1Z-q2-2TX" firstAttribute="top" secondItem="ie8-TS-Mo6" secondAttribute="topMargin" id="tEn-ZA-Omh"/>
                                                 <constraint firstAttribute="centerX" secondItem="T1Z-q2-2TX" secondAttribute="centerX" id="wYb-35-AZ1"/>
                                                 <constraint firstItem="1Xj-7J-KSi" firstAttribute="top" secondItem="T1Z-q2-2TX" secondAttribute="bottom" constant="5" id="zyW-x2-yBR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="fYq-o9-1Gk">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fYq-o9-1Gk" id="iI5-9p-ovP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Média:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ado-v8-ffg">
+                                                    <rect key="frame" x="8" y="8" width="584" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6,0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8R-3c-zQ4">
+                                                    <rect key="frame" x="18" y="33" width="564" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="Ado-v8-ffg" secondAttribute="centerX" id="Lls-le-rSD"/>
+                                                <constraint firstItem="Q8R-3c-zQ4" firstAttribute="leading" secondItem="iI5-9p-ovP" secondAttribute="leadingMargin" constant="10" id="OWz-oX-Qzw"/>
+                                                <constraint firstItem="Ado-v8-ffg" firstAttribute="leading" secondItem="iI5-9p-ovP" secondAttribute="leadingMargin" id="Oo9-o3-QKL"/>
+                                                <constraint firstItem="Ado-v8-ffg" firstAttribute="top" secondItem="iI5-9p-ovP" secondAttribute="topMargin" id="TR3-jm-f4H"/>
+                                                <constraint firstAttribute="centerX" secondItem="Q8R-3c-zQ4" secondAttribute="centerX" id="aBR-HZ-anH"/>
+                                                <constraint firstItem="Q8R-3c-zQ4" firstAttribute="top" secondItem="Ado-v8-ffg" secondAttribute="bottom" constant="5" id="vQS-yz-HBB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1160,6 +1189,7 @@
                     <connections>
                         <outlet property="lblCargaHoraria" destination="LeG-XA-3SH" id="Xhj-AJ-SEA"/>
                         <outlet property="lblDom" destination="U2w-Wh-69h" id="WKU-GE-4km"/>
+                        <outlet property="lblMedia" destination="Q8R-3c-zQ4" id="Dcg-mU-Fm2"/>
                         <outlet property="lblNomeMateria" destination="KQE-2Y-8nG" id="a77-22-zRf"/>
                         <outlet property="lblNomeProfessor" destination="1Xj-7J-KSi" id="zTC-eR-xom"/>
                         <outlet property="lblPercFaltas" destination="HMg-qg-WdK" id="biC-Jd-SoL"/>
@@ -1199,7 +1229,7 @@ Desenvolvido por:
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon2" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
                                 <rect key="frame" x="219" y="74" width="162" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="UMS-4o-d6v"/>
@@ -2183,6 +2213,7 @@ Desenvolvido por:
         <image name="adicionar" width="24" height="24"/>
         <image name="cancelar" width="24" height="24"/>
         <image name="editar" width="24" height="24"/>
+        <image name="icon2" width="1024" height="1024"/>
         <image name="mais" width="32" height="32"/>
         <image name="mais2" width="104" height="104"/>
         <image name="mais_fill" width="32" height="32"/>

@@ -24,6 +24,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var percentualFalta: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var media: UITextField!
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nomeMateria.resignFirstResponder()
@@ -40,6 +41,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         professor.delegate = self
         percentualFalta.delegate = self
         cargaHoraria.delegate = self
+        media.delegate = self
         
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
         //self.tabBarController?.tabBar.hidden = true
@@ -64,6 +66,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             materia.cargaHoraria = cargaHoraria.text.toInt()!
             materia.faltas = percentualFalta.text.toInt()!
             materia.quantFaltas = 0
+            materia.media = (media.text as NSString).doubleValue
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
@@ -90,6 +93,18 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         
         if (professor.text == "") {
             alertaM += "- Preencha o Nome do Professor\n"
+            alert = true
+        }
+        
+        if (media.text == "") {
+            alertaM += "- Preencha a Média da Matéria\n"
+            alert = true
+        }
+        
+        var auxMedia = (media.text as NSString).doubleValue
+        
+        if auxMedia < 0 || auxMedia > 10 {
+            alertaM += "- Média de 0 a 10\n"
             alert = true
         }
         
@@ -148,7 +163,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        if textField == percentualFalta || textField == cargaHoraria {
+        if textField == percentualFalta || textField == cargaHoraria || textField == media{
             if count(string) > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil

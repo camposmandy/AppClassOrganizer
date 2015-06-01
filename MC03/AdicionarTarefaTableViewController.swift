@@ -77,11 +77,12 @@ class AdicionarTarefaTableViewController: UITableViewController {
                 
                 
                 localNotification.timeZone = NSTimeZone.defaultTimeZone()
-                let umDiaMenos = 1
-                tarefa.dataEntrega = date.dateByAddingTimeInterval(60*60*24*(-1))
+                //let umDiaMenos = 1
+                tarefa.dataEntrega = date
+                var tarefaNot = date.dateByAddingTimeInterval(60*60*24*(-1))
                 
                 //localNotification.fireDate = NSDate(timeIntervalSinceNow: 6)
-                localNotification.fireDate = tarefa.dataEntrega
+                localNotification.fireDate = tarefaNot
                 UIApplication.sharedApplication().applicationIconBadgeNumber = 0
                 
                 //Agenda a notificação
