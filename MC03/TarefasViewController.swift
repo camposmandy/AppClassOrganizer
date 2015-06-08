@@ -56,9 +56,11 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let t = tarefa?[indexPath.row] {
                 celula!.lblNomeTarefa.hidden = false
                 celula!.lbldataEntrega.hidden = false
+                celula!.lblNomeMateria.hidden = false
                 celula!.imageCheck.hidden = false
                 celula!.accessoryType = .DisclosureIndicator
                 tableView.userInteractionEnabled = true
+                celula!.textLabel?.hidden = true
                 
                 celula!.lblNomeTarefa?.text = t.nomeTarefa
                 celula!.lbldataEntrega?.text = "\(t.dataEntrega)"
@@ -77,14 +79,18 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             celula!.lblNomeTarefa.hidden = true
             celula!.lbldataEntrega.hidden = true
+            celula!.lblNomeMateria.hidden = true
             celula!.imageCheck.hidden = true
+            celula!.textLabel?.hidden = false
             celula!.accessoryType = .None
             tableView.userInteractionEnabled = false
+            celula!.textLabel?.textColor = UIColor .grayColor()
+            celula!.textLabel?.textAlignment = NSTextAlignment.Center
             
             if materias?.count == 0 {
-                celula!.lblNomeMateria.text = "Não há materias cadastradas"
+                celula!.textLabel?.text = "Não há materias cadastradas"
             } else {
-                celula!.lblNomeMateria.text = "Não há tarefas registradas"
+                celula!.textLabel?.text = "Não há tarefas registradas"
             }
         }
         return celula!

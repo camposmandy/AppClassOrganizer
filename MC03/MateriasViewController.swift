@@ -41,11 +41,18 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         let celula = tableView.dequeueReusableCellWithIdentifier("celMateria") as? MateriaTableViewCell
         
         if materia?.count != 0 {
+            celula?.labelNome.hidden = false
+            celula?.textLabel?.hidden = true
             celula!.labelNome?.text = materia?[indexPath.row].nomeMateria
             tableView.userInteractionEnabled = true
             celula!.accessoryType = .DisclosureIndicator
         } else {
-            celula?.labelNome.text = "Não há materias registradas"
+            celula?.labelNome.hidden = true
+            celula?.textLabel?.hidden = false
+            celula?.textLabel?.text = "Não há materias registradas"
+            celula!.textLabel?.textColor = UIColor .grayColor()
+            celula!.textLabel?.textAlignment = NSTextAlignment.Center
+            
             tableView.userInteractionEnabled = false
             celula?.accessoryType = .None
         }

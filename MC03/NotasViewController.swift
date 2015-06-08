@@ -84,6 +84,8 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             celula!.lblNota.hidden = false
             celula!.lblNomeNota.hidden = false
+            celula!.lblPeso.hidden = false
+            celula!.textLabel?.hidden = true
             
             let materiaAux = materia![indexPath.section]
             
@@ -107,11 +109,14 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             celula!.lblNota.hidden = true
             celula!.lblNomeNota.hidden = true
-            
+            celula!.lblPeso.hidden = true
+            celula!.textLabel?.hidden = false
+            celula!.textLabel?.textColor = UIColor .grayColor()
+            celula!.textLabel?.textAlignment = NSTextAlignment.Center
             if notas.count == 0 {
-                celula?.lblPeso.text = "Sem notas registradas"
+                celula?.textLabel?.text = "Sem notas registradas"
             } else {
-                celula?.lblPeso.text = "Não há materias cadastradas"
+                celula?.textLabel?.text = "Não há materias cadastradas"
             }
         }
         return celula!
