@@ -26,6 +26,9 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Função de Edição de Notas, ainda não implementada
+        btnEditar.enabled = false
+        
         materia = MateriaManager.sharedInstance.Materia()
         notas = NotaManager.sharedInstance.Nota()
         
@@ -113,10 +116,11 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             celula!.textLabel?.hidden = false
             celula!.textLabel?.textColor = UIColor .grayColor()
             celula!.textLabel?.textAlignment = NSTextAlignment.Center
-            if notas.count == 0 {
-                celula?.textLabel?.text = "Sem notas registradas"
+            
+            if materia?.count == 0 || materia?.count == nil{
+                celula!.textLabel?.text = "Não há matérias cadastradas"
             } else {
-                celula?.textLabel?.text = "Não há materias cadastradas"
+                celula!.textLabel?.text = "Não há notas registradas"
             }
         }
         return celula!
@@ -154,13 +158,13 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             btnAdicionar.enabled = true
             if notas.count == 0 {
-                btnEditar.enabled = false
+                //btnEditar.enabled = false
             } else {
-                btnEditar.enabled = true
+                //btnEditar.enabled = true
             }
         } else {
             btnAdicionar.enabled = false
-            btnEditar.enabled = false
+            //btnEditar.enabled = false
         }
         
         materia = materiaComNota

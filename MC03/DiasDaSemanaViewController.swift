@@ -10,7 +10,8 @@ import UIKit
 
 class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var senderViewController: AdicionarMateriaTableViewController?
+    var senderAdcViewController: AdicionarMateriaTableViewController?
+    var senderEditViewController: EditarMateriaTableViewController?
     
     var diasSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
@@ -62,7 +63,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillDisappear(animated: Bool) {
-        senderViewController?.semana = semana
+        senderAdcViewController?.semana = semana
 //        
 //        for i in 0..<semana.count {
 //            if semana[i] == true {

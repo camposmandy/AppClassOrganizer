@@ -43,6 +43,7 @@
 		17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */; };
 		17BA54C41B0F97E700FE0A87 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C31B0F97E700FE0A87 /* Tarefa.swift */; };
 		17BA54C81B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */; };
+		17E1DB0A1B2567DE00250076 /* EditarMateriaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E1DB091B2567DE00250076 /* EditarMateriaTableViewController.swift */; };
 		B2316D551B13B0D1002A889D /* MaisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2316D541B13B0D1002A889D /* MaisTableViewController.swift */; };
 		B23C2AB91B0FBD6A00B8C13D /* VerTarefaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */; };
 		B23C2ABB1B138C8A00B8C13D /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */; };
@@ -100,6 +101,7 @@
 		17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
 		17BA54C31B0F97E700FE0A87 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
 		17BA54C71B0F9CA600FE0A87 /* AdicionarNotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdicionarNotaTableViewCell.swift; sourceTree = "<group>"; };
+		17E1DB091B2567DE00250076 /* EditarMateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditarMateriaTableViewController.swift; path = MC03/EditarMateriaTableViewController.swift; sourceTree = "<group>"; };
 		B2316D541B13B0D1002A889D /* MaisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaisTableViewController.swift; sourceTree = "<group>"; };
 		B23C2AB81B0FBD6A00B8C13D /* VerTarefaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerTarefaTableViewController.swift; sourceTree = "<group>"; };
 		B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				177EC7421B0A601000FC36E2 /* MateriasViewController.swift */,
 				B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */,
 				176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */,
+				17E1DB091B2567DE00250076 /* EditarMateriaTableViewController.swift */,
 			);
 			name = Mais;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				B2D483831B0BA2D90029DDFE /* MateriaManager.swift in Sources */,
 				177EC7581B0A62D400FC36E2 /* NotasTableViewCell.swift in Sources */,
 				177EC74C1B0A601000FC36E2 /* PrincipalViewController.swift in Sources */,
+				17E1DB0A1B2567DE00250076 /* EditarMateriaTableViewController.swift in Sources */,
 				177EC75A1B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift in Sources */,
 				177EC7521B0A61A500FC36E2 /* FaltasViewController.swift in Sources */,
 			);

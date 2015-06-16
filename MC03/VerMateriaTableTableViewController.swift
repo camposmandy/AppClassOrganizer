@@ -28,7 +28,6 @@ class VerMateriaTableTableViewController: UITableViewController {
     
     var semana: Array<DiasSemana>!
     var materiaAux: Materia!
-    var i: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,5 +98,12 @@ class VerMateriaTableTableViewController: UITableViewController {
     
     @IBAction func btnApagarMateria(sender: AnyObject) {
        alert()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editarMateria" {
+            let VC = segue.destinationViewController as! EditarMateriaTableViewController
+            VC.materia = materiaAux
+        }
     }
 }

@@ -88,7 +88,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
             celula!.textLabel?.textAlignment = NSTextAlignment.Center
             
             if materias?.count == 0 {
-                celula!.textLabel?.text = "Não há materias cadastradas"
+                celula!.textLabel?.text = "Não há matérias cadastradas"
             } else {
                 celula!.textLabel?.text = "Não há tarefas registradas"
             }

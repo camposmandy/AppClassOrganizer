@@ -84,6 +84,13 @@ class VerTarefaTableViewController: UITableViewController {
     @IBAction func buttonApagar(sender: AnyObject){
         alert()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editarTarefa" {
+            let VC = segue.destinationViewController as! AdicionarTarefaTableViewController
+            //VC.tarefa = tarefa
+        }
+    }
 }
 
 

@@ -1,34 +1,32 @@
 //
-//  AdicionarMateriaTableViewController.swift
+//  EditarMateriaTableViewController.swift
 //  MC03
 //
-//  Created by João Marcos on 18/05/15.
+//  Created by João Marcos on 08/06/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
+class EditarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
     
     var alertMensagem = ""
     var teste = ""
     var materia: Materia!
+    var materiaS: Materia!
     var nota: Nota?
     var diaSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
 
-    
     @IBOutlet weak var nomeMateria: UITextField!
-    @IBOutlet weak var professor: UITextField!
-    @IBOutlet weak var percentualFalta: UITextField!
+    @IBOutlet weak var professorMateria: UITextField!
+    @IBOutlet weak var mediaMateria: UITextField!
+    @IBOutlet weak var percFaltasMateria: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var media: UITextField!
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nomeMateria.resignFirstResponder()
-        professor.resignFirstResponder()
+        professorMateria.resignFirstResponder()
         return true
     }
     
@@ -36,34 +34,17 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func viewDidLoad() {
-        nomeMateria.delegate = self
-        professor.delegate = self
-        percentualFalta.delegate = self
-        cargaHoraria.delegate = self
-        media.delegate = self
-        
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-    }
-    
-    func esconderTeclado () {
-        view.endEditing(true)
-    }
-    
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCampoVazio() {
-
-            materia = MateriaManager.sharedInstance.novaMateria()
+            
+            //materia = MateriaManager.sharedInstance.
             
             materia.nomeMateria = nomeMateria.text
-            materia.nomeProfessor = professor.text
+            materia.nomeProfessor = professorMateria.text
             materia.cargaHoraria = cargaHoraria.text.toInt()!
-            materia.faltas = percentualFalta.text.toInt()!
+            materia.faltas = percFaltasMateria.text.toInt()!
             materia.quantFaltas = 0
-            materia.media = (media.text as NSString).doubleValue
+            materia.media = (mediaMateria.text as NSString).doubleValue
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
@@ -75,6 +56,44 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             }
             MateriaManager.sharedInstance.salvar()
         }
+    }
+
+    override func viewDidLoad() {
+        nomeMateria.delegate = self
+        professorMateria.delegate = self
+        percFaltasMateria.delegate = self
+        cargaHoraria.delegate = self
+        mediaMateria.delegate = self
+        
+        preencherTFs()
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
+    }
+    
+    func esconderTeclado () {
+        view.endEditing(true)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editaSemana" {
+            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
+                proxVC.senderEditViewController = self
+            }
+        }
+    }
+    
+    func preencherTFs(){
+        self.navigationItem.title = materia.nomeMateria
+        
+        nomeMateria.text = materia.nomeMateria
+        professorMateria.text = materia.nomeProfessor
+        mediaMateria.text = "\(materia.media)"
+        cargaHoraria.text = "\(materia.cargaHoraria)"
+        percFaltasMateria.text = "\(materia.faltas)"
     }
     
     func verificaCampoVazio () -> Bool {
@@ -88,29 +107,29 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             alert = true
         }
         
-        if (professor.text == "") {
+        if (professorMateria.text == "") {
             alertaM += "- Preencha o Nome do Professor\n"
             alert = true
         }
         
-        if (media.text == "") {
+        if (mediaMateria.text == "") {
             alertaM += "- Preencha a Média da Matéria\n"
             alert = true
         }
         
-        var auxMedia = (media.text as NSString).doubleValue
+        var auxMedia = (mediaMateria.text as NSString).doubleValue
         
         if auxMedia < 0 || auxMedia > 10 {
             alertaM += "- Média de 0 a 10\n"
             alert = true
         }
         
-        if (percentualFalta.text == "") {
+        if (percFaltasMateria.text == "") {
             alertaM += "- Preencha Percentual de Faltas\n"
             alert = true
         }
         
-        var auxPerFalta = (percentualFalta.text as NSString).doubleValue
+        var auxPerFalta = (percFaltasMateria.text as NSString).doubleValue
         
         if auxPerFalta < 0 || auxPerFalta > 100 {
             alertaM += "- Peso de 0% a 100%\n"
@@ -135,7 +154,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }else{
             aux = false
         }
- 
+        
         let alerta: UIAlertController = UIAlertController(title: alertaT, message: alertaM, preferredStyle: .Alert)
         
         let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
@@ -150,17 +169,9 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         return aux!
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "cellSemana" {
-            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
-                    proxVC.senderAdcViewController = self
-            }
-        }
-    }
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        if textField == percentualFalta || textField == cargaHoraria || textField == media{
+        if textField == percFaltasMateria || textField == cargaHoraria || textField == mediaMateria{
             if count(string) > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
@@ -169,4 +180,5 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }
         return result
     }
+
 }

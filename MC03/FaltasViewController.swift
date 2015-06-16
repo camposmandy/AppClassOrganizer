@@ -42,20 +42,26 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         if mat?.count != 0 {
             if let materia = mat?[indexPath.row] {
+                celula?.lblMateria.hidden = false
+                celula?.lblPercentualFalta.hidden = false
+                celula!.btnAdd.hidden = false
+                celula?.btnMenos.hidden = false
+                tableView.userInteractionEnabled = true
+                
                 celula!.materia = materia
                 celula!.lblMateria.text = materia.nomeMateria
                 celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
-                celula?.lblPercentualFalta.hidden = false
-                celula!.btnAdd.enabled = true
-                celula?.btnMenos.enabled = true
-                tableView.userInteractionEnabled = true
             }
         } else {
-            celula?.lblMateria.text = "Não há materias cadastradas"
+            celula?.lblMateria.hidden = true
             celula?.lblPercentualFalta.hidden = true
-            celula!.btnAdd.enabled = false
-            celula?.btnMenos.enabled = false
+            celula!.btnAdd.hidden = true
+            celula?.btnMenos.hidden = true
             tableView.userInteractionEnabled = false
+
+            celula?.textLabel?.text = "Não há matérias cadastradas"
+            celula?.textLabel?.textColor = UIColor .grayColor()
+            celula?.textLabel?.textAlignment = NSTextAlignment.Center
         }
         
         return celula!
