@@ -18,10 +18,34 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var opcao: UISwitch!
     @IBOutlet weak var labelMateria: UILabel!
     
+    var valorNotificacao: NSNumber = 0
+    var tarefa: Tarefa!
+    var materia: Materia?
+    var semana: DiasSemana?
+    var editando = false
+    
     override func viewDidLoad() {
         let data = NSDate()
-        datePicker.minimumDate = data
-        valorNotificacao = 1
+        
+        if let t = tarefa {
+            editando = true
+            self.navigationItem.title = "Editar Tarefa"
+            nomeTarefa.text = t.nomeTarefa
+            descricao.text = t.descricaoTarefa
+            datePicker.date = t.dataEntrega
+            labelMateria.text = "\(t.pertenceMateria.nomeMateria)"
+            if tarefa.notificacao == 0 {
+                opcao.setOn(false, animated: false)
+                valorNotificacao = 0
+            } else {
+                opcao.setOn(true, animated: false)
+                valorNotificacao = 1
+            }
+        } else {
+            editando = false
+            datePicker.minimumDate = data
+            valorNotificacao = 1
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -39,22 +63,20 @@ class AdicionarTarefaTableViewController: UITableViewController {
         self.resignFirstResponder()
     }
     
-    var valorNotificacao: NSNumber = 0
-    var tarefa: Tarefa!
-    var materia: Materia?
-    var semana: DiasSemana?
+
     
     @IBAction func btnSalvar(sender: AnyObject) {
         
         if verificaCampoVazio() {
-            
-            tarefa = TarefaManager.sharedInstance.novaTarefa()
+            if editando == false {
+                tarefa = TarefaManager.sharedInstance.novaTarefa()
+            }
             if let m = materia {
                 tarefa.pertenceMateria = m
             }
             tarefa.nomeTarefa = nomeTarefa.text
             tarefa.descricaoTarefa = descricao.text
-        
+            tarefa.statusTarefa = 1
             
             var date = datePicker.date
             
@@ -65,17 +87,13 @@ class AdicionarTarefaTableViewController: UITableViewController {
                 let localNotification = UILocalNotification()
                 //Mensagem
                 localNotification.alertBody = "A tarefa \(nomeTarefa.text) deve ser entregue amanhã."
-                
-                
+
                 //Som
                 localNotification.soundName = UILocalNotificationDefaultSoundName
                 
-                
                 //Incrementa o applicationIconBadgeNumber
                 localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber+1
-                
-                
-                
+
                 localNotification.timeZone = NSTimeZone.defaultTimeZone()
                 //let umDiaMenos = 1
                 tarefa.dataEntrega = date
@@ -88,7 +106,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
                 //Agenda a notificação
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
             }
-            
             
             TarefaManager.sharedInstance.salvar()
         }

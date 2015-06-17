@@ -69,12 +69,20 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
                 dataEntrega.dateFormat = "dd/MM/yyyy"
                 var dataString = dataEntrega.stringFromDate(t.dataEntrega)
                 celula!.lbldataEntrega.text = "para o dia \(dataString)"
-                celula!.lblNomeMateria?.text = "(\(t.pertenceMateria.nomeMateria))"
+                celula!.lblNomeMateria.text = "(\(t.pertenceMateria.nomeMateria))"
+                
+                if t.statusTarefa == 0 {
+                    let  imgNok = UIImage(named: "ok.png")
+                 celula!.imageCheck.image = imgNok
+                } else {
+                    let imgOk = UIImage(named: "nok.png")
+                 celula!.imageCheck.image = imgOk
+                }
             }
             
             if (tarefa?[indexPath.row].nomeTarefa != "") {
                 var nomeT = tarefa?[indexPath.row].nomeTarefa
-                var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
+                //var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
             }
         } else {
             celula!.lblNomeTarefa.hidden = true
@@ -96,15 +104,15 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
         return celula!
     }
 
-    func getSubstringUpToIndex(index: Int,
-        fromString str: String) -> String
-    {
-        let (head, tail) = (str[str.startIndex], dropFirst(str))
-        if index == 1 {
-            return String(head)
-        }
-        return String(head) + getSubstringUpToIndex(index - 1, fromString: tail)
-    }
+//    func getSubstringUpToIndex(index: Int,
+//        fromString str: String) -> String
+//    {
+//        let (head, tail) = (str[str.startIndex], dropFirst(str))
+//        if index == 1 {
+//            return String(head)
+//        }
+//        return String(head) + getSubstringUpToIndex(index - 1, fromString: tail)
+//    }
     
     override func viewDidAppear(animated: Bool) {
         tarefa = TarefaManager.sharedInstance.Tarefa()

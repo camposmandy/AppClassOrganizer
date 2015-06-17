@@ -15,22 +15,7 @@ class VerTarefaTableViewController: UITableViewController {
     @IBOutlet weak var lblDescTarefa: UILabel!
     @IBOutlet weak var lblNomeMateria: UILabel!
     @IBOutlet weak var lblDataEntrega: UILabel!
-    
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "teste" {
-//            if let vc = segue.destinationViewController as? AdicionarTarefaTableViewController {
-//                vc.senderViewController = self
-//            }
-//        }
-//    }
-
-    
-    
-//    @IBAction func botaoEditar(sender: AnyObject) {
-//        var addTarefa = AdicionarTarefaTableViewController ()
-//        addTarefa.nomeTarefa.text = lblNomeTarefa.text
-//    }
+    @IBOutlet weak var swOpcao: UISwitch!
 
     var tarefa: Array<Tarefa>!
     var i: Int!
@@ -39,30 +24,35 @@ class VerTarefaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        preencherLabels()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+         preencherLabels()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func preencherLabels() {
-        
-        
         tarefa = TarefaManager.sharedInstance.Tarefa()
         self.navigationItem.title = tarefa?[i].nomeTarefa
         lblNomeTarefa.text = tarefa[i].nomeTarefa
         lblDescTarefa.text = tarefa[i].descricaoTarefa
         lblNomeMateria.text = tarefa[i].pertenceMateria.nomeMateria
-    
-       //lblNomeTarefa.text = tarefa[i].pertenceMateria
-        
+
         var dataEntrega = NSDateFormatter()
         dataEntrega.dateFormat = "dd/MM/yyyy"
         var dataString = dataEntrega.stringFromDate(tarefa[i].dataEntrega)
         lblDataEntrega.text = dataString
         
+        if tarefa[i].notificacao == 1 {
+            swOpcao.setOn(true, animated: true)
+        } else {
+            swOpcao.setOn(false, animated: true)
+        }
+        
+        swOpcao.enabled = false
     }
     
     func alert(){
@@ -88,8 +78,29 @@ class VerTarefaTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editarTarefa" {
             let VC = segue.destinationViewController as! AdicionarTarefaTableViewController
-            //VC.tarefa = tarefa
+            VC.tarefa = tarefa?[i]
         }
+    }
+    
+    @IBAction func btnConcluir(sender: AnyObject) {
+        alertConcluir()
+    }
+    
+    func alertConcluir(){
+        let alerta: UIAlertController = UIAlertController(title: "Atenção", message: "Você tem certeza que concluiu esta tarefa?", preferredStyle: .Alert)
+        
+        let sim: UIAlertAction = UIAlertAction(title: "Sim", style: .Default) { action -> Void in
+            var t = self.tarefa[self.i]
+            t.statusTarefa = 0
+            TarefaManager.sharedInstance.salvar()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+        let nao: UIAlertAction = UIAlertAction(title: "Não", style: .Default) { action -> Void in
+        }
+        alerta.addAction(nao)
+        alerta.addAction(sim)
+        self.presentViewController(alerta, animated: true, completion: nil)
     }
 }
 
