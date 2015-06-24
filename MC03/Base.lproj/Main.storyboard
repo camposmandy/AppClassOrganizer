@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hce-79-ZJi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hce-79-ZJi">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -148,13 +148,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CD-m9-Lhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="586"/>
+            <point key="canvasLocation" x="-490.5" y="555.75"/>
         </scene>
         <!--Adicionar Tarefa-->
         <scene sceneID="tJH-2z-5mg">
             <objects>
                 <tableViewController id="1Fu-8j-595" customClass="AdicionarTarefaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="kmq-s1-VS1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="kmq-s1-VS1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -169,7 +169,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome da Tarefa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-jl-Y6e" customClass="JMTextField" customModule="MC03" customModuleProvider="target">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="0.0"/>
@@ -199,7 +199,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrição" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YX3-Mn-m8r">
                                                     <rect key="frame" x="18" y="8" width="564" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <connections>
                                                         <action selector="descricaoTF:" destination="1Fu-8j-595" eventType="editingDidEndOnExit" id="0Rf-XF-A9h"/>
                                                     </connections>
@@ -356,13 +356,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCA-xZ-akM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-884" y="1337"/>
+            <point key="canvasLocation" x="-490.5" y="1354.5"/>
         </scene>
         <!--Adicionar Nota-->
         <scene sceneID="94C-af-CSJ">
             <objects>
                 <tableViewController id="1vK-Mg-Gln" customClass="AdcNotaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TOZ-mG-fRg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TOZ-mG-fRg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -377,7 +377,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tipo Nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVi-qy-oJy">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -492,7 +492,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-74-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="1337"/>
+            <point key="canvasLocation" x="148.5" y="1354.5"/>
         </scene>
         <!--Selecionar Matéria-->
         <scene sceneID="Hp0-JS-9sN">
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885" y="2019"/>
+            <point key="canvasLocation" x="-490.5" y="2019"/>
         </scene>
         <!--Selecionar Materia NotaVC-->
         <scene sceneID="n2j-9t-EVl">
@@ -614,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTV-6U-ngM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="2019"/>
+            <point key="canvasLocation" x="148.5" y="2019"/>
         </scene>
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">
@@ -642,6 +642,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="16" width="351" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -686,13 +689,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqC-ER-Zg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="1330"/>
+            <point key="canvasLocation" x="799.5" y="1332"/>
         </scene>
         <!--Adicionar Matéria-->
         <scene sceneID="dwi-35-3Hc">
             <objects>
                 <tableViewController id="ubT-v5-1rO" customClass="AdicionarMateriaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="soJ-4u-UsY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="soJ-4u-UsY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -707,7 +710,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome da Matéria" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cW9-Ky-LdG">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -726,7 +729,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Professor da Matéria" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWw-fU-YyH">
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -746,7 +749,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="acn-i5-BJA" id="ufs-2t-4MN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Média" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dn-P8-932">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nota para Aprovação" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dn-P8-932">
                                                     <rect key="frame" x="18" y="8" width="563" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -858,7 +861,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAZ-J6-UO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="2019"/>
+            <point key="canvasLocation" x="799.5" y="2019"/>
         </scene>
         <!--Dias da Semana-->
         <scene sceneID="Tws-Fg-5j1">
@@ -887,6 +890,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="13" y="19" width="374" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -919,7 +925,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u99-c4-cgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="2772.75"/>
+            <point key="canvasLocation" x="1158" y="2729.25"/>
         </scene>
         <!--Nome Matéria-->
         <scene sceneID="39V-XJ-mTf">
@@ -1207,7 +1213,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88B-d8-rvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="1330"/>
+            <point key="canvasLocation" x="1512" y="1332"/>
         </scene>
         <!--Sobre View Controller-->
         <scene sceneID="UBv-FG-q9i">
@@ -1223,30 +1229,43 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
                                 <rect key="frame" x="16" y="244" width="568" height="287"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">O NomeDoAplicativo é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
-Com o NomeDoAplicativo, você poderá adicionar suas matérias, tarefas, controlar suas faltas e suas notas, além de ter uma tudo informando em uma única tela principal.
+                                <string key="text">O Class Organizer é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
+Com o Class Organizer, você poderá adicionar suas matérias, tarefas, controlar suas faltas e suas notas, além de ter uma tudo informando em uma única tela principal.
 
-Desenvolvido por:
-- Amanda Campos - João Marcos
-- Leonardo Brunassi</mutableString>
+Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  • Leonardo Brunassi</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon2" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon2" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-Ac-PFL" customClass="JMImageView" customModule="MC03" customModuleProvider="target">
                                 <rect key="frame" x="219" y="74" width="162" height="162"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="UMS-4o-d6v"/>
-                                    <constraint firstAttribute="width" constant="162" id="Xyg-aJ-9H0"/>
+                                    <constraint firstAttribute="height" constant="162" id="UMS-4o-d6v">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="180"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="162" id="Xyg-aJ-9H0">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="180"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clips" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Umm-FP-WWj" firstAttribute="trailing" secondItem="SX3-QK-via" secondAttribute="trailingMargin" id="2Zi-93-dp6"/>
                             <constraint firstItem="dog-QK-r23" firstAttribute="top" secondItem="Umm-FP-WWj" secondAttribute="bottom" constant="20" id="TxA-AQ-b7L"/>
                             <constraint firstItem="Umm-FP-WWj" firstAttribute="top" secondItem="Vxm-Ac-PFL" secondAttribute="bottom" constant="8" id="bEd-Tb-mL4"/>
-                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="top" secondItem="RcY-vu-pjX" secondAttribute="bottom" constant="10" id="bEf-BK-Qju"/>
+                            <constraint firstItem="Vxm-Ac-PFL" firstAttribute="top" secondItem="RcY-vu-pjX" secondAttribute="bottom" constant="10" id="bEf-BK-Qju">
+                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="Vxm-Ac-PFL" secondAttribute="centerX" id="pd9-7o-8Hl"/>
                             <constraint firstItem="Umm-FP-WWj" firstAttribute="leading" secondItem="SX3-QK-via" secondAttribute="leadingMargin" id="zY6-1A-82L"/>
                         </constraints>
@@ -1259,7 +1278,7 @@ Desenvolvido por:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIQ-QX-6o7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="586"/>
+            <point key="canvasLocation" x="1512" y="555.75"/>
         </scene>
         <!--Faltas-->
         <scene sceneID="Eg6-ha-zDC">
@@ -1376,7 +1395,7 @@ Desenvolvido por:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-DG-HXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="1330"/>
+            <point key="canvasLocation" x="2223" y="1354.5"/>
         </scene>
         <!--Mais Table View Controller-->
         <scene sceneID="nIn-wF-ssm">
@@ -1523,7 +1542,7 @@ Desenvolvido por:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qya-ko-qnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="586"/>
+            <point key="canvasLocation" x="799.5" y="555.75"/>
         </scene>
         <!--Principal-->
         <scene sceneID="rF0-HS-qdV">
@@ -1781,7 +1800,7 @@ Desenvolvido por:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDC-4m-UBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1125" y="586"/>
+            <point key="canvasLocation" x="-1125" y="555.75"/>
         </scene>
         <!--Nome da Tarefa-->
         <scene sceneID="zWL-dJ-MFi">
@@ -2010,7 +2029,7 @@ Desenvolvido por:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPN-fS-ecS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1557" y="1337"/>
+            <point key="canvasLocation" x="-1146" y="1354.5"/>
         </scene>
         <!--Notas-->
         <scene sceneID="0Ge-65-dxu">
@@ -2046,6 +2065,9 @@ Desenvolvido por:
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="290" y="13" width="36" height="20"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epm-6B-n8d">
                                                     <rect key="frame" x="540" y="8" width="42" height="27"/>
@@ -2105,7 +2127,7 @@ Desenvolvido por:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Son-IA-hv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="586"/>
+            <point key="canvasLocation" x="148.5" y="555.75"/>
         </scene>
         <!--Principal-->
         <scene sceneID="OrX-RH-QY7">
@@ -2218,13 +2240,13 @@ Desenvolvido por:
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vf8-1B-MfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="-126"/>
+            <point key="canvasLocation" x="799.5" y="-126"/>
         </scene>
         <!--Editar Matéria-->
         <scene sceneID="583-nB-nTB">
             <objects>
                 <tableViewController id="hqP-lu-0Bt" customClass="EditarMateriaTableViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="10" id="x8l-Ga-ywW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="10" id="x8l-Ga-ywW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -2390,7 +2412,7 @@ Desenvolvido por:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut1-FF-dY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="2019"/>
+            <point key="canvasLocation" x="1512" y="2019"/>
         </scene>
     </scenes>
     <resources>
@@ -2413,10 +2435,10 @@ Desenvolvido por:
         <image name="tarefas_fill" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0PV-o3-HGp"/>
+        <segue reference="Xhi-c7-WXY"/>
         <segue reference="Qw9-sc-Llc"/>
-        <segue reference="HVr-id-ZS7"/>
-        <segue reference="Dyf-eW-Aco"/>
+        <segue reference="0m7-cy-MT4"/>
+        <segue reference="hFm-Bf-AMJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

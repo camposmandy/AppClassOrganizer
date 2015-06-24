@@ -2,13 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "principal_fill-32.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "principal_fill-64.png"
+      "filename" : "notas_fill_64.png"
     },
     {
       "idiom" : "universal",

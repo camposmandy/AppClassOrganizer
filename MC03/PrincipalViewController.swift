@@ -99,7 +99,6 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             return 1
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -176,6 +175,22 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             DiaSemanaManager.sharedInstance.salvar()
             
             userDefault.setObject("JaAcessou", forKey: "Acesso")
+            
+            alertaPrimeiraVez()
+            
         }
     }
+    
+    func alertaPrimeiraVez() {
+        let alerta: UIAlertController = UIAlertController(title: "Bem-Vindo", message: "Para começar, adicione matérias, vá em Mais > Matérias > + ", preferredStyle: .Alert)
+        
+        let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+        }
+        
+        alerta.addAction(ok)
+        
+        self.presentViewController(alerta, animated: true, completion: nil)
+    }
+    
+    
 }

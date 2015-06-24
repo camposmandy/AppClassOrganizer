@@ -59,7 +59,13 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             materia = MateriaManager.sharedInstance.novaMateria()
             
             materia.nomeMateria = nomeMateria.text
-            materia.nomeProfessor = professor.text
+            
+            if professor.text != "" {
+                materia.nomeProfessor = professor.text
+            } else {
+                materia.nomeProfessor = "Desconhecido"
+            }
+            
             materia.cargaHoraria = cargaHoraria.text.toInt()!
             materia.faltas = percentualFalta.text.toInt()!
             materia.quantFaltas = 0
@@ -88,13 +94,8 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             alert = true
         }
         
-        if (professor.text == "") {
-            alertaM += "- Preencha o Nome do Professor\n"
-            alert = true
-        }
-        
         if (media.text == "") {
-            alertaM += "- Preencha a Média da Matéria\n"
+            alertaM += "- Preencha a nota da Matéria\n"
             alert = true
         }
         

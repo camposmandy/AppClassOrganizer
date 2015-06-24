@@ -74,8 +74,15 @@ class AdicionarTarefaTableViewController: UITableViewController {
             if let m = materia {
                 tarefa.pertenceMateria = m
             }
+            
             tarefa.nomeTarefa = nomeTarefa.text
-            tarefa.descricaoTarefa = descricao.text
+            
+            if descricao.text != ""{
+                tarefa.descricaoTarefa = descricao.text
+            } else {
+                tarefa.descricaoTarefa = "Sem descrição"
+            }
+            
             tarefa.statusTarefa = 1
             
             var date = datePicker.date
