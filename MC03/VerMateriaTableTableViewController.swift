@@ -40,7 +40,21 @@ class VerMateriaTableTableViewController: UITableViewController {
     }
 
     func preencherLabels(){
-        self.navigationItem.title = materiaAux.nomeMateria
+        var caract :  Character
+        var auxCaract : String = ""
+        var i = 0
+        if count(materiaAux.nomeMateria) > 15{
+            for index in indices(materiaAux.nomeMateria){
+                if i <= 15{
+                    caract = materiaAux.nomeMateria[index]
+                    auxCaract += "\(caract)"
+                    self.navigationItem.title = "\(auxCaract)..."
+                }
+                i++
+            }
+        } else {
+            self.navigationItem.title = materiaAux.nomeMateria
+        }
         
         lblNomeMateria.text = materiaAux.nomeMateria
         lblNomeProfessor.text = materiaAux.nomeProfessor

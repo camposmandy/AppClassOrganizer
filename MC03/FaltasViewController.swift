@@ -49,8 +49,22 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 tableView.userInteractionEnabled = true
                 
                 celula!.materia = materia
-                celula!.lblMateria.text = materia.nomeMateria
                 celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
+                var i = 0
+                var caract :  Character
+                var auxCaract : String = ""
+                if count(materia.nomeMateria) > 18{
+                    for index in indices(materia.nomeMateria){
+                        if i <= 17{
+                            caract = materia.nomeMateria[index]
+                            auxCaract += "\(caract)"
+                            celula!.lblMateria.text = "\(auxCaract)..."
+                        }
+                        i++
+                    }
+                } else {
+                    celula!.lblMateria.text = materia.nomeMateria
+                }
             }
         } else {
             celula?.lblMateria.hidden = true
@@ -66,6 +80,7 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return celula!
     }
+
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        var faltas = 0

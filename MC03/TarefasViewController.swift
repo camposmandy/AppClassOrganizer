@@ -62,15 +62,43 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
                 tableView.userInteractionEnabled = true
                 celula!.textLabel?.hidden = true
                 
-                celula!.lblNomeTarefa?.text = t.nomeTarefa
+                var caract :  Character
+                var auxCaract : String = ""
+                var i = 0
+                if count(t.nomeTarefa) > 20{
+                    for index in indices(t.nomeTarefa){
+                        if i <= 20{
+                            caract = t.nomeTarefa[index]
+                            auxCaract += "\(caract)"
+                            celula!.lblNomeTarefa?.text = "\(auxCaract)..."
+                        }
+                        i++
+                    }
+                } else {
+                    celula!.lblNomeTarefa?.text = t.nomeTarefa
+                }
                 celula!.lbldataEntrega?.text = "\(t.dataEntrega)"
                 
                 var dataEntrega = NSDateFormatter()
                 dataEntrega.dateFormat = "dd/MM/yyyy"
                 var dataString = dataEntrega.stringFromDate(t.dataEntrega)
                 celula!.lbldataEntrega.text = "para o dia \(dataString)"
-                celula!.lblNomeMateria.text = "(\(t.pertenceMateria.nomeMateria))"
                 
+                if count(t.pertenceMateria.nomeMateria) > 20{
+                    caract = " "
+                    auxCaract = ""
+                    i=0
+                    for index in indices(t.pertenceMateria.nomeMateria){
+                        if i <= 20{
+                            caract = t.pertenceMateria.nomeMateria[index]
+                            auxCaract += "\(caract)"
+                            celula!.lblNomeMateria.text = "(\(auxCaract)...)"
+                        }
+                        i++
+                    }
+                } else {
+                    celula!.lblNomeMateria.text = "(\(t.pertenceMateria.nomeMateria))"
+                }
                 if t.statusTarefa == 0 {
                     let  imgNok = UIImage(named: "ok.png")
                  celula!.imageCheck.image = imgNok
