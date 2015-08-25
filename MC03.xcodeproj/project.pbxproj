@@ -16,7 +16,7 @@
 		10C577571B0507A500081B96 /* MC03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C577561B0507A500081B96 /* MC03Tests.swift */; };
 		10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CDCA7E1B0531C4009AC45A /* DesignableView.swift */; };
 		1702CACE1B14E0F900767B54 /* DiasSemana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702CACD1B14E0F900767B54 /* DiasSemana.swift */; };
-		1702CAD01B14E18900767B54 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702CACF1B14E18900767B54 /* Materia.swift */; };
+		17060A5F1B82F38A0000687D /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17060A5E1B82F38A0000687D /* Materia.swift */; };
 		174DDE011B13968D006EEA7A /* SelecionarMateriaNotaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */; };
 		174DDE031B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE021B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift */; };
 		174DDE071B139C34006EEA7A /* AdcNotaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */; };
@@ -74,7 +74,7 @@
 		10C577561B0507A500081B96 /* MC03Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC03Tests.swift; sourceTree = "<group>"; };
 		10CDCA7E1B0531C4009AC45A /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		1702CACD1B14E0F900767B54 /* DiasSemana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasSemana.swift; sourceTree = "<group>"; };
-		1702CACF1B14E18900767B54 /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		17060A5E1B82F38A0000687D /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelecionarMateriaNotaVC.swift; path = MC03/SelecionarMateriaNotaVC.swift; sourceTree = "<group>"; };
 		174DDE021B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarMateriaNotaTBCell.swift; sourceTree = "<group>"; };
 		174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdcNotaTableViewController.swift; path = MC03/AdcNotaTableViewController.swift; sourceTree = "<group>"; };
@@ -235,9 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				1702CACD1B14E0F900767B54 /* DiasSemana.swift */,
-				1702CACF1B14E18900767B54 /* Materia.swift */,
 				177131731B0A75B0006D31D0 /* Nota.swift */,
 				17BA54C31B0F97E700FE0A87 /* Tarefa.swift */,
+				17060A5E1B82F38A0000687D /* Materia.swift */,
 			);
 			name = Modelos;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 				TargetAttributes = {
 					10C577371B0507A500081B96 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 55Z8HFH9WB;
+						DevelopmentTeam = 68F4V28A64;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -399,8 +399,8 @@
 				177EC74B1B0A601000FC36E2 /* NotasViewController.swift in Sources */,
 				177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */,
 				177EC74D1B0A601000FC36E2 /* SelecionarMateriaViewController.swift in Sources */,
-				1702CAD01B14E18900767B54 /* Materia.swift in Sources */,
 				177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */,
+				17060A5F1B82F38A0000687D /* Materia.swift in Sources */,
 				174DDE071B139C34006EEA7A /* AdcNotaTableViewController.swift in Sources */,
 				1702CACE1B14E0F900767B54 /* DiasSemana.swift in Sources */,
 				174DDE011B13968D006EEA7A /* SelecionarMateriaNotaVC.swift in Sources */,

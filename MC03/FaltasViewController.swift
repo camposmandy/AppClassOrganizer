@@ -1,4 +1,8 @@
 //
+
+// ARRUMADO!!!!!!!
+
+
 //  FaltasViewController.swift
 //  MC03
 //
@@ -9,67 +13,69 @@
 import UIKit
 
 class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var mat: Array<Materia>?
     
-    //var faltas = 0
+    // MARK: - Variáveis
+
+    var todasMaterias: Array<Materia>?
+    var materiasComFaltas: NSMutableArray = []
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mat = MateriaManager.sharedInstance.Materia()
+        todasMaterias = MateriaManager.sharedInstance.Materia()
+        carregaMaterias()
+        
         
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    // MARK: - TableView
+    
+    // Número de Seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Número de Células
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if mat?.count == 0 {
+        if materiasComFaltas.count == 0 {
             return 1
         } else {
-            return mat!.count
+            return materiasComFaltas.count
         }
     }
     
+    // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
-        if mat?.count != 0 {
-            if let materia = mat?[indexPath.row] {
+        if todasMaterias?.count != 0 {
+            if let materia = todasMaterias?[indexPath.row] {
                 celula?.lblMateria.hidden = false
                 celula?.lblPercentualFalta.hidden = false
-                celula!.btnAdd.hidden = false
+                celula?.btnAdd.hidden = false
                 celula?.btnMenos.hidden = false
                 tableView.userInteractionEnabled = true
                 
-                celula!.materia = materia
-                celula!.lblPercentualFalta.text = "\(materia.quantFaltas)"
-                var i = 0
-                var caract :  Character
-                var auxCaract : String = ""
-                if count(materia.nomeMateria) > 18{
-                    for index in indices(materia.nomeMateria){
-                        if i <= 17{
-                            caract = materia.nomeMateria[index]
-                            auxCaract += "\(caract)"
-                            celula!.lblMateria.text = "\(auxCaract)..."
-                        }
-                        i++
-                    }
-                } else {
-                    celula!.lblMateria.text = materia.nomeMateria
-                }
+                celula?.materia = materia
+                celula?.lblPercentualFalta.text = "\(materia.quantFaltas)"
+                celula?.lblMateria.text = materia.nomeMateria
             }
         } else {
             celula?.lblMateria.hidden = true
             celula?.lblPercentualFalta.hidden = true
-            celula!.btnAdd.hidden = true
+            celula?.btnAdd.hidden = true
             celula?.btnMenos.hidden = true
             tableView.userInteractionEnabled = false
 
@@ -81,53 +87,20 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return celula!
     }
 
-    
+    // Célula selecionada
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        var faltas = 0
-//        var i: Int!
-//        var carga = (mat?[indexPath.row].cargaHoraria)!.integerValue
-//        var percentual = (mat?[indexPath.row].faltas)!.integerValue
-//        
-//        var total = (carga * percentual) / 100
-//        
-//        if let materia = mat?[indexPath.row] {
-//            var aux = materia.quantFaltas.integerValue
-//            if aux <= total {
-//                faltas = aux + 1
-//                materia.quantFaltas = faltas
-//                
-//                MateriaManager.sharedInstance.salvar()
-//            }
-//            
-//            if aux == total {
-//                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você não pode faltar mais nessa matéria senão reprovará", preferredStyle: .Alert)
-//                let canc: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in  
-//                }
-//                alerta.addAction(canc)
-//                self.presentViewController(alerta, animated: true, completion: nil)
-//            }
-//            
-//            if aux > total {
-//                let alerta : UIAlertController = UIAlertController(title: "Atenção!", message: "Você já reprovou por falta nessa matéria 😢", preferredStyle: .Alert)
-//                let cancelar: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-//                }
-//                alerta.addAction(cancelar)
-//                self.presentViewController(alerta, animated: true, completion: nil)
-//            }
-//        }
-        
         tableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        tableView.reloadData()
-    }
+    // MARK: - Outras Funções
     
-    func verificaFaltas(){
-        var i: Int!
-      var carga = (mat?[i].cargaHoraria)!.integerValue
-      var percentual = (mat?[i].faltas)!.integerValue
-        
-        var total = (carga * percentual) / 100
+    func carregaMaterias () {
+        if let todasMat = todasMaterias {
+            for m in todasMat {
+                if m.controleFaltas == 1 {
+                    materiasComFaltas.addObject(m)
+                }
+            }
+        }
     }
 }

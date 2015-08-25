@@ -1,4 +1,7 @@
 //
+
+// ARRUMADO!!!!
+
 //  NotasViewController.swift
 //  MC03
 //
@@ -10,63 +13,72 @@ import UIKit
 import CoreData
 
 class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Variáveis
 
-    var materia: Array<Materia>?
-    var materiaComNota: Array<Materia>!
-    var notas: Array<Nota>!
+    var materias: Array<Materia>?
+    var materiasComNota: Array<Materia>?
+    var notas: Array<Nota>?
     
     var corAmarela = UIColor(red: 249/255, green: 191/255, blue: 59/255, alpha: 1)
     var corVerde = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
     var corVermelha = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1)
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAdicionar: UIBarButtonItem!
     @IBOutlet weak var btnEditar: UIBarButtonItem!
     
+    // MARK: - View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Função de Edição de Notas, ainda não implementada
-        btnEditar.enabled = false
-        
-        materia = MateriaManager.sharedInstance.Materia()
-        notas = NotaManager.sharedInstance.Nota()
         
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        carregarDados()
+    }
+    
+    // MARK: - TableView
+    
+    // Numero de Seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if materia?.count == 0 || notas?.count == 0 {
+        if materiasComNota?.count == 0 || notas?.count == 0 {
             return 1
         } else {
-            return materia!.count
+            return materiasComNota!.count
         }
     }
     
+    // Numero de Células na seção
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if materia?.count == 0 || notas.count == 0 {
+        if materiasComNota?.count == 0 || notas?.count == 0 {
             return 1
         } else {
-            let materiaAux = materia![section]
-            return materiaAux.possuiNota.count
+            return materiasComNota![section].possuiNota.count
         }
     }
     
+    // Título do Cabeçalho
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if materia?.count == 0 || notas.count == 0 {
+        if materiasComNota?.count == 0 || notas?.count == 0 {
             return ""
         } else {
-            let materiaAux = materia![section]
+            let materiaAux = materiasComNota![section]
             return "• \(materiaAux.nomeMateria)"
         }
     }
     
+    // Título do Rodapé
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if materia?.count == 0 || notas.count == 0 {
+        if materiasComNota?.count == 0 || notas?.count == 0 {
             return ""
         } else {
-            let materiaAux = materia![section]
+            let materiaAux = materiasComNota![section]
             var notas = materiaAux.possuiNota.allObjects as NSArray
             var media = 0.0
             
@@ -80,17 +92,18 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    // Células
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
-        if materia?.count != 0 && notas.count != 0 {
+        if materiasComNota?.count != 0 && notas?.count != 0 {
             
             celula!.lblNota.hidden = false
             celula!.lblNomeNota.hidden = false
             celula!.lblPeso.hidden = false
             celula!.textLabel?.hidden = true
             
-            let materiaAux = materia![indexPath.section]
+            let materiaAux = materiasComNota![indexPath.section]
             
             var aux2 = materiaAux.possuiNota.allObjects as NSArray
             var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
@@ -117,9 +130,10 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             celula!.textLabel?.textColor = UIColor .grayColor()
             celula!.textLabel?.textAlignment = NSTextAlignment.Center
             
-            if materia?.count == 0 || materia?.count == nil{
+            if materias?.count == 0 {
                 celula!.textLabel?.text = "Não há matérias cadastradas"
-            } else {
+            }
+            else if notas?.count == 0 {
                 celula!.textLabel?.text = "Não há notas registradas"
             }
         }
@@ -130,44 +144,53 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == UITableViewCellEditingStyle.Delete{
             NotaManager.sharedInstance.deletar(self.notas![indexPath.row])
             NotaManager.sharedInstance.salvar()
+            carregarDados()
+            if notas?.count == 0 {
+                tableView.editing = false
+            }
             tableView.reloadData()
-            reloadD()
         }
     }
-
-    override func viewDidAppear(animated: Bool) {
-      reloadD()
+    
+    //MARK: - Actions
+    
+    @IBAction func btnEditar(sender: AnyObject) {
+        if tableView.editing == true {
+            tableView.editing = false
+        } else {
+            tableView.editing = true
+        }
     }
     
-    func reloadD(){
-        materia = MateriaManager.sharedInstance.Materia()
+    //MARK: - Outras Funções
+    
+    func carregarDados(){
+        materias = MateriaManager.sharedInstance.Materia()
         notas = NotaManager.sharedInstance.Nota()
         
-        materia?.sort({ (first: Materia, second: Materia) -> Bool in
+        materias?.sort({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
         
-        if materia?.count != 0 {
-            materiaComNota = Array<Materia>()
-            for i in 0...materia!.count-1 {
-                var aux = materia![i].possuiNota.allObjects as NSArray
+        if materias?.count != 0 {
+            materiasComNota = Array<Materia>()
+            for i in 0...materias!.count-1 {
+                var aux = materias![i].possuiNota.allObjects as NSArray
                 if aux.count != 0 {
-                    materiaComNota.append(materia![i])
+                    materiasComNota?.append(materias![i])
                 }
             }
-            
             btnAdicionar.enabled = true
-            if notas.count == 0 {
-                //btnEditar.enabled = false
+            if notas?.count == 0 {
+                btnEditar.enabled = false
             } else {
-                //btnEditar.enabled = true
+                btnEditar.enabled = true
             }
         } else {
             btnAdicionar.enabled = false
-            //btnEditar.enabled = false
+            btnEditar.enabled = false
         }
-        
-        materia = materiaComNota
+
         tableView.reloadData()
     }
 }

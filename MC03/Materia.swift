@@ -2,7 +2,7 @@
 //  Materia.swift
 //  MC03
 //
-//  Created by João Marcos on 26/05/15.
+//  Created by João Marcos on 18/08/15.
 //  Copyright (c) 2015 Amanda Guimaraes Campos. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ class Materia: NSManagedObject {
     @NSManaged var nomeMateria: String
     @NSManaged var nomeProfessor: String
     @NSManaged var quantFaltas: NSNumber
+    @NSManaged var controleFaltas: NSNumber
     @NSManaged var possuiNota: NSSet
     @NSManaged var possuiSemana: NSSet
     @NSManaged var possuiTarefa: NSSet

@@ -118,7 +118,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             
             celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
             celula!.lblProfessor?.text = "Prof. \((diaMat.objectAtIndex(indexPath.row) as! Materia).nomeProfessor)"
-            celula!.lblPercentualFalta?.text = "Faltas \((diaMat.objectAtIndex(indexPath.row) as! Materia).quantFaltas) de \((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas) permitidas"
+            if (diaMat.objectAtIndex(indexPath.row) as! Materia).controleFaltas == 1 {
+                celula!.lblPercentualFalta?.text = "Faltas \((diaMat.objectAtIndex(indexPath.row) as! Materia).quantFaltas) de \((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas) permitidas"
+            } else {
+                celula!.lblPercentualFalta?.text == ""
+            }
         } else {
             celula?.lblMateria.hidden = true
             celula?.lblProfessor.hidden = true
@@ -192,5 +196,23 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         self.presentViewController(alerta, animated: true, completion: nil)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //
+    }
     
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            self.performSegueWithIdentifier("showFaltas", sender: nil)
+        }
+        
+        var maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            // 
+        }
+        
+        maisFalta.backgroundColor = UIColor.blueColor()
+        maisNota.backgroundColor = UIColor.greenColor()
+        
+        return [maisFalta, maisNota]
+    }
 }

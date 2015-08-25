@@ -10,6 +10,8 @@ import UIKit
 
 class EditarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
     
+    // MARK: - Variáveis
+    
     var alertMensagem = ""
     var teste = ""
     var materia: Materia!
@@ -18,11 +20,20 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     var diaSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var nomeMateria: UITextField!
     @IBOutlet weak var professorMateria: UITextField!
     @IBOutlet weak var mediaMateria: UITextField!
     @IBOutlet weak var percFaltasMateria: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
+    @IBOutlet weak var switchFaltas: UISwitch!
+    
+    // MARK:  - Action
+    
+    @IBAction func switchFaltas(sender: AnyObject) {
+        tableView.reloadData()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nomeMateria.resignFirstResponder()
@@ -36,13 +47,15 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCampoVazio() {
-            
-            //materia = MateriaManager.sharedInstance.
-            
             materia.nomeMateria = nomeMateria.text
             materia.nomeProfessor = professorMateria.text
-            materia.cargaHoraria = cargaHoraria.text.toInt()!
-            materia.faltas = percFaltasMateria.text.toInt()!
+            if switchFaltas.on {
+                materia.cargaHoraria = cargaHoraria.text.toInt()!
+                materia.faltas = percFaltasMateria.text.toInt()!
+            } else {
+                materia.cargaHoraria = 0
+                materia.faltas = 0
+            }
             materia.quantFaltas = 0
             materia.media = (mediaMateria.text as NSString).doubleValue
             
@@ -92,8 +105,10 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         nomeMateria.text = materia.nomeMateria
         professorMateria.text = materia.nomeProfessor
         mediaMateria.text = "\(materia.media)"
-        cargaHoraria.text = "\(materia.cargaHoraria)"
-        percFaltasMateria.text = "\(materia.faltas)"
+        if materia.controleFaltas == 1 {
+            cargaHoraria.text = "\(materia.cargaHoraria)"
+            percFaltasMateria.text = "\(materia.faltas)"
+        }
     }
     
     func verificaCampoVazio () -> Bool {
@@ -124,22 +139,24 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             alert = true
         }
         
-        if (percFaltasMateria.text == "") {
-            alertaM += "- Preencha Percentual de Faltas\n"
-            alert = true
-        }
-        
-        var auxPerFalta = (percFaltasMateria.text as NSString).doubleValue
-        
-        if auxPerFalta < 0 || auxPerFalta > 100 {
-            alertaM += "- Peso de 0% a 100%\n"
-            alert = true
-        }
-        
-        
-        if(cargaHoraria.text == "") {
-            alertaM += "- Preencha a Carga Horaria\n"
-            alert = true
+        if switchFaltas.on {
+            if (percFaltasMateria.text == "") {
+                alertaM += "- Preencha Percentual de Faltas\n"
+                alert = true
+            }
+            
+            var auxPerFalta = (percFaltasMateria.text as NSString).doubleValue
+            
+            if auxPerFalta < 0 || auxPerFalta > 100 {
+                alertaM += "- Peso de 0% a 100%\n"
+                alert = true
+            }
+            
+            
+            if(cargaHoraria.text == "") {
+                alertaM += "- Preencha a Carga Horaria\n"
+                alert = true
+            }
         }
         
         if semana == [false, false, false, false, false, false, false] {
@@ -180,5 +197,16 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         }
         return result
     }
-
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 1: return 2
+        case 3: if switchFaltas.on {
+                    return 3
+                } else {
+                    return 1
+                }
+        default: return 0
+        }
+    }
 }

@@ -29,7 +29,7 @@ class FaltaTableViewCell: UITableViewCell {
             MateriaManager.sharedInstance.salvar()
             }
         updateUI()
-}
+    }
     
     @IBAction func buttonMenosFalta(sender: AnyObject) {
         if let m = materia {
@@ -53,6 +53,4 @@ class FaltaTableViewCell: UITableViewCell {
         }
         setNeedsDisplay()
     }
-    
-    
 }
