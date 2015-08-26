@@ -78,45 +78,17 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 celula!.accessoryType = .DisclosureIndicator
                 tableView.userInteractionEnabled = true
-
-//                var caract :  Character
-//                var auxCaract : String = ""
-//                var i = 0
                 
-//                if count(tarefa.nomeTarefa) > 20{
-//                    for index in indices(tarefa.nomeTarefa){
-//                        if i <= 20{
-//                            caract = tarefa.nomeTarefa[index]
-//                            auxCaract += "\(caract)"
-//                            celula!.lblNomeTarefa?.text = "\(auxCaract)..."
-//                        }
-//                        i++
-//                    }
-//                } else {
                 celula!.lblNomeTarefa?.text = tarefa.nomeTarefa
-                //}
                 celula!.lbldataEntrega?.text = "\(tarefa.dataEntrega)"
                 
                 var dataEntrega = NSDateFormatter()
                 dataEntrega.dateFormat = "dd/MM/yyyy"
+                
                 var dataString = dataEntrega.stringFromDate(tarefa.dataEntrega)
                 celula!.lbldataEntrega.text = "para o dia \(dataString)"
-                
-//                if count(tarefa.pertenceMateria.nomeMateria) > 20{
-//                    caract = " "
-//                    auxCaract = ""
-//                    i=0
-//                    for index in indices(tarefa.pertenceMateria.nomeMateria){
-//                        if i <= 20{
-//                            caract = tarefa.pertenceMateria.nomeMateria[index]
-//                            auxCaract += "\(caract)"
-//                            celula!.lblNomeMateria.text = "(\(auxCaract)...)"
-//                        }
-//                        i++
-//                    }
-//                } else {
                 celula!.lblNomeMateria.text = "(\(tarefa.pertenceMateria.nomeMateria))"
-//                }
+                
                 if tarefa.statusTarefa == 0 {
                     let  imgNok = UIImage(named: "ok.png")
                     celula!.imageCheck.image = imgNok
@@ -125,11 +97,6 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
                     celula!.imageCheck.image = imgOk
                 }
             }
-            
-//            if (tarefas?[indexPath.row].nomeTarefa != "") {
-//                var nomeT = tarefas?[indexPath.row].nomeTarefa
-//                //var pegaPrimeirasLetras = getSubstringUpToIndex(2, fromString: nomeT!).uppercaseString
-//            }
         } else {
             celula!.lblNomeTarefa.hidden = true
             celula!.lbldataEntrega.hidden = true

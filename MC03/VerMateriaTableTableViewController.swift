@@ -58,21 +58,7 @@ class VerMateriaTableTableViewController: UITableViewController {
     // MARK: - Outras
 
     func carregarDados(){
-//        var caract :  Character
-//        var auxCaract : String = ""
-//        var i = 0
-//        if count(materia.nomeMateria) > 15{
-//            for index in indices(materia.nomeMateria){
-//                if i <= 15{
-//                    caract = materia.nomeMateria[index]
-//                    auxCaract += "\(caract)"
-//                    self.navigationItem.title = "\(auxCaract)..."
-//                }
-//                i++
-//            }
-//        } else {
         self.navigationItem.title = materia.nomeMateria
-//        }
         
         lblNomeMateria.text = materia.nomeMateria
         lblNomeProfessor.text = materia.nomeProfessor
