@@ -10,24 +10,27 @@ import UIKit
 import CoreData
 
 class PrincipalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var labelDia: UILabel!
     @IBOutlet weak var labelMes: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnNota: JMButton!
-    @IBOutlet weak var btnFalta: JMButton!
     
-    var myColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+    // MARK: - Variáveis
     
+    var appColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
     var materiaPrincipal: Array<Materia>?
     var diasSemana: Array<DiasSemana>?
-
     var date: NSDate!
+    var diaDaSemana = 0
+    
+    // MARK: - View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarController!.tabBar.tintColor = myColor
+        tabBarController!.tabBar.tintColor = appColor
         verificaPrimeiroAcesso()
         
         date = NSDate()
@@ -43,9 +46,6 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         labelDia.text = dayString
         labelMes.text = monthString
         
-        btnFalta.setTitleColor(UIColor .grayColor(), forState: UIControlState.Disabled)
-        btnNota.setTitleColor(UIColor .grayColor(), forState: UIControlState.Disabled)
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -53,29 +53,21 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         materiaPrincipal = MateriaManager.sharedInstance.Materia()
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
-        
-        if materiaPrincipal?.count == 0 {
-            btnNota.enabled = false
-            btnFalta.enabled = false
-            btnNota.borderColor = UIColor .grayColor()
-            btnFalta.borderColor = UIColor .grayColor()
-        } else {
-            btnNota.enabled = true
-            btnFalta.enabled = true
-            btnNota.borderColor = myColor
-            btnFalta.borderColor = myColor
-        }
         
         tableView.reloadData()
     }
     
+    // MARK: - TableView
+    
+    // Número de seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Cabeçalho da Seção
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
         switch diaSemana {
@@ -90,6 +82,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // Número de células na seção
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
         let diaAux = diasSemana![diaSemana-1]
@@ -137,6 +130,26 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
         return celula!
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            self.performSegueWithIdentifier("showFaltas", sender: nil)
+        }
+        
+        var maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            //
+        }
+        
+        maisFalta.backgroundColor = UIColor.blueColor()
+        maisNota.backgroundColor = UIColor.greenColor()
+        
+        return [maisFalta, maisNota]
     }
     
     func verificaPrimeiroAcesso() {
@@ -196,23 +209,5 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         self.presentViewController(alerta, animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
-    
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            self.performSegueWithIdentifier("showFaltas", sender: nil)
-        }
-        
-        var maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            // 
-        }
-        
-        maisFalta.backgroundColor = UIColor.blueColor()
-        maisNota.backgroundColor = UIColor.greenColor()
-        
-        return [maisFalta, maisNota]
-    }
+
 }

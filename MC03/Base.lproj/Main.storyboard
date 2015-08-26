@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hce-79-ZJi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hce-79-ZJi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1733,68 +1733,13 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                             </mask>
                                         </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-X6-ULa" customClass="JMButton" customModule="MC03" customModuleProvider="target">
-                                        <rect key="frame" x="128" y="95" width="88" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Adx-XS-d7s"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="  + Nota   ">
-                                            <color key="titleColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZR-ky-qGy" customClass="JMButton" customModule="MC03" customModuleProvider="target">
-                                        <rect key="frame" x="385" y="95" width="88" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Fdk-FV-jie"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="  + Falta   ">
-                                            <color key="titleColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="0k0-xx-vRj"/>
-                                    <constraint firstItem="mpD-aY-Ggz" firstAttribute="leading" secondItem="u2E-X6-ULa" secondAttribute="trailing" constant="10" id="2H1-OI-iYc"/>
                                     <constraint firstAttribute="centerX" secondItem="mpD-aY-Ggz" secondAttribute="centerX" id="E2b-oC-AUg"/>
-                                    <constraint firstAttribute="centerX" secondItem="MZR-ky-qGy" secondAttribute="centerX" constant="-203.5" id="Wvw-3w-Buv"/>
-                                    <constraint firstItem="u2E-X6-ULa" firstAttribute="width" secondItem="MZR-ky-qGy" secondAttribute="width" id="aPQ-4n-V8Y"/>
-                                    <constraint firstAttribute="centerY" secondItem="MZR-ky-qGy" secondAttribute="centerY" constant="-20" id="erN-gC-qJm"/>
-                                    <constraint firstItem="MZR-ky-qGy" firstAttribute="leading" secondItem="mpD-aY-Ggz" secondAttribute="trailing" constant="10" id="o97-vL-t7F"/>
-                                    <constraint firstAttribute="centerY" secondItem="u2E-X6-ULa" secondAttribute="centerY" constant="-20" id="rR6-6W-8z2"/>
                                     <constraint firstAttribute="centerY" secondItem="mpD-aY-Ggz" secondAttribute="centerY" constant="-20" id="rvW-EU-3Xl"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Wvw-3w-Buv"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1811,8 +1756,6 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                     <navigationItem key="navigationItem" title="Principal" id="Ppb-Wn-5RF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="btnFalta" destination="MZR-ky-qGy" id="8xD-gH-Dv7"/>
-                        <outlet property="btnNota" destination="u2E-X6-ULa" id="puy-xd-bT5"/>
                         <outlet property="labelDia" destination="UlZ-kd-re8" id="3tO-2h-PyN"/>
                         <outlet property="labelMes" destination="bVg-r8-69q" id="YGl-pC-1cU"/>
                         <outlet property="tableView" destination="0u8-d5-q7y" id="aJq-c9-cfJ"/>
