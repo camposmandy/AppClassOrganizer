@@ -12,7 +12,6 @@ class FaltaTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var lblPercentualFalta: JMLabel!
-    
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnMenos: UIButton!
     
@@ -49,7 +48,7 @@ class FaltaTableViewCell: UITableViewCell {
 
     func updateUI() {
         if let m = materia {
-            lblPercentualFalta.text = "\(m.quantFaltas)"
+            lblPercentualFalta.text = "Faltas \(m.quantFaltas) de \(m.faltas) permitidas"
         }
         setNeedsDisplay()
     }

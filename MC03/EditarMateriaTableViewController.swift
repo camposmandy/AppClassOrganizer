@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// Rever código
+
 //  EditarMateriaTableViewController.swift
 //  MC03
 //
@@ -10,16 +13,6 @@ import UIKit
 
 class EditarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
     
-    // MARK: - Variáveis
-    
-    var alertMensagem = ""
-    var teste = ""
-    var materia: Materia!
-    var materiaS: Materia!
-    var nota: Nota?
-    var diaSemana: Array<DiasSemana>?
-    var semana = [false, false, false, false, false, false, false]
-
     // MARK: - Outlets
     
     @IBOutlet weak var nomeMateria: UITextField!
@@ -29,16 +22,56 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var switchFaltas: UISwitch!
     
-    // MARK:  - Action
+    // MARK: - Variáveis
+    
+    var alertMensagem = ""
+    var teste = ""
+    var materia: Materia!
+    var materiaS: Materia!
+    var nota: Nota?
+    var diaSemana: Array<DiasSemana>?
+    var semana = [false, false, false, false, false, false, false]
+    
+    // MARK: - View
+    // View Did Load
+    override func viewDidLoad() {
+        nomeMateria.delegate = self
+        professorMateria.delegate = self
+        percFaltasMateria.delegate = self
+        cargaHoraria.delegate = self
+        mediaMateria.delegate = self
+        
+        preencherTFs()
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editaSemana" {
+            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
+                proxVC.senderEditViewController = self
+            }
+        }
+    }
+    
+    // MARK: - TableView
+    // Número de Células
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 1: return 2
+        case 3: if switchFaltas.on {
+            return 3
+        } else {
+            return 1
+            }
+        default: return 0
+        }
+    }
+    
+    // MARK:  - Actions
     
     @IBAction func switchFaltas(sender: AnyObject) {
         tableView.reloadData()
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        nomeMateria.resignFirstResponder()
-        professorMateria.resignFirstResponder()
-        return true
     }
     
     @IBAction func buttonCancelar(sender: AnyObject) {
@@ -70,41 +103,15 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             MateriaManager.sharedInstance.salvar()
         }
     }
-
-    override func viewDidLoad() {
-        nomeMateria.delegate = self
-        professorMateria.delegate = self
-        percFaltasMateria.delegate = self
-        cargaHoraria.delegate = self
-        mediaMateria.delegate = self
-        
-        preencherTFs()
-        
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
-    }
     
-    func esconderTeclado () {
-        view.endEditing(true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "editaSemana" {
-            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
-                proxVC.senderEditViewController = self
-            }
-        }
-    }
+    // MARK: - Outras
     
     func preencherTFs(){
         self.navigationItem.title = materia.nomeMateria
-        
         nomeMateria.text = materia.nomeMateria
         professorMateria.text = materia.nomeProfessor
         mediaMateria.text = "\(materia.media)"
+        
         if materia.controleFaltas == 1 {
             cargaHoraria.text = "\(materia.cargaHoraria)"
             percFaltasMateria.text = "\(materia.faltas)"
@@ -152,7 +159,6 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
                 alert = true
             }
             
-            
             if(cargaHoraria.text == "") {
                 alertaM += "- Preencha a Carga Horaria\n"
                 alert = true
@@ -186,6 +192,18 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         return aux!
     }
     
+    // MARK: - Teclado e TextField
+    
+    func esconderTeclado () {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        nomeMateria.resignFirstResponder()
+        professorMateria.resignFirstResponder()
+        return true
+    }
+    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == percFaltasMateria || textField == cargaHoraria || textField == mediaMateria{
@@ -196,17 +214,5 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             }
         }
         return result
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 1: return 2
-        case 3: if switchFaltas.on {
-                    return 3
-                } else {
-                    return 1
-                }
-        default: return 0
-        }
     }
 }

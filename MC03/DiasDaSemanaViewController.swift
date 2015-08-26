@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// Rever código
+
 //  DiasDaSemanaViewController.swift
 //  MC03
 //
@@ -10,21 +13,19 @@ import UIKit
 
 class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var senderAdcViewController: AdicionarMateriaTableViewController?
-    var senderEditViewController: EditarMateriaTableViewController?
-    
-    var diasSemana: Array<DiasSemana>?
-    var semana = [false, false, false, false, false, false, false]
+    // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func buttonCancelar(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    @IBAction func butotnSalvar(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+    // MARK: - Variáveis
     
+    var senderAdcViewController: AdicionarMateriaTableViewController?
+    var senderEditViewController: EditarMateriaTableViewController?
+    var diasSemana: Array<DiasSemana>?
+    var semana = [false, false, false, false, false, false, false]
+    
+    // MARK: - View
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,14 +35,32 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
+    // View Will Disappear
+    override func viewWillDisappear(animated: Bool) {
+        senderAdcViewController?.semana = semana
+    }
+    
+    // MARK: - TableView
+    // Número de seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Número de células
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return diasSemana!.count
     }
     
+    // Célula
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
+        
+        cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
+        
+        return cell
+    }
+    
+    // Célula selecionada
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark){
@@ -53,23 +72,14 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
             semana[indexPath.row] = true
         }
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
 
-        cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
-        
-        return cell
+    // MARK: - Actions
+    
+    @IBAction func buttonCancelar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        senderAdcViewController?.semana = semana
-//        
-//        for i in 0..<semana.count {
-//            if semana[i] == true {
-//                var dia = diasSemana?[i]
-//                self.senderViewController?.materia.adcDiaSemana(dia!)
-//            }
-//        }
+    @IBAction func butotnSalvar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

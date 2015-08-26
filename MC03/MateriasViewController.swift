@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// Rever código, e a parte de edição tableview (comentado)
+
 //  MateriasViewController.swift
 //  MC03
 //
@@ -9,25 +12,47 @@
 import UIKit
 import CoreData
 
-
 class MateriasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var buttonAdcMateria: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Variáveis
+    
     var materia: Array<Materia>?
     
+    // MARK: - View
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    // View Will Appear
+    override func viewWillAppear(animated: Bool) {
         reloadData()
     }
     
+    // Prepare For Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "VerMateria" {
+            let VC = segue.destinationViewController as! VerMateriaTableTableViewController
+            let cell = sender as? UITableViewCell
+            let i = tableView.indexPathForCell(cell!)!.row
+            VC.materia = materia?[i]
+        }
+    }
+    
+    // MARK: - TableView
+    // Número de Seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Número de Células
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if materia?.count == 0 {
             return 1
@@ -36,6 +61,7 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCellWithIdentifier("celMateria") as? MateriaTableViewCell
@@ -60,10 +86,7 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         return celula!
     }
     
-    override func viewDidAppear(animated: Bool) {
-        reloadData()
-    }
-    
+    // Editar
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
         MateriaManager.sharedInstance.deletar(self.materia![indexPath.row])
@@ -72,7 +95,7 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         reloadData()
         }
     }
-    
+
 //    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 //        return true
 //    }
@@ -80,19 +103,13 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
 //    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
 //        
 //        let apagar = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Apagar") { (action, indexPath) -> Void in
-//                    MateriaManager.sharedInstance.deletar(indexPath.row as! Int)
+//                    MateriaManager.sharedInstance.deletar(indexPath.ro)(indexPath.row as! Int)
 //                    MateriaManager.sharedInstance.salvar()
 //        }
 //    }
-//    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "VerMateria" {
-            let VC = segue.destinationViewController as! VerMateriaTableTableViewController
-            let cell = sender as? UITableViewCell
-            let i = tableView.indexPathForCell(cell!)!.row
-            VC.materiaAux = materia?[i]
-        }
-    }
+//
+
+    // MARK: - Outras
     
     func reloadData(){
         materia = MateriaManager.sharedInstance.Materia()

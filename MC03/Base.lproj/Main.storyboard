@@ -26,7 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpm-GE-UJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="-1021"/>
+            <point key="canvasLocation" x="-167" y="-929"/>
         </scene>
         <!--Tarefas-->
         <scene sceneID="2cV-2A-DtM">
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CD-m9-Lhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490.5" y="555.75"/>
+            <point key="canvasLocation" x="-491" y="619"/>
         </scene>
         <!--Adicionar Tarefa-->
         <scene sceneID="tJH-2z-5mg">
@@ -357,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCA-xZ-akM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490.5" y="1354.5"/>
+            <point key="canvasLocation" x="-491" y="1464"/>
         </scene>
         <!--Adicionar Nota-->
         <scene sceneID="94C-af-CSJ">
@@ -441,7 +441,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-ja-cRO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-ja-cRO">
                                                     <rect key="frame" x="170" y="8" width="374" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -493,7 +493,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-74-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148.5" y="1354.5"/>
+            <point key="canvasLocation" x="148" y="1464"/>
         </scene>
         <!--Selecionar Matéria-->
         <scene sceneID="Hp0-JS-9sN">
@@ -557,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coV-Cx-u05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490.5" y="2019"/>
+            <point key="canvasLocation" x="-490" y="2211"/>
         </scene>
         <!--Selecionar Materia NotaVC-->
         <scene sceneID="n2j-9t-EVl">
@@ -615,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTV-6U-ngM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148.5" y="2019"/>
+            <point key="canvasLocation" x="148" y="2211"/>
         </scene>
         <!--Matérias-->
         <scene sceneID="9xE-f6-7Aw">
@@ -690,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqC-ER-Zg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.5" y="1332"/>
+            <point key="canvasLocation" x="799" y="1464"/>
         </scene>
         <!--Adicionar Matéria-->
         <scene sceneID="dwi-35-3Hc">
@@ -891,7 +891,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAZ-J6-UO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.5" y="2019"/>
+            <point key="canvasLocation" x="799" y="2211"/>
         </scene>
         <!--Dias da Semana-->
         <scene sceneID="Tws-Fg-5j1">
@@ -955,7 +955,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u99-c4-cgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="2729.25"/>
+            <point key="canvasLocation" x="1142" y="2989"/>
         </scene>
         <!--Nome Matéria-->
         <scene sceneID="39V-XJ-mTf">
@@ -1243,7 +1243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88B-d8-rvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="1332"/>
+            <point key="canvasLocation" x="1520" y="1464"/>
         </scene>
         <!--Sobre View Controller-->
         <scene sceneID="UBv-FG-q9i">
@@ -1308,7 +1308,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIQ-QX-6o7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="555.75"/>
+            <point key="canvasLocation" x="1504" y="629"/>
         </scene>
         <!--Faltas-->
         <scene sceneID="Eg6-ha-zDC">
@@ -1322,24 +1322,24 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="i6F-iw-Wp4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="59" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="i6F-iw-Wp4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celFaltas" rowHeight="62" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celFaltas" rowHeight="59" id="zg9-xB-jaQ" customClass="FaltaTableViewCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zg9-xB-jaQ" id="EG9-SL-kTZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matéria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzX-Sx-UdS">
-                                                    <rect key="frame" x="18" y="20" width="432.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="18" y="8" width="59.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Lo-mfK">
-                                                    <rect key="frame" x="502" y="8" width="45" height="45"/>
+                                                    <rect key="frame" x="506" y="8" width="42.5" height="42.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="LJG-Lo-mfK" secondAttribute="height" multiplier="1:1" id="MhE-re-8PP"/>
                                                     </constraints>
@@ -1351,7 +1351,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbT-Vd-0RP">
-                                                    <rect key="frame" x="549" y="8" width="45" height="45"/>
+                                                    <rect key="frame" x="551" y="8" width="42.5" height="42.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="WbT-Vd-0RP" secondAttribute="height" multiplier="1:1" id="nxZ-2K-ga5"/>
                                                     </constraints>
@@ -1363,11 +1363,8 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ag-UD-Uzy" customClass="JMLabel" customModule="MC03" customModuleProvider="target">
-                                                    <rect key="frame" x="455" y="20" width="45" height="20.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="DQo-EP-syG"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="23" y="32.5" width="38" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -1382,22 +1379,21 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WbT-Vd-0RP" firstAttribute="trailing" secondItem="EG9-SL-kTZ" secondAttribute="trailingMargin" constant="2" id="0OH-Tj-5mU"/>
+                                                <constraint firstItem="gzX-Sx-UdS" firstAttribute="top" secondItem="EG9-SL-kTZ" secondAttribute="topMargin" id="80n-7U-h8g"/>
                                                 <constraint firstItem="WbT-Vd-0RP" firstAttribute="top" secondItem="EG9-SL-kTZ" secondAttribute="topMargin" id="AnX-ml-t02"/>
                                                 <constraint firstItem="LJG-Lo-mfK" firstAttribute="top" secondItem="EG9-SL-kTZ" secondAttribute="topMargin" id="Bs6-kz-nOX"/>
                                                 <constraint firstAttribute="centerY" secondItem="LJG-Lo-mfK" secondAttribute="centerY" id="P0B-Lp-mry"/>
                                                 <constraint firstItem="LJG-Lo-mfK" firstAttribute="top" secondItem="EG9-SL-kTZ" secondAttribute="topMargin" id="QUr-Ia-6Jq"/>
-                                                <constraint firstAttribute="centerY" secondItem="gzX-Sx-UdS" secondAttribute="centerY" id="Rva-ij-ANP"/>
-                                                <constraint firstItem="gzX-Sx-UdS" firstAttribute="leading" secondItem="EG9-SL-kTZ" secondAttribute="leadingMargin" constant="10" id="Xxc-4s-eky"/>
-                                                <constraint firstItem="LJG-Lo-mfK" firstAttribute="leading" secondItem="7Ag-UD-Uzy" secondAttribute="trailing" constant="2" id="c44-Bg-Z9V"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7Ag-UD-Uzy" secondAttribute="bottom" id="aKy-Ux-GYg"/>
                                                 <constraint firstItem="WbT-Vd-0RP" firstAttribute="leading" secondItem="LJG-Lo-mfK" secondAttribute="trailing" constant="2" id="cGq-EI-tdr"/>
                                                 <constraint firstItem="WbT-Vd-0RP" firstAttribute="top" secondItem="EG9-SL-kTZ" secondAttribute="topMargin" id="ehn-sJ-ugb"/>
                                                 <constraint firstAttribute="centerY" secondItem="WbT-Vd-0RP" secondAttribute="centerY" id="fEo-e7-CHi"/>
-                                                <constraint firstAttribute="centerY" secondItem="7Ag-UD-Uzy" secondAttribute="centerY" id="fml-0l-7ZM"/>
-                                                <constraint firstItem="7Ag-UD-Uzy" firstAttribute="leading" secondItem="gzX-Sx-UdS" secondAttribute="trailing" constant="5" id="jq7-Bd-f2w"/>
                                                 <constraint firstItem="7Ag-UD-Uzy" firstAttribute="top" secondItem="gzX-Sx-UdS" secondAttribute="bottom" id="k58-TA-Tu5"/>
                                                 <constraint firstItem="7Ag-UD-Uzy" firstAttribute="leading" secondItem="LJG-Lo-mfK" secondAttribute="trailing" constant="8" id="oK5-Dt-fdz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WbT-Vd-0RP" secondAttribute="trailing" id="qk5-ZR-3vs"/>
                                                 <constraint firstItem="gzX-Sx-UdS" firstAttribute="leading" secondItem="EG9-SL-kTZ" secondAttribute="leadingMargin" constant="10" id="uEU-cE-mzk"/>
+                                                <constraint firstItem="gzX-Sx-UdS" firstAttribute="leading" secondItem="EG9-SL-kTZ" secondAttribute="leadingMargin" constant="10" id="v1L-kU-cRh"/>
+                                                <constraint firstItem="7Ag-UD-Uzy" firstAttribute="leading" secondItem="EG9-SL-kTZ" secondAttribute="leadingMargin" constant="15" id="vpT-tU-ZMK"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1435,7 +1431,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-DG-HXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2223" y="1354"/>
+            <point key="canvasLocation" x="2223" y="1464"/>
         </scene>
         <!--Mais Table View Controller-->
         <scene sceneID="nIn-wF-ssm">
@@ -1568,7 +1564,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qya-ko-qnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.5" y="555.75"/>
+            <point key="canvasLocation" x="799" y="629"/>
         </scene>
         <!--Principal-->
         <scene sceneID="rF0-HS-qdV">
@@ -1760,11 +1756,12 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                         <outlet property="labelMes" destination="bVg-r8-69q" id="YGl-pC-1cU"/>
                         <outlet property="tableView" destination="0u8-d5-q7y" id="aJq-c9-cfJ"/>
                         <segue destination="DYs-Il-BJi" kind="show" identifier="showFaltas" id="SqI-hb-4xY"/>
+                        <segue destination="1vK-Mg-Gln" kind="show" identifier="adcNotaMateria" id="MMf-li-1jI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDC-4m-UBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1125" y="555.75"/>
+            <point key="canvasLocation" x="-1125" y="619"/>
         </scene>
         <!--Nome da Tarefa-->
         <scene sceneID="zWL-dJ-MFi">
@@ -1994,7 +1991,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPN-fS-ecS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1146" y="1354.5"/>
+            <point key="canvasLocation" x="-1238" y="1464"/>
         </scene>
         <!--Notas-->
         <scene sceneID="0Ge-65-dxu">
@@ -2096,7 +2093,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Son-IA-hv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148.5" y="555.75"/>
+            <point key="canvasLocation" x="149" y="619"/>
         </scene>
         <!--Principal-->
         <scene sceneID="OrX-RH-QY7">
@@ -2299,8 +2296,8 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                                         <action selector="switchFaltas:" destination="hqP-lu-0Bt" eventType="valueChanged" id="ac6-OT-VFv"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Controle de Faltas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZz-eC-wcC">
-                                                    <rect key="frame" x="18" y="11" width="505" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Controle de Faltas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZz-eC-wcC">
+                                                    <rect key="frame" x="18" y="12" width="505" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -2410,7 +2407,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut1-FF-dY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="2019"/>
+            <point key="canvasLocation" x="1520" y="2211"/>
         </scene>
     </scenes>
     <resources>
@@ -2433,9 +2430,10 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
         <image name="tarefas_fill" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SqI-hb-4xY"/>
-        <segue reference="HVr-id-ZS7"/>
+        <segue reference="MMf-li-1jI"/>
         <segue reference="Qw9-sc-Llc"/>
+        <segue reference="hFm-Bf-AMJ"/>
+        <segue reference="SqI-hb-4xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

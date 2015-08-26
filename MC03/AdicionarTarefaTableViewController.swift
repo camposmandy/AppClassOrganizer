@@ -1,4 +1,7 @@
-//
+
+// Organizado!
+// Falta arrumar e conferir o código
+
 //  AdicionarTarefaTableViewController.swift
 //  MC03
 //
@@ -9,8 +12,8 @@
 import UIKit
 
 class AdicionarTarefaTableViewController: UITableViewController {
-   
-    var alertMensagem = ""
+
+    // MARK: - Outlets
     
     @IBOutlet weak var nomeTarefa: UITextField!
     @IBOutlet weak var descricao: UITextField!
@@ -18,11 +21,16 @@ class AdicionarTarefaTableViewController: UITableViewController {
     @IBOutlet weak var opcao: UISwitch!
     @IBOutlet weak var labelMateria: UILabel!
     
+    // MARK: - Variáveis
+    
     var valorNotificacao: NSNumber = 0
     var tarefa: Tarefa!
     var materia: Materia?
     var semana: DiasSemana?
     var editando = false
+    var alertMensagem = ""
+    
+    // MARK: - View
     
     override func viewDidLoad() {
         let data = NSDate()
@@ -48,12 +56,21 @@ class AdicionarTarefaTableViewController: UITableViewController {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        nomeTarefa.resignFirstResponder()
-        descricao.resignFirstResponder()
-        labelMateria.resignFirstResponder()
-        return true;
+    override func viewWillAppear(animated: Bool) {
+        if materia != nil {
+            labelMateria.text = materia?.nomeMateria
+        }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selecionarMateria" {
+            if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
+                vc.senderViewController = self
+            }
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func nomeTarefaTF(sender: AnyObject) {
         self.resignFirstResponder()
@@ -63,10 +80,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
         self.resignFirstResponder()
     }
     
-
-    
     @IBAction func btnSalvar(sender: AnyObject) {
-        
         if verificaCampoVazio() {
             if editando == false {
                 tarefa = TarefaManager.sharedInstance.novaTarefa()
@@ -94,13 +108,13 @@ class AdicionarTarefaTableViewController: UITableViewController {
                 let localNotification = UILocalNotification()
                 //Mensagem
                 localNotification.alertBody = "A tarefa \(nomeTarefa.text) deve ser entregue amanhã."
-
+                
                 //Som
                 localNotification.soundName = UILocalNotificationDefaultSoundName
                 
                 //Incrementa o applicationIconBadgeNumber
                 localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber+1
-
+                
                 localNotification.timeZone = NSTimeZone.defaultTimeZone()
                 //let umDiaMenos = 1
                 tarefa.dataEntrega = date
@@ -117,7 +131,7 @@ class AdicionarTarefaTableViewController: UITableViewController {
             TarefaManager.sharedInstance.salvar()
         }
     }
- 
+    
     @IBAction func estadoNotificacao(sender: AnyObject) {
         if (opcao.on) {
             valorNotificacao = 1
@@ -125,6 +139,29 @@ class AdicionarTarefaTableViewController: UITableViewController {
             valorNotificacao = 0
         }
     }
+    
+    @IBAction func btnCancelar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    // MARK: - TextField
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        nomeTarefa.resignFirstResponder()
+        descricao.resignFirstResponder()
+        labelMateria.resignFirstResponder()
+        return true;
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        nomeTarefa = nil
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        nomeTarefa = textField
+    }
+    
+    // MARK: - Outras
 
     func verificaCampoVazio () -> Bool {
         var aux: Bool?
@@ -162,32 +199,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
         self.presentViewController(alerta, animated: true, completion: nil)
         return aux!
     }
-    
-    @IBAction func btnCancelar(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        if materia != nil {
-            labelMateria.text = materia?.nomeMateria
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "selecionarMateria" {
-            if let vc = segue.destinationViewController as? SelecionarMateriaViewController {
-                vc.senderViewController = self
-            }
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        nomeTarefa = nil
-    }
-    func textFieldDidBeginEditing(textField: UITextField) {
-        nomeTarefa = textField
-    }
-    
 }
 
 

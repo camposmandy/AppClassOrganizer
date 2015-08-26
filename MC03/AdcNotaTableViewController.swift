@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// Rever código
+
 //  AdcNotaTableViewController.swift
 //  MC03
 //
@@ -9,25 +12,50 @@
 import UIKit
 
 class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var lblMateria: UILabel!
     @IBOutlet weak var textFieldPesoNota: UITextField!
     @IBOutlet weak var textFieldTipoNota: UITextField!
     @IBOutlet weak var textFieldNota: UITextField!
     
+    // MARK: - Variáveis
+    
     var nota: Nota!
     var materia: Materia?
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textFieldPesoNota.resignFirstResponder()
-        textFieldTipoNota.resignFirstResponder()
-        textFieldNota.resignFirstResponder()
-        return true;
+    // MARK: - View
+    // View Did Load
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        textFieldTipoNota.delegate = self
+        textFieldPesoNota.delegate = self
+        textFieldNota.delegate = self
     }
+    
+    // View Will Appear
+    override func viewWillAppear(animated: Bool) {
+        if materia != nil {
+            lblMateria.text = materia?.nomeMateria
+        }
+    }
+    
+    // Prepare for segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selcMateria" {
+            if let vc = segue.destinationViewController as? SelecionarMateriaNotaVC {
+                vc.senderViewController = self
+            }
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func buttonCancelar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCamposVazio(){
             nota = NotaManager.sharedInstance.novaNota()
@@ -42,6 +70,8 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    // MARK: - Outras
     
     func verificaCamposVazio() -> Bool{
         var aux: Bool?
@@ -82,7 +112,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             alertaM += "- Selecione uma Matéria\n"
             alert = true
         }
-
+        
         if alert == false {
             alertaM = "Nota adicionada ✔️"
             alertaT = "Pronto 😃"
@@ -105,31 +135,15 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         return aux!
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        textFieldTipoNota.delegate = self
-        textFieldPesoNota.delegate = self
-        textFieldNota.delegate = self
+    // MARK: - Teclado e TextField
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textFieldPesoNota.resignFirstResponder()
+        textFieldTipoNota.resignFirstResponder()
+        textFieldNota.resignFirstResponder()
+        return true;
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        if materia != nil {
-            lblMateria.text = materia?.nomeMateria
-        }
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "selcMateria" {
-            if let vc = segue.destinationViewController as? SelecionarMateriaNotaVC {
-                vc.senderViewController = self 
-            }
-        }
-    }
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == textFieldPesoNota || textField == textFieldNota {
@@ -142,3 +156,4 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         return result
     }
 }
+

@@ -1,4 +1,7 @@
-//
+
+// Organizado!
+// Rever código
+
 //  SelecionarMateriaViewController.swift
 //  MC03
 //
@@ -10,35 +13,52 @@ import UIKit
 
 class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var materia: Array<Materia>?
-    var select: NSIndexPath?
-    
-    var tarefa: Tarefa?
-    
-    var senderViewController: AdicionarTarefaTableViewController?
+    // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Variáveis
+    
+    var materias: Array<Materia>?
+    var tarefa: Tarefa?
+    var select: NSIndexPath?
+    var senderViewController: AdicionarTarefaTableViewController?
+    
+    // MARK: - View
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        materia = MateriaManager.sharedInstance.Materia()
+        materias = MateriaManager.sharedInstance.Materia()
         
-        materia?.sort({ (first: Materia, second: Materia) -> Bool in
+        materias?.sort({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materia!.count 
-    }
-    
+    // MARK: - TableView
+    // Número de seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    // Número de células
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return materias!.count 
+    }
+    
+    // Célula
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("celMateria", forIndexPath: indexPath) as! SelecionarMateriaTableViewCell
+        
+        cell.lblMateria.text = materias?[indexPath.row].nomeMateria
+        
+        return cell
+    }
+    
+    // Selecionar Célula
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(select != nil){
             var celula = tableView.cellForRowAtIndexPath(self.select!)
@@ -49,23 +69,12 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         
         self.select = indexPath
         
-        if let materia = materia?[indexPath.row] {
+        if let materia = materias?[indexPath.row] {
             if senderViewController != nil {
                 senderViewController?.materia = materia
             }
-            
         }
-        navigationController?.popViewControllerAnimated(true)
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("celMateria", forIndexPath: indexPath) as! SelecionarMateriaTableViewCell
-        cell.lblMateria.text = materia?[indexPath.row].nomeMateria
-        return cell
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        println("select = \(select?.row)")
+        navigationController?.popViewControllerAnimated(true)
     }
 }

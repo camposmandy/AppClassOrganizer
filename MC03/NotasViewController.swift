@@ -1,6 +1,6 @@
-//
 
-// ARRUMADO!!!!
+// Organizado!
+// rever código
 
 //  NotasViewController.swift
 //  MC03
@@ -44,7 +44,6 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // MARK: - TableView
-    
     // Numero de Seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if materiasComNota?.count == 0 || notas?.count == 0 {

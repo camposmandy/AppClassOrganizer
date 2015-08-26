@@ -14,4 +14,5 @@ class TarefasTableViewCell: UITableViewCell {
     @IBOutlet weak var lblNomeTarefa: UILabel!
     @IBOutlet weak var lblNomeMateria: UILabel!
     @IBOutlet weak var imageCheck: UIImageView!
+    
 }

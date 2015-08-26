@@ -1,7 +1,6 @@
+
+// Arrumado!
 //
-
-// ARRUMADO!!!!!!!
-
 
 //  FaltasViewController.swift
 //  MC03
@@ -14,34 +13,30 @@ import UIKit
 
 class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Variáveis
 
     var todasMaterias: Array<Materia>?
     var materiasComFaltas: NSMutableArray = []
     
-    // MARK: - Outlets
-
-    @IBOutlet weak var tableView: UITableView!
-    
     // MARK: - View
-    
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        todasMaterias = MateriaManager.sharedInstance.Materia()
-        carregaMaterias()
-        
         
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    // View Will Appear
     override func viewWillAppear(animated: Bool) {
-        tableView.reloadData()
+        carregarDados()
     }
     
     // MARK: - TableView
-    
     // Número de Seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -60,8 +55,8 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
-        if todasMaterias?.count != 0 {
-            if let materia = todasMaterias?[indexPath.row] {
+        if materiasComFaltas.count != 0 {
+            if let materia = materiasComFaltas[indexPath.row] as? Materia {
                 celula?.lblMateria.hidden = false
                 celula?.lblPercentualFalta.hidden = false
                 celula?.btnAdd.hidden = false
@@ -69,7 +64,7 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 tableView.userInteractionEnabled = true
                 
                 celula?.materia = materia
-                celula?.lblPercentualFalta.text = "\(materia.quantFaltas)"
+                celula?.lblPercentualFalta.text = "Faltas \(materia.quantFaltas) de \(materia.faltas) permitidas"
                 celula?.lblMateria.text = materia.nomeMateria
             }
         } else {
@@ -94,7 +89,9 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - Outras Funções
     
-    func carregaMaterias () {
+    func carregarDados () {
+        todasMaterias = MateriaManager.sharedInstance.Materia()
+        
         if let todasMat = todasMaterias {
             for m in todasMat {
                 if m.controleFaltas == 1 {
@@ -102,5 +99,6 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
+        tableView.reloadData()
     }
 }

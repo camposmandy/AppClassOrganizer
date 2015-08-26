@@ -1,6 +1,6 @@
-//
 
-// Arrumado!!!!!!!
+// Organizado
+// Rever código
 
 //  VerTarefaTableViewController.swift
 //  MC03
@@ -13,12 +13,6 @@ import UIKit
 
 class VerTarefaTableViewController: UITableViewController {
     
-    //MARK: - Varáveis
-    
-    var materia: Array<Materia>?
-    var tarefas: Array<Tarefa>!
-    var i: Int!
-
     //MARK: - Outlets
     
     @IBOutlet weak var lblNomeTarefa: UILabel!
@@ -27,21 +21,25 @@ class VerTarefaTableViewController: UITableViewController {
     @IBOutlet weak var lblDataEntrega: UILabel!
     @IBOutlet weak var swOpcao: UISwitch!
     @IBOutlet weak var btnConcluir: UIButton!
+    
+    //MARK: - Varáveis
+    
+    var materia: Array<Materia>?
+    var tarefas: Array<Tarefa>!
+    var i: Int!
 
     //MARK: - View
-    
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // View Will Appear
     override func viewWillAppear(animated: Bool) {
-        preencherLabels()
+        carregarDados()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+    // Prepare for Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editarTarefa" {
             let VC = segue.destinationViewController as! AdicionarTarefaTableViewController
@@ -66,7 +64,7 @@ class VerTarefaTableViewController: UITableViewController {
     
     // MARK: - Outras Funções
 
-    func preencherLabels() {
+    func carregarDados() {
         tarefas = TarefaManager.sharedInstance.Tarefa()
         
         self.navigationItem.title = tarefas?[i].nomeTarefa
@@ -87,6 +85,8 @@ class VerTarefaTableViewController: UITableViewController {
             swOpcao.setOn(false, animated: true)
         }
     }
+    
+    // MARK: - Alertas
     
     func alertaApagar(){
         let alerta: UIAlertController = UIAlertController(title: "Atenção!",

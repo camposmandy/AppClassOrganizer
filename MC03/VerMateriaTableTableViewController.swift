@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// rever o que esta comentado se pode tirar...
+
 //  VerMateriaTableTableViewController.swift
 //  MC03
 //
@@ -10,6 +13,7 @@ import UIKit
 
 class VerMateriaTableTableViewController: UITableViewController {
 
+    // MARK: - Outlets
     
     @IBOutlet weak var lblNomeMateria: UILabel!
     @IBOutlet weak var lblNomeProfessor: UILabel!
@@ -24,100 +28,104 @@ class VerMateriaTableTableViewController: UITableViewController {
     @IBOutlet weak var lblPercFaltas: UILabel!
     @IBOutlet weak var lblMedia: UILabel!
     
-    var myColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
-    
-    var semana: Array<DiasSemana>!
-    var materiaAux: Materia!
-    
+    // MARK: - Variáveis
+
+    var materia: Materia!
+    var appColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
+
+    // MARK: - View
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        preencherLabels()
+        carregarDados()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    func preencherLabels(){
-        var caract :  Character
-        var auxCaract : String = ""
-        var i = 0
-        if count(materiaAux.nomeMateria) > 15{
-            for index in indices(materiaAux.nomeMateria){
-                if i <= 15{
-                    caract = materiaAux.nomeMateria[index]
-                    auxCaract += "\(caract)"
-                    self.navigationItem.title = "\(auxCaract)..."
-                }
-                i++
-            }
-        } else {
-            self.navigationItem.title = materiaAux.nomeMateria
+    
+    // Prepare for Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editarMateria" {
+            let VC = segue.destinationViewController as! EditarMateriaTableViewController
+            VC.materia = materia
         }
-        
-        lblNomeMateria.text = materiaAux.nomeMateria
-        lblNomeProfessor.text = materiaAux.nomeProfessor
-        lblMedia.text = "\(materiaAux.media)"
-        lblCargaHoraria.text = "\(materiaAux.cargaHoraria) Aulas"
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func btnApagarMateria(sender: AnyObject) {
+        alerta()
+    }
 
-        var ix = materiaAux.cargaHoraria.doubleValue * materiaAux.faltas.doubleValue * 0.01
-        var ii = Int(ix)
-        lblPercFaltas.text = "\(materiaAux.faltas)%  (\(ii) Aulas)"
+    // MARK: - Outras
+
+    func carregarDados(){
+//        var caract :  Character
+//        var auxCaract : String = ""
+//        var i = 0
+//        if count(materia.nomeMateria) > 15{
+//            for index in indices(materia.nomeMateria){
+//                if i <= 15{
+//                    caract = materia.nomeMateria[index]
+//                    auxCaract += "\(caract)"
+//                    self.navigationItem.title = "\(auxCaract)..."
+//                }
+//                i++
+//            }
+//        } else {
+        self.navigationItem.title = materia.nomeMateria
+//        }
         
-        var dias = materiaAux.possuiSemana.allObjects as NSArray
+        lblNomeMateria.text = materia.nomeMateria
+        lblNomeProfessor.text = materia.nomeProfessor
+        lblMedia.text = "\(materia.media)"
+        lblCargaHoraria.text = "\(materia.cargaHoraria) Aulas"
+        
+        var faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
+        lblPercFaltas.text = "\(materia.faltas)%  (\(faltasPermitidas) Aulas)"
+        
+        var dias = materia.possuiSemana.allObjects as NSArray
         for i in 0...dias.count-1 {
             var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
             if nomeDia == "Domingo" {
-                lblDom.textColor = myColor
+                lblDom.textColor = appColor
             }
             if nomeDia == "Segunda" {
-                lblSeg.textColor = myColor
+                lblSeg.textColor = appColor
             }
             if nomeDia == "Terça" {
-                lblTer.textColor = myColor
+                lblTer.textColor = appColor
             }
             if nomeDia == "Quarta" {
-                lblQua.textColor = myColor
+                lblQua.textColor = appColor
             }
             if nomeDia == "Quinta" {
-                lblQui.textColor = myColor
+                lblQui.textColor = appColor
             }
             if nomeDia == "Sexta" {
-                lblSex.textColor = myColor
+                lblSex.textColor = appColor
             }
             if nomeDia == "Sábado" {
-                lblSab.textColor = myColor
+                lblSab.textColor = appColor
             }
         }
     }
     
-    func alert(){
-        let alerta: UIAlertController = UIAlertController(title: "Atenção", message: "Certeza que deseja apagar essa matéria?", preferredStyle: .Alert)
+    // MARK: - Alerta
+    func alerta(){
+        let alerta: UIAlertController = UIAlertController(title: "Atenção",
+                                                        message: "Certeza que deseja apagar essa matéria?",
+                                                 preferredStyle: .Alert)
         
         let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-            MateriaManager.sharedInstance.deletar(self.materiaAux)
+            MateriaManager.sharedInstance.deletar(self.materia)
             MateriaManager.sharedInstance.salvar()
+            
             self.navigationController?.popViewControllerAnimated(true)
         }
         alerta.addAction(ok)
         
-        let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in
-            
-        }
+        let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in }
         alerta.addAction(cancelar)
+       
         self.presentViewController(alerta, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func btnApagarMateria(sender: AnyObject) {
-       alert()
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "editarMateria" {
-            let VC = segue.destinationViewController as! EditarMateriaTableViewController
-            VC.materia = materiaAux
-        }
     }
 }

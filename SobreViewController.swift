@@ -1,4 +1,7 @@
-//
+
+// Organizado e Arrumado
+
+
 //  SobreViewController.swift
 //  MC03
 //
@@ -10,9 +13,8 @@ import UIKit
 
 class SobreViewController: UIViewController {
     
+    // MARK: - Outlets
     
     @IBOutlet weak var logoApp: UIImageView!
     @IBOutlet weak var sobreApp: UITextView!
-    
-
 }

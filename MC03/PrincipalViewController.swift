@@ -1,4 +1,7 @@
-//
+
+// Arrumado e Organizado!
+// sugestões de implementação
+
 //  PrincipalViewController.swift
 //  MC03
 //
@@ -20,48 +23,38 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Variáveis
     
     var appColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
-    var materiaPrincipal: Array<Materia>?
     var diasSemana: Array<DiasSemana>?
     var date: NSDate!
     var diaDaSemana = 0
+    var materiasDoDia = NSArray()
     
     // MARK: - View
-    
+    // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBarController!.tabBar.tintColor = appColor
         verificaPrimeiroAcesso()
         
-        date = NSDate()
-        
-        var dayFormatter = NSDateFormatter()
-        dayFormatter.dateFormat = "dd"
-        var dayString = dayFormatter.stringFromDate(date)
-        
-        var monthFormatter = NSDateFormatter()
-        monthFormatter.dateFormat = "MMMM"
-        var monthString = monthFormatter.stringFromDate(date)
-
-        labelDia.text = dayString
-        labelMes.text = monthString
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        materiaPrincipal = MateriaManager.sharedInstance.Materia()
-        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
     }
     
+    // View Will Appear
     override func viewWillAppear(animated: Bool) {
-        materiaPrincipal = MateriaManager.sharedInstance.Materia()
-        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
-        
-        tableView.reloadData()
+        carregarDados()
     }
     
+    // Prepare for Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "adcNotaMateria" {
+            if let senderVC = segue.destinationViewController as? AdcNotaTableViewController {
+                senderVC.materia = sender as? Materia
+            }
+        }
+    }
+
     // MARK: - TableView
-    
     // Número de seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -69,8 +62,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Cabeçalho da Seção
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
-        switch diaSemana {
+        switch diaDaSemana {
             case 1: return "Domingo"
             case 2: return "Segunda-Feira"
             case 3: return "Terça-Feira"
@@ -84,37 +76,42 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Número de células na seção
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
-        let diaAux = diasSemana![diaSemana-1]
-        var diaMat = diaAux.pertenceMateria.allObjects as NSArray
-        if diaMat.count != 0 {
-            return diaMat.count
+        if materiasDoDia.count != 0 {
+            return materiasDoDia.count
         } else {
             return 1
         }
     }
     
+    // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-        let diaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
         
-        let diaAux = diasSemana![diaSemana-1]
-        var diaMat = diaAux.pertenceMateria.allObjects as NSArray
+        let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
         
-        if diaMat.count != 0 {
+        if materiasDoDia.count != 0 {
             celula?.lblMateria.hidden = false
             celula?.lblProfessor.hidden = false
             celula?.lblPercentualFalta.hidden = false
             celula?.imagemIcone.hidden = false
+            
             celula?.textLabel?.hidden = true
             
-            celula!.lblMateria?.text = (diaMat.objectAtIndex(indexPath.row) as? Materia)?.nomeMateria
-            celula!.lblProfessor?.text = "Prof. \((diaMat.objectAtIndex(indexPath.row) as! Materia).nomeProfessor)"
-            if (diaMat.objectAtIndex(indexPath.row) as! Materia).controleFaltas == 1 {
-                celula!.lblPercentualFalta?.text = "Faltas \((diaMat.objectAtIndex(indexPath.row) as! Materia).quantFaltas) de \((diaMat.objectAtIndex(indexPath.row) as! Materia).faltas) permitidas"
-            } else {
-                celula!.lblPercentualFalta?.text == ""
+            if let mat = materia {
+                celula?.lblMateria.text = mat.nomeMateria
+                
+                if mat.nomeProfessor != "" {
+                    celula?.lblProfessor.text = "Prof. \(mat.nomeProfessor)"
+                } else {
+                    celula?.lblProfessor.text = ""
+                }
+                
+                if mat.controleFaltas == 1 {
+                    celula!.lblPercentualFalta?.text = "Faltas \(mat.quantFaltas) de \(mat.faltas) permitidas"
+                    // Implementar uma mudança de cor na label caso o numero de faltas esteja perto do limite
+                } else {
+                    celula!.lblPercentualFalta?.text == "sem controle de faltas"
+                }
             }
         } else {
             celula?.lblMateria.hidden = true
@@ -132,25 +129,39 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         return celula!
     }
     
+    // Permite o swap na célula para opções
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         //
     }
     
+    // Botões do swap na célula
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
         
-        var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            self.performSegueWithIdentifier("showFaltas", sender: nil)
-        }
-        
+        // Botão + Nota
         var maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            //
+            self.performSegueWithIdentifier("adcNotaMateria", sender: materia)
         }
         
-        maisFalta.backgroundColor = UIColor.blueColor()
-        maisNota.backgroundColor = UIColor.greenColor()
+        maisNota.backgroundColor = appColor
         
-        return [maisFalta, maisNota]
+        
+        
+        if materia?.controleFaltas == 1 {
+            // Botão + Falta
+            var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                self.performSegueWithIdentifier("showFaltas", sender: nil)
+            }
+            
+            maisFalta.backgroundColor = UIColor.grayColor()
+            
+            return [maisFalta, maisNota]
+        } else {
+            return [maisNota]
+        }
     }
+    
+    // MARK: - Outras
     
     func verificaPrimeiroAcesso() {
         var userDefault = NSUserDefaults()
@@ -194,20 +205,40 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             userDefault.setObject("JaAcessou", forKey: "Acesso")
             
             alertaPrimeiraVez()
-            
         }
     }
     
     func alertaPrimeiraVez() {
-        let alerta: UIAlertController = UIAlertController(title: "Bem-Vindo", message: "Para começar, adicione matérias, vá em Mais > Matérias > + ", preferredStyle: .Alert)
+        let alerta: UIAlertController = UIAlertController(title: "Bem-Vindo",
+                                                        message: "Para começar, adicione matérias, vá em Mais > Matérias > + ",
+                                                 preferredStyle: .Alert)
         
-        let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-        }
+        let ok:  UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in }
         
         alerta.addAction(ok)
         
         self.presentViewController(alerta, animated: true, completion: nil)
     }
     
-
+    func carregarDados() {
+        diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+        
+        date = NSDate()
+        diaDaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        materiasDoDia = diasSemana![diaDaSemana-1].pertenceMateria.allObjects as NSArray
+        
+        var dayFormatter = NSDateFormatter()
+        var monthFormatter = NSDateFormatter()
+        
+        dayFormatter.dateFormat = "dd"
+        monthFormatter.dateFormat = "MMMM"
+        
+        var dayString = dayFormatter.stringFromDate(date)
+        var monthString = monthFormatter.stringFromDate(date)
+        
+        labelDia.text = dayString
+        labelMes.text = monthString
+        
+        tableView.reloadData()
+    }
 }

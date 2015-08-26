@@ -9,7 +9,7 @@
 import UIKit
 
 class NotasTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var lblNomeNota: UILabel!
     @IBOutlet weak var lblNota: UILabel!
     @IBOutlet weak var lblPeso: UILabel!

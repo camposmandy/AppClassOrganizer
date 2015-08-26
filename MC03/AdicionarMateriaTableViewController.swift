@@ -1,4 +1,7 @@
-//
+
+// Organizado
+// Rever código
+
 //  AdicionarMateriaTableViewController.swift
 //  MC03
 //
@@ -11,15 +14,6 @@ import CoreData
 
 class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDelegate {
     
-    // MARK: - Variáveis
-    
-    var materia: Materia!
-    var nota: Nota?
-    var diaSemana: Array<DiasSemana>?
-    var alertMensagem = ""
-    var teste = ""
-    var semana = [false, false, false, false, false, false, false]
-
     // MARK: - Outlets
     
     @IBOutlet weak var nomeMateria: UITextField!
@@ -30,21 +24,16 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var media: UITextField!
     @IBOutlet weak var switchFaltas: UISwitch!
     
-    // MARK: - Actions
+    // MARK: - Variáveis
     
-    @IBAction func switchFaltas(sender: AnyObject) {
-        tableView.reloadData()
-    }
-    
-    @IBAction func buttonCancelar(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func buttonSalvar(sender: AnyObject) {
-        salvarMateria()
-    }
+    var materia: Materia!
+    var nota: Nota?
+    var diasSemana: Array<DiasSemana>?
+    var alertMensagem = ""
+    var teste = ""
+    var semana = [false, false, false, false, false, false, false]
 
-    // MARK: - Load View
+    // MARK: - View
     
     override func viewDidLoad() {
         nomeMateria.delegate = self
@@ -56,8 +45,13 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        
+    // Prepare For Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "cellSemana" {
+            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
+                proxVC.senderAdcViewController = self
+            }
+        }
     }
     
     // MARK: - TableView
@@ -74,7 +68,21 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }
     }
     
-    // MARK: - Funções do Teclado
+    // MARK: - Actions
+    
+    @IBAction func switchFaltas(sender: AnyObject) {
+        tableView.reloadData()
+    }
+    
+    @IBAction func buttonCancelar(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func buttonSalvar(sender: AnyObject) {
+        salvarMateria()
+    }
+    
+    // MARK: - Teclado e TextField
     
     func esconderTeclado () {
         view.endEditing(true)
@@ -86,8 +94,6 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         return true
     }
     
-    // MARK: - Funções do TextField
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == percentualFalta || textField == cargaHoraria || textField == media{
@@ -98,14 +104,6 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             }
         }
         return result
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "cellSemana" {
-            if let proxVC = segue.destinationViewController as? DiasDaSemanaViewController {
-                    proxVC.senderAdcViewController = self
-            }
-        }
     }
     
     // MARK: - Outras Funções
@@ -205,11 +203,11 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             
             materia.media = (media.text as NSString).doubleValue
             
-            diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+            diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
             for i in 0..<self.semana.count {
                 if semana[i] == true {
-                    var dia = diaSemana?[i]
+                    var dia = diasSemana?[i]
                     materia.adcDiaSemana(dia!)
                 }
             }

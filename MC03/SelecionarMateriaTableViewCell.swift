@@ -12,4 +12,5 @@ class SelecionarMateriaTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagemMateria: UIImageView!
     @IBOutlet weak var lblMateria: UILabel!
+    
 }
