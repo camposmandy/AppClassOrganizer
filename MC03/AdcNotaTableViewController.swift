@@ -138,10 +138,16 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Teclado e TextField
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textFieldPesoNota.resignFirstResponder()
-        textFieldTipoNota.resignFirstResponder()
-        textFieldNota.resignFirstResponder()
-        return true;
+        if textField == self.textFieldTipoNota {
+            self.textFieldPesoNota.becomeFirstResponder()
+        } else if textField == self.textFieldPesoNota {
+            self.textFieldNota.becomeFirstResponder()
+        } else if textField == self.textFieldNota {
+            textField.resignFirstResponder()
+            self.performSegueWithIdentifier("selcMateria", sender: nil)
+        }
+        
+        return true
     }
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

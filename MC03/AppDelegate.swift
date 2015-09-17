@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(notifsettings)
         
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
+        Fabric.with([Crashlytics.self()])
         
         return true
     }

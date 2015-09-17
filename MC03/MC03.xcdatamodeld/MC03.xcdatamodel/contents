@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DiasSemana" representedClassName="DiasSemana" syncable="YES">
         <attribute name="nomeDia" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pertenceMateria" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Materia" inverseName="possuiSemana" inverseEntity="Materia" syncable="YES"/>
@@ -13,9 +13,9 @@
         <attribute name="nomeMateria" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomeProfessor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantFaltas" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="possuiNota" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nota" inverseName="pertenceMateria" inverseEntity="Nota" syncable="YES"/>
+        <relationship name="possuiNota" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Nota" inverseName="pertenceMateria" inverseEntity="Nota" syncable="YES"/>
         <relationship name="possuiSemana" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiasSemana" inverseName="pertenceMateria" inverseEntity="DiasSemana" syncable="YES"/>
-        <relationship name="possuiTarefa" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tarefa" inverseName="pertenceMateria" inverseEntity="Tarefa" syncable="YES"/>
+        <relationship name="possuiTarefa" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tarefa" inverseName="pertenceMateria" inverseEntity="Tarefa" syncable="YES"/>
     </entity>
     <entity name="Nota" representedClassName="Nota" syncable="YES">
         <attribute name="nota" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>

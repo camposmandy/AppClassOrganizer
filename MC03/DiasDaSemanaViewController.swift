@@ -23,6 +23,8 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     var senderEditViewController: EditarMateriaTableViewController?
     var diasSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
+    var timer: NSTimer!
+    var index: NSIndexPath!
     
     // MARK: - View
     // View Did Load
@@ -57,6 +59,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
         
+        
         return cell
     }
     
@@ -71,6 +74,18 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
             semana[indexPath.row] = true
         }
+        
+        index = indexPath
+        
+        if timer != nil {
+            timer.invalidate()
+        }
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: Selector("clearSelectedCell"), userInfo: nil, repeats: false)
+        
+    }
+    
+    func clearSelectedCell() {
+        tableView.deselectRowAtIndexPath(index, animated: true)
     }
 
     // MARK: - Actions

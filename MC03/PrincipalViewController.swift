@@ -86,10 +86,10 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-        
-        let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
-        
+
         if materiasDoDia.count != 0 {
+            let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
+            
             celula?.lblMateria.hidden = false
             celula?.lblProfessor.hidden = false
             celula?.lblPercentualFalta.hidden = false
@@ -238,6 +238,12 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         
         labelDia.text = dayString
         labelMes.text = monthString
+        
+        if materiasDoDia.count == 0 {
+            tableView.userInteractionEnabled = false
+        } else {
+            tableView.userInteractionEnabled = true
+        }
         
         tableView.reloadData()
     }

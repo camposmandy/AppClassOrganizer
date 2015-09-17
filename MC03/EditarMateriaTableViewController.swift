@@ -35,6 +35,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     // MARK: - View
     // View Did Load
     override func viewDidLoad() {
+        
         nomeMateria.delegate = self
         professorMateria.delegate = self
         percFaltasMateria.delegate = self
@@ -42,8 +43,6 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         mediaMateria.delegate = self
         
         preencherTFs()
-        
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,13 +57,13 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     // Número de Células
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 1: return 2
-        case 3: if switchFaltas.on {
+        case 0: return 2
+        case 2: if switchFaltas.on {
             return 3
         } else {
             return 1
             }
-        default: return 0
+        default: return 1
         }
     }
     
@@ -113,9 +112,15 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         mediaMateria.text = "\(materia.media)"
         
         if materia.controleFaltas == 1 {
+            switchFaltas.setOn(true, animated: true)
             cargaHoraria.text = "\(materia.cargaHoraria)"
             percFaltasMateria.text = "\(materia.faltas)"
+        } else {
+            switchFaltas.setOn(false, animated: true)
+            cargaHoraria.text = ""
+            percFaltasMateria.text = ""
         }
+        tableView.reloadData()
     }
     
     func verificaCampoVazio () -> Bool {
@@ -193,14 +198,8 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     }
     
     // MARK: - Teclado e TextField
-    
-    func esconderTeclado () {
-        view.endEditing(true)
-    }
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        nomeMateria.resignFirstResponder()
-        professorMateria.resignFirstResponder()
+
         return true
     }
     

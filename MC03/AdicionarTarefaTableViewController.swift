@@ -11,7 +11,7 @@
 
 import UIKit
 
-class AdicionarTarefaTableViewController: UITableViewController {
+class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: - Outlets
     
@@ -34,6 +34,9 @@ class AdicionarTarefaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         let data = NSDate()
+        
+        nomeTarefa.delegate = self
+        descricao.delegate = self
         
         if let t = tarefa {
             editando = true
@@ -71,14 +74,6 @@ class AdicionarTarefaTableViewController: UITableViewController {
     }
     
     // MARK: - Actions
-    
-    @IBAction func nomeTarefaTF(sender: AnyObject) {
-        self.resignFirstResponder()
-    }
-    
-    @IBAction func descricaoTF(sender: AnyObject) {
-        self.resignFirstResponder()
-    }
     
     @IBAction func btnSalvar(sender: AnyObject) {
         if verificaCampoVazio() {
@@ -146,20 +141,23 @@ class AdicionarTarefaTableViewController: UITableViewController {
     
     // MARK: - TextField
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        nomeTarefa.resignFirstResponder()
-        descricao.resignFirstResponder()
-        labelMateria.resignFirstResponder()
-        return true;
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == self.nomeTarefa {
+            self.descricao.becomeFirstResponder()
+        } else if textField == self.descricao {
+            textField.resignFirstResponder()
+            self.performSegueWithIdentifier("selecionarMateria", sender: nil)
+        }
+        return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        nomeTarefa = nil
-    }
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        nomeTarefa = nil
+//    }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        nomeTarefa = textField
-    }
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        nomeTarefa = textField
+//    }
     
     // MARK: - Outras
 

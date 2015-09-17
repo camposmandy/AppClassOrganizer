@@ -17,6 +17,8 @@
 		10CDCA7F1B0531C4009AC45A /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CDCA7E1B0531C4009AC45A /* DesignableView.swift */; };
 		1702CACE1B14E0F900767B54 /* DiasSemana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702CACD1B14E0F900767B54 /* DiasSemana.swift */; };
 		17060A5F1B82F38A0000687D /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17060A5E1B82F38A0000687D /* Materia.swift */; };
+		170D4CD81BA3498500A49D8B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170D4CD61BA3498500A49D8B /* Fabric.framework */; };
+		170D4CD91BA3498500A49D8B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170D4CD71BA3498500A49D8B /* Crashlytics.framework */; };
 		174DDE011B13968D006EEA7A /* SelecionarMateriaNotaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */; };
 		174DDE031B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE021B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift */; };
 		174DDE071B139C34006EEA7A /* AdcNotaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */; };
@@ -38,6 +40,7 @@
 		177EC75A1B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */; };
 		177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */; };
 		177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */; };
+		179746D41BA731A0001B1D8D /* DeleteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179746D31BA731A0001B1D8D /* DeleteTableViewController.swift */; };
 		17B38ABC1B0D0A19008B192E /* CoreDataPersistencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */; };
 		17B38ABE1B0D0D9B008B192E /* NotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABD1B0D0D9B008B192E /* NotaManager.swift */; };
 		17B38AC01B0D0DA6008B192E /* TarefaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */; };
@@ -75,6 +78,8 @@
 		10CDCA7E1B0531C4009AC45A /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		1702CACD1B14E0F900767B54 /* DiasSemana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasSemana.swift; sourceTree = "<group>"; };
 		17060A5E1B82F38A0000687D /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		170D4CD61BA3498500A49D8B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		170D4CD71BA3498500A49D8B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		174DDE001B13968D006EEA7A /* SelecionarMateriaNotaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelecionarMateriaNotaVC.swift; path = MC03/SelecionarMateriaNotaVC.swift; sourceTree = "<group>"; };
 		174DDE021B13973E006EEA7A /* SelecionarMateriaNotaTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarMateriaNotaTBCell.swift; sourceTree = "<group>"; };
 		174DDE061B139C34006EEA7A /* AdcNotaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdcNotaTableViewController.swift; path = MC03/AdcNotaTableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		177EC7591B0A630000FC36E2 /* SelecionarMateriaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarMateriaTableViewCell.swift; sourceTree = "<group>"; };
 		177EC75B1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiasDaSemanaTableViewCell.swift; sourceTree = "<group>"; };
 		177EC75D1B0A643100FC36E2 /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaltaTableViewCell.swift; sourceTree = "<group>"; };
+		179746D31BA731A0001B1D8D /* DeleteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTableViewController.swift; sourceTree = "<group>"; };
 		17B38ABB1B0D0A19008B192E /* CoreDataPersistencia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistencia.swift; sourceTree = "<group>"; };
 		17B38ABD1B0D0D9B008B192E /* NotaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotaManager.swift; sourceTree = "<group>"; };
 		17B38ABF1B0D0DA6008B192E /* TarefaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarefaManager.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170D4CD91BA3498500A49D8B /* Crashlytics.framework in Frameworks */,
+				170D4CD81BA3498500A49D8B /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +137,8 @@
 		10C5772F1B0507A500081B96 = {
 			isa = PBXGroup;
 			children = (
+				170D4CD61BA3498500A49D8B /* Fabric.framework */,
+				170D4CD71BA3498500A49D8B /* Crashlytics.framework */,
 				10C5773A1B0507A500081B96 /* MC03 */,
 				10C577531B0507A500081B96 /* MC03Tests */,
 				10C577391B0507A500081B96 /* Products */,
@@ -227,6 +237,7 @@
 				B23C2ABA1B138C8A00B8C13D /* SobreViewController.swift */,
 				176A35B01B0E50B100C0D952 /* VerMateriaTableTableViewController.swift */,
 				17E1DB091B2567DE00250076 /* EditarMateriaTableViewController.swift */,
+				179746D31BA731A0001B1D8D /* DeleteTableViewController.swift */,
 			);
 			name = Mais;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				10C577341B0507A500081B96 /* Sources */,
 				10C577351B0507A500081B96 /* Frameworks */,
 				10C577361B0507A500081B96 /* Resources */,
+				170D4CD51BA3493E00A49D8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -326,6 +338,7 @@
 		10C577301B0507A500081B96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Amanda Guimaraes Campos";
 				TargetAttributes = {
@@ -383,6 +396,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		170D4CD51BA3493E00A49D8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 392c95590dccc08eff18ed602bfa63e085819806 9835aa6d2996b1e6f666f610d01236d6543bebd037205689c4e09f2e7e06664f";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10C577341B0507A500081B96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -400,6 +429,7 @@
 				177EC75E1B0A643100FC36E2 /* FaltaTableViewCell.swift in Sources */,
 				177EC74D1B0A601000FC36E2 /* SelecionarMateriaViewController.swift in Sources */,
 				177EC75C1B0A638000FC36E2 /* DiasDaSemanaTableViewCell.swift in Sources */,
+				179746D41BA731A0001B1D8D /* DeleteTableViewController.swift in Sources */,
 				17060A5F1B82F38A0000687D /* Materia.swift in Sources */,
 				174DDE071B139C34006EEA7A /* AdcNotaTableViewController.swift in Sources */,
 				1702CACE1B14E0F900767B54 /* DiasSemana.swift in Sources */,
@@ -556,6 +586,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MC03/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -571,6 +605,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MC03/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

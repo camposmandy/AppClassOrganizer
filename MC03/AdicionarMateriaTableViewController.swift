@@ -41,8 +41,6 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         percentualFalta.delegate = self
         cargaHoraria.delegate = self
         media.delegate = self
-        
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer (target: self, action: "esconderTeclado")
     }
     
     // Prepare For Segue
@@ -84,19 +82,33 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     
     // MARK: - Teclado e TextField
     
-    func esconderTeclado () {
-        view.endEditing(true)
-    }
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        nomeMateria.resignFirstResponder()
-        professor.resignFirstResponder()
+        if textField == self.nomeMateria {
+            self.professor.becomeFirstResponder()
+        } else if textField == self.professor {
+            self.media.becomeFirstResponder()
+        } else if textField == self.media {
+            textField.resignFirstResponder()
+        } else if textField == self.percentualFalta {
+            self.cargaHoraria.becomeFirstResponder()
+        } else if textField == self.cargaHoraria {
+            textField.resignFirstResponder()
+            self.performSegueWithIdentifier("cellSemana", sender: nil)
+        }
+        
         return true
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        if textField == percentualFalta || textField == cargaHoraria || textField == media{
+        if textField == percentualFalta || textField == cargaHoraria {
+            if count(string) > 0 {
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789").invertedSet
+                let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
+                result = replacementStringIsLegal
+            }
+        }
+        if textField == media {
             if count(string) > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
