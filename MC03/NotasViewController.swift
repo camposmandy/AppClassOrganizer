@@ -78,13 +78,13 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return ""
         } else {
             let materiaAux = materiasComNota![section]
-            var notas = materiaAux.possuiNota.allObjects as NSArray
+            let notas = materiaAux.possuiNota.allObjects as NSArray
             var media = 0.0
             
             for i in notas {
-                var nota = (i as! Nota).nota
-                var peso = (i as! Nota).pesoNota
-                var calc = nota.doubleValue * peso.doubleValue * 0.01
+                let nota = (i as! Nota).nota
+                let peso = (i as! Nota).pesoNota
+                let calc = nota.doubleValue * peso.doubleValue * 0.01
                 media += calc
             }
             return "\t\t\t\t\t\t\t\t\t Média = \(media)"
@@ -93,7 +93,7 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Células
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
+        let celula = tableView.dequeueReusableCellWithIdentifier("celNota") as? NotasTableViewCell
         
         if materiasComNota?.count != 0 && notas?.count != 0 {
             
@@ -104,11 +104,11 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let materiaAux = materiasComNota![indexPath.section]
             
-            var aux2 = materiaAux.possuiNota.allObjects as NSArray
-            var nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
-            var nota = (aux2.objectAtIndex(indexPath.row) as! Nota).nota
-            var peso = (aux2.objectAtIndex(indexPath.row) as! Nota).pesoNota
-            var media = materiaAux.media.doubleValue
+            let aux2 = materiaAux.possuiNota.allObjects as NSArray
+            let nomeNota = (aux2.objectAtIndex(indexPath.row) as! Nota).tipoNota
+            let nota = (aux2.objectAtIndex(indexPath.row) as! Nota).nota
+            let peso = (aux2.objectAtIndex(indexPath.row) as! Nota).pesoNota
+            let media = materiaAux.media.doubleValue
             
             celula!.lblNomeNota.text = nomeNota
             celula!.lblNota.text = "\(nota.doubleValue)"
@@ -167,14 +167,14 @@ class NotasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         materias = MateriaManager.sharedInstance.Materia()
         notas = NotaManager.sharedInstance.Nota()
         
-        materias?.sort({ (first: Materia, second: Materia) -> Bool in
+        materias?.sortInPlace({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
         
         if materias?.count != 0 {
             materiasComNota = Array<Materia>()
             for i in 0...materias!.count-1 {
-                var aux = materias![i].possuiNota.allObjects as NSArray
+                let aux = materias![i].possuiNota.allObjects as NSArray
                 if aux.count != 0 {
                     materiasComNota?.append(materias![i])
                 }

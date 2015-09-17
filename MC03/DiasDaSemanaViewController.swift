@@ -55,7 +55,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
         
         cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
         
@@ -65,7 +65,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
     
     // Célula selecionada
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark){
             cell?.accessoryType = UITableViewCellAccessoryType.None
             semana[indexPath.row] = false

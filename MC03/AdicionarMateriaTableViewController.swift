@@ -102,14 +102,14 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == percentualFalta || textField == cargaHoraria {
-            if count(string) > 0 {
+            if string.characters.count > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
             }
         }
         if textField == media {
-            if count(string) > 0 {
+            if string.characters.count > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
@@ -136,7 +136,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             alert = true
         }
         
-        var auxMedia = (media.text as NSString).doubleValue
+        let auxMedia = (media.text! as NSString).doubleValue
         
         if auxMedia < 0 || auxMedia > 10 {
             alertaM += "- Média de 0 a 10\n"
@@ -149,7 +149,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
                 alert = true
             }
             
-            var auxPerFalta = (percentualFalta.text as NSString).doubleValue
+            let auxPerFalta = (percentualFalta.text! as NSString).doubleValue
             
             if auxPerFalta < 0 || auxPerFalta > 100 {
                 alertaM += "- Percentual de 0% a 100%\n"
@@ -193,17 +193,17 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             
             materia = MateriaManager.sharedInstance.novaMateria()
             
-            materia.nomeMateria = nomeMateria.text
+            materia.nomeMateria = nomeMateria.text!
             
             if professor.text != "" {
-                materia.nomeProfessor = professor.text
+                materia.nomeProfessor = professor.text!
             } else {
                 materia.nomeProfessor = ""
             }
             
             if switchFaltas.on {
-                materia.cargaHoraria = cargaHoraria.text.toInt()!
-                materia.faltas = percentualFalta.text.toInt()!
+                materia.cargaHoraria = Int(cargaHoraria.text!)!
+                materia.faltas = Int(percentualFalta.text!)!
                 materia.quantFaltas = 0
                 materia.controleFaltas = 1
             } else {
@@ -213,13 +213,13 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
                 materia.controleFaltas = 0
             }
             
-            materia.media = (media.text as NSString).doubleValue
+            materia.media = (media.text! as NSString).doubleValue
             
             diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
             for i in 0..<self.semana.count {
                 if semana[i] == true {
-                    var dia = diasSemana?[i]
+                    let dia = diasSemana?[i]
                     materia.adcDiaSemana(dia!)
                 }
             }

@@ -19,8 +19,8 @@ class FaltaTableViewCell: UITableViewCell {
     
     @IBAction func buttonMaisFalta(sender: AnyObject) {
         if let m = materia {
-            var carga = (materia?.quantFaltas)!.integerValue
-            var aux = m.quantFaltas.integerValue
+            //var carga = (materia?.quantFaltas)!.integerValue
+            let aux = m.quantFaltas.integerValue
             var faltas = 0
 
             faltas = aux + 1
@@ -32,7 +32,7 @@ class FaltaTableViewCell: UITableViewCell {
     
     @IBAction func buttonMenosFalta(sender: AnyObject) {
         if let m = materia {
-            var aux = m.quantFaltas.integerValue
+            let aux = m.quantFaltas.integerValue
             var faltas = 0
             if aux == 0 {
                 

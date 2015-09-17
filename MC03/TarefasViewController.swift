@@ -82,10 +82,10 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
                 celula!.lblNomeTarefa?.text = tarefa.nomeTarefa
                 celula!.lbldataEntrega?.text = "\(tarefa.dataEntrega)"
                 
-                var dataEntrega = NSDateFormatter()
+                let dataEntrega = NSDateFormatter()
                 dataEntrega.dateFormat = "dd/MM/yyyy"
                 
-                var dataString = dataEntrega.stringFromDate(tarefa.dataEntrega)
+                let dataString = dataEntrega.stringFromDate(tarefa.dataEntrega)
                 celula!.lbldataEntrega.text = "para o dia \(dataString)"
                 celula!.lblNomeMateria.text = "(\(tarefa.pertenceMateria.nomeMateria))"
                 

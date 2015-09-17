@@ -16,12 +16,12 @@ class DiasSemana: NSManagedObject {
     @NSManaged var pertenceMateria: NSSet
 
     func adcMateria (materia : Materia) {
-        var possuiMateria = self.mutableSetValueForKey("possuiMateria")
+        let possuiMateria = self.mutableSetValueForKey("possuiMateria")
         possuiMateria.addObject(materia)
     }
     
     func removerMateria (materia : Materia) {
-        var removeMateria = self.mutableSetValueForKey("possuiMateria")
+        let removeMateria = self.mutableSetValueForKey("possuiMateria")
         removeMateria.removeObject(materia)
     }
 }

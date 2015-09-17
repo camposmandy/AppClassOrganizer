@@ -79,23 +79,23 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCampoVazio() {
-            materia.nomeMateria = nomeMateria.text
-            materia.nomeProfessor = professorMateria.text
+            materia.nomeMateria = nomeMateria.text!
+            materia.nomeProfessor = professorMateria.text!
             if switchFaltas.on {
-                materia.cargaHoraria = cargaHoraria.text.toInt()!
-                materia.faltas = percFaltasMateria.text.toInt()!
+                materia.cargaHoraria = Int(cargaHoraria.text!)!
+                materia.faltas = Int(percFaltasMateria.text!)!
             } else {
                 materia.cargaHoraria = 0
                 materia.faltas = 0
             }
             materia.quantFaltas = 0
-            materia.media = (mediaMateria.text as NSString).doubleValue
+            materia.media = (mediaMateria.text! as NSString).doubleValue
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
             for i in 0..<self.semana.count {
                 if semana[i] == true {
-                    var dia = diaSemana?[i]
+                    let dia = diaSemana?[i]
                     materia.adcDiaSemana(dia!)
                 }
             }
@@ -144,7 +144,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             alert = true
         }
         
-        var auxMedia = (mediaMateria.text as NSString).doubleValue
+        let auxMedia = (mediaMateria.text! as NSString).doubleValue
         
         if auxMedia < 0 || auxMedia > 10 {
             alertaM += "- Média de 0 a 10\n"
@@ -157,7 +157,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
                 alert = true
             }
             
-            var auxPerFalta = (percFaltasMateria.text as NSString).doubleValue
+            let auxPerFalta = (percFaltasMateria.text! as NSString).doubleValue
             
             if auxPerFalta < 0 || auxPerFalta > 100 {
                 alertaM += "- Peso de 0% a 100%\n"
@@ -206,7 +206,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == percFaltasMateria || textField == cargaHoraria || textField == mediaMateria{
-            if count(string) > 0 {
+            if string.characters.count > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal

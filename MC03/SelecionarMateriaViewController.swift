@@ -33,7 +33,7 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
         
         materias = MateriaManager.sharedInstance.Materia()
         
-        materias?.sort({ (first: Materia, second: Materia) -> Bool in
+        materias?.sortInPlace({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
     }
@@ -61,10 +61,10 @@ class SelecionarMateriaViewController: UIViewController, UITableViewDelegate, UI
     // Selecionar Célula
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(select != nil){
-            var celula = tableView.cellForRowAtIndexPath(self.select!)
+            let celula = tableView.cellForRowAtIndexPath(self.select!)
             celula?.accessoryType = .None
         }
-        var celula2 = tableView.cellForRowAtIndexPath(indexPath)
+        let celula2 = tableView.cellForRowAtIndexPath(indexPath)
         celula2?.accessoryType = .Checkmark
         
         self.select = indexPath

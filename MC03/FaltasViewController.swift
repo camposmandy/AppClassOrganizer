@@ -53,7 +53,7 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
+        let celula =  tableView.dequeueReusableCellWithIdentifier("celFaltas", forIndexPath: indexPath) as? FaltaTableViewCell
 
         if materiasComFaltas.count != 0 {
             if let materia = materiasComFaltas[indexPath.row] as? Materia {

@@ -65,16 +65,16 @@ class VerMateriaTableTableViewController: UITableViewController {
         lblMedia.text = "\(materia.media)"
         if materia.controleFaltas == 1 {
             lblCargaHoraria.text = "\(materia.cargaHoraria) Aulas"
-            var faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
+            let faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
             lblPercFaltas.text = "\(materia.faltas)%  (\(faltasPermitidas) Aulas)"
         } else {
             lblCargaHoraria.text = "Sem Controle de Faltas"
             lblPercFaltas.text = "Sem Controle de Faltas"
         }
 
-        var dias = materia.possuiSemana.allObjects as NSArray
+        let dias = materia.possuiSemana.allObjects as NSArray
         for i in 0...dias.count-1 {
-            var nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
+            let nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
             if nomeDia == "Domingo" {
                 lblDom.textColor = appColor
             }

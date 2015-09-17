@@ -31,7 +31,7 @@ class SelecionarMateriaNotaVC: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         materias = MateriaManager.sharedInstance.Materia()
-        materias?.sort({ (first: Materia, second: Materia) -> Bool in
+        materias?.sortInPlace({ (first: Materia, second: Materia) -> Bool in
             return first.nomeMateria.localizedCaseInsensitiveCompare(second.nomeMateria) == NSComparisonResult.OrderedAscending
         })
     }
@@ -50,7 +50,7 @@ class SelecionarMateriaNotaVC: UIViewController, UITableViewDelegate, UITableVie
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellMateriaNota", forIndexPath: indexPath) as! SelecionarMateriaNotaTBCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cellMateriaNota", forIndexPath: indexPath) as! SelecionarMateriaNotaTBCell
         cell.lblNomeMateria.text = materias?[indexPath.row].nomeMateria
         return cell
     }
@@ -58,10 +58,10 @@ class SelecionarMateriaNotaVC: UIViewController, UITableViewDelegate, UITableVie
     // Célula selecionada
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(select != nil){
-            var celula = tableView.cellForRowAtIndexPath(self.select!)
+            let celula = tableView.cellForRowAtIndexPath(self.select!)
             celula?.accessoryType = .None
         }
-        var celula2 = tableView.cellForRowAtIndexPath(indexPath)
+        let celula2 = tableView.cellForRowAtIndexPath(indexPath)
         celula2?.accessoryType = .Checkmark
         
         self.select = indexPath

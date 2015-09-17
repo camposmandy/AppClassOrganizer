@@ -73,10 +73,10 @@ class VerTarefaTableViewController: UITableViewController {
         lblDescTarefa.text = tarefas?[i].descricaoTarefa
         lblNomeMateria.text = tarefas?[i].pertenceMateria.nomeMateria
 
-        var dataEntrega = NSDateFormatter()
+        let dataEntrega = NSDateFormatter()
         dataEntrega.dateFormat = "dd/MM/yyyy"
         
-        var dataString = dataEntrega.stringFromDate(tarefas[i].dataEntrega)
+        let dataString = dataEntrega.stringFromDate(tarefas[i].dataEntrega)
         lblDataEntrega.text = dataString
         
         if tarefas?[i].notificacao == 1 {
@@ -116,7 +116,7 @@ class VerTarefaTableViewController: UITableViewController {
         
         let sim: UIAlertAction = UIAlertAction(title: "Sim",
                                                style: .Default) { action -> Void in
-                var t = self.tarefas[self.i]
+                let t = self.tarefas[self.i]
                 t.statusTarefa = 0
                 TarefaManager.sharedInstance.salvar()
                 self.navigationController?.popViewControllerAnimated(true)

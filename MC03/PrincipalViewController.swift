@@ -135,11 +135,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     // Botões do swap na célula
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
         
         // Botão + Nota
-        var maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+        let maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             self.performSegueWithIdentifier("adcNotaMateria", sender: materia)
         }
         
@@ -149,7 +149,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if materia?.controleFaltas == 1 {
             // Botão + Falta
-            var maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            let maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
                 self.performSegueWithIdentifier("showFaltas", sender: nil)
             }
             
@@ -164,8 +164,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Outras
     
     func verificaPrimeiroAcesso() {
-        var userDefault = NSUserDefaults()
-        var acesso = userDefault.objectForKey("Acesso") as? String
+        let userDefault = NSUserDefaults()
+        let acesso = userDefault.objectForKey("Acesso") as? String
         if acesso == nil {
             var domingo: DiasSemana
             domingo = DiaSemanaManager.sharedInstance.novoDiaSemana()
@@ -224,17 +224,17 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
         
         date = NSDate()
-        diaDaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date).weekday
+        diaDaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.Weekday, fromDate: date).weekday
         materiasDoDia = diasSemana![diaDaSemana-1].pertenceMateria.allObjects as NSArray
         
-        var dayFormatter = NSDateFormatter()
-        var monthFormatter = NSDateFormatter()
+        let dayFormatter = NSDateFormatter()
+        let monthFormatter = NSDateFormatter()
         
         dayFormatter.dateFormat = "dd"
         monthFormatter.dateFormat = "MMMM"
         
-        var dayString = dayFormatter.stringFromDate(date)
-        var monthString = monthFormatter.stringFromDate(date)
+        let dayString = dayFormatter.stringFromDate(date)
+        let monthString = monthFormatter.stringFromDate(date)
         
         labelDia.text = dayString
         labelMes.text = monthString

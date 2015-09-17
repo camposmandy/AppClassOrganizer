@@ -59,10 +59,10 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func buttonSalvar(sender: AnyObject) {
         if verificaCamposVazio(){
             nota = NotaManager.sharedInstance.novaNota()
-            if let n = materia {
-                nota.tipoNota = textFieldTipoNota.text
-                nota.pesoNota = textFieldPesoNota.text.toInt()!
-                nota.nota = (textFieldNota.text as NSString).doubleValue
+            if let _ = materia {
+                nota.tipoNota = textFieldTipoNota.text!
+                nota.pesoNota = Int(textFieldPesoNota.text!)!
+                nota.nota = (textFieldNota.text! as NSString).doubleValue
                 nota.pertenceMateria = materia!
                 materia?.adcNota(nota)
                 
@@ -89,7 +89,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             alert = true
         }
         
-        var auxPeso = (textFieldPesoNota.text as NSString).doubleValue
+        let auxPeso = (textFieldPesoNota.text! as NSString).doubleValue
         
         if auxPeso < 0 || auxPeso > 100 {
             alertaM += "- Peso de 0% a 100%\n"
@@ -101,7 +101,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             alert = true
         }
         
-        var auxNota = (textFieldNota.text as NSString).doubleValue
+        let auxNota = (textFieldNota.text! as NSString).doubleValue
         
         if auxNota < 0 || auxNota > 10 {
             alertaM += "- Nota de 0 a 10\n"
@@ -153,7 +153,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
         if textField == textFieldPesoNota || textField == textFieldNota {
-            if count(string) > 0 {
+            if string.characters.count > 0 {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal

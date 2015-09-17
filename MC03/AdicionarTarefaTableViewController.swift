@@ -84,17 +84,17 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
                 tarefa.pertenceMateria = m
             }
             
-            tarefa.nomeTarefa = nomeTarefa.text
+            tarefa.nomeTarefa = nomeTarefa.text!
             
             if descricao.text != ""{
-                tarefa.descricaoTarefa = descricao.text
+                tarefa.descricaoTarefa = descricao.text!
             } else {
                 tarefa.descricaoTarefa = "Sem descrição"
             }
             
             tarefa.statusTarefa = 1
             
-            var date = datePicker.date
+            let date = datePicker.date
             
             tarefa.dataEntrega = date
             tarefa.notificacao = valorNotificacao
@@ -113,7 +113,7 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
                 localNotification.timeZone = NSTimeZone.defaultTimeZone()
                 //let umDiaMenos = 1
                 tarefa.dataEntrega = date
-                var tarefaNot = date.dateByAddingTimeInterval(60*60*24*(-1))
+                let tarefaNot = date.dateByAddingTimeInterval(60*60*24*(-1))
                 
                 //localNotification.fireDate = NSDate(timeIntervalSinceNow: 6)
                 localNotification.fireDate = tarefaNot

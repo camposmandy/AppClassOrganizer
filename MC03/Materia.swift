@@ -25,32 +25,32 @@ class Materia: NSManagedObject {
     @NSManaged var possuiTarefa: NSSet
 
     func adcNota (nota : Nota) {
-        var possuiNota = self.mutableSetValueForKey("possuiNota")
+        let possuiNota = self.mutableSetValueForKey("possuiNota")
         possuiNota.addObject(nota)
     }
     
     func adcTarefa (tarefa : Tarefa) {
-        var possuiTarefa = self.mutableSetValueForKey("possuiTarefa")
+        let possuiTarefa = self.mutableSetValueForKey("possuiTarefa")
         possuiTarefa.addObject(tarefa)
     }
     
     func removerNota (nota : Nota) {
-        var removeNota = self.mutableSetValueForKey("possuiNota")
+        let removeNota = self.mutableSetValueForKey("possuiNota")
         removeNota.removeObject(nota)
     }
     
     func removerTarefa (tarefa : Tarefa) {
-        var removeTarefa = self.mutableSetValueForKey("possuiTarefa")
+        let removeTarefa = self.mutableSetValueForKey("possuiTarefa")
         removeTarefa.removeObject(tarefa)
     }
     
     func adcDiaSemana (diaSemana : DiasSemana) {
-        var possuiDiaSemana = self.mutableSetValueForKey("possuiSemana")
+        let possuiDiaSemana = self.mutableSetValueForKey("possuiSemana")
         possuiDiaSemana.addObject(diaSemana)
     }
     
     func removerDiaSemana (diaSemana : DiasSemana) {
-        var removeDiaSemana = self.mutableSetValueForKey("possuiSemana")
+        let removeDiaSemana = self.mutableSetValueForKey("possuiSemana")
         removeDiaSemana.removeObject(diaSemana)
     }
 }
