@@ -23,6 +23,7 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var materias: Array<Materia>?
     var tarefas: Array<Tarefa>?
+    var index: NSIndexPath?
     
     // MARK: - View
     
@@ -37,6 +38,16 @@ class TarefasViewController: UIViewController, UITableViewDelegate, UITableViewD
     // View will Appear
     override func viewWillAppear(animated: Bool) {
         carregarDados()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if index != nil {
+            tableView.deselectRowAtIndexPath(index!, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        index = indexPath
     }
     
     // Prepare for Segue

@@ -29,6 +29,7 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
     var semana: DiasSemana?
     var editando = false
     var alertMensagem = ""
+    var index: NSIndexPath?
     
     // MARK: - View
     
@@ -63,6 +64,16 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
         if materia != nil {
             labelMateria.text = materia?.nomeMateria
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if index != nil {
+            tableView.deselectRowAtIndexPath(index!, animated: true)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        index = indexPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -165,7 +176,7 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
         var aux: Bool?
         var alert = false
         var alertaM = ""
-        var alertaT = "Atenção ⚠️"
+        let alertaT = "Atenção ⚠️"
         
         if (nomeTarefa.text == "") {
             alertaM += "- Preencha o Nome da Tarefa\n"
@@ -178,9 +189,8 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
         }
         
         if alert == false {
-            alertaM = "Tarefa adicionada ✔️"
-            alertaT = "Pronto 😃"
-            aux = true
+            self.navigationController?.popViewControllerAnimated(true)
+            return true
         } else {
             aux = false
         }

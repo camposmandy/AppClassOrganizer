@@ -24,6 +24,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
     
     var nota: Nota!
     var materia: Materia?
+    var index: NSIndexPath?
 
     // MARK: - View
     // View Did Load
@@ -39,6 +40,17 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         if materia != nil {
             lblMateria.text = materia?.nomeMateria
         }
+        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        if index != nil {
+           tableView.deselectRowAtIndexPath(index!, animated: true)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        index = indexPath
     }
     
     // Prepare for segue
@@ -77,7 +89,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         var aux: Bool?
         var alert = false
         var alertaM = ""
-        var alertaT = "Atenção ⚠️"
+        let alertaT = "Atenção ⚠️"
         
         if (textFieldTipoNota.text == ""){
             alertaM += "- Preencha Tipo da nota\n"
@@ -114,9 +126,8 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
         }
         
         if alert == false {
-            alertaM = "Nota adicionada ✔️"
-            alertaT = "Pronto 😃"
-            aux = true
+            self.navigationController?.popViewControllerAnimated(true)
+            return true
         } else {
             aux = false
         }
@@ -157,6 +168,20 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
+                
+                // Verificação para não entrar mais que um ponto (.)
+                var countDot = 0
+                if string == "." {
+                    countDot++
+                    for c in textField.text!.characters {
+                        if c == "." {
+                            countDot++
+                        }
+                    }
+                    if countDot > 1 {
+                        return false
+                    }
+                }
             }
         }
         return result

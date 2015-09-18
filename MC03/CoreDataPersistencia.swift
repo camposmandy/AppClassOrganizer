@@ -50,7 +50,7 @@ class CoreDataPersistencia {
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("MC03.sqlite")
-        print("Diretório: \(self.applicationDocumentsDirectory)")
+        //print("Diretório: \(self.applicationDocumentsDirectory)")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         do {

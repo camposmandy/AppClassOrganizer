@@ -35,11 +35,18 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+        
+        if senderEditViewController == nil {
+            semana = (senderAdcViewController?.semana)!
+        } else {
+           semana = (senderEditViewController?.semana)!
+        }
     }
     
     // View Will Disappear
     override func viewWillDisappear(animated: Bool) {
         senderAdcViewController?.semana = semana
+        senderEditViewController?.semana = semana
     }
     
     // MARK: - TableView
@@ -58,6 +65,10 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("cellSemana", forIndexPath: indexPath) as! DiasDaSemanaTableViewCell
         
         cell.lblDiaSemana.text = diasSemana?[indexPath.row].nomeDia
+        
+        if semana[indexPath.row] == true {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
         
         
         return cell

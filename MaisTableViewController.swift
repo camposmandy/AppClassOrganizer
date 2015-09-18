@@ -81,8 +81,8 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         let mailComposerVC = MFMailComposeViewController()
         
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["leonardo_brunassi@hotmail.com"])
-        mailComposerVC.setSubject("Feedback")
+        mailComposerVC.setToRecipients(["jmra10@icloud.com"])
+        mailComposerVC.setSubject("Feedback Class Organizer")
         mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC

@@ -22,6 +22,7 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Variáveis
     
     var materia: Array<Materia>?
+    var index: NSIndexPath?
     
     // MARK: - View
     // View Did Load
@@ -34,6 +35,16 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
     // View Will Appear
     override func viewWillAppear(animated: Bool) {
         reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if index != nil {
+            tableView.deselectRowAtIndexPath(index!, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        index = indexPath
     }
     
     // Prepare For Segue

@@ -23,6 +23,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var media: UITextField!
     @IBOutlet weak var switchFaltas: UISwitch!
+    @IBOutlet weak var labelDiaDaSemana: UILabel!
     
     // MARK: - Variáveis
     
@@ -32,15 +33,54 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
     var alertMensagem = ""
     var teste = ""
     var semana = [false, false, false, false, false, false, false]
+    let nameSemana = [" dom"," seg"," ter"," qua"," qui", " sex", " sáb"]
+    var diaAula: String = ""
+    var index: NSIndexPath?
 
     // MARK: - View
-    
+    // View Did Load
     override func viewDidLoad() {
+        super.viewDidLoad()
         nomeMateria.delegate = self
         professor.delegate = self
         percentualFalta.delegate = self
         cargaHoraria.delegate = self
         media.delegate = self
+    }
+    
+    // View Will Appear
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        diaAula = ""
+        if semana == [true, false, false, false, false, false, true] {
+            diaAula = "Fins de Semana"
+        } else if semana == [false, true, true, true, true, true, false] {
+            diaAula = "Dias de Semana"
+        } else if semana == [true, true, true, true, true, true, true] {
+            diaAula = "Todos os Dias"
+        } else if semana != [false, false, false, false, false, false, false] {
+            var auxSemana = ""
+            for i in 0...semana.count-1 {
+                if semana[i] == true {
+                    auxSemana += nameSemana[i] + ","
+                }
+            }
+            if Array(auxSemana.characters)[auxSemana.characters.count-1] == "," {
+                diaAula = auxSemana.substringToIndex(auxSemana.endIndex.predecessor())
+            }
+        }
+        labelDiaDaSemana.text = diaAula
+        nomeMateria.resignFirstResponder()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if index != nil {
+            tableView.deselectRowAtIndexPath(index!, animated: true)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        index = indexPath
     }
     
     // Prepare For Segue
@@ -113,6 +153,20 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
                 let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
+                
+                // Verificação para não entrar mais que um ponto (.)
+                var countDot = 0
+                if string == "." {
+                    countDot++
+                    for c in textField.text!.characters {
+                        if c == "." {
+                            countDot++
+                        }
+                    }
+                    if countDot > 1 {
+                        return false
+                    }
+                }
             }
         }
         return result
@@ -124,7 +178,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         var aux: Bool?
         var alert = false
         var alertaM = ""
-        var alertaT = "Atenção ⚠️"
+        let alertaT = "Atenção ⚠️"
         
         if (nomeMateria.text == "") {
             alertaM += "- Preencha o Nome da Matéria\n"
@@ -167,10 +221,9 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }
         
         if alert == false {
-            alertaM = "Matéria Adicionada ✔️"
-            alertaT = "Pronto 😃"
-            aux = true
-        }else{
+            self.navigationController?.popViewControllerAnimated(true)
+            return true
+        } else {
             aux = false
         }
         

@@ -21,6 +21,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     @IBOutlet weak var percFaltasMateria: UITextField!
     @IBOutlet weak var cargaHoraria: UITextField!
     @IBOutlet weak var switchFaltas: UISwitch!
+    @IBOutlet weak var labelDiaSemana: UILabel!
     
     // MARK: - Variáveis
     
@@ -31,6 +32,8 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     var nota: Nota?
     var diaSemana: Array<DiasSemana>?
     var semana = [false, false, false, false, false, false, false]
+    let nameSemana = [" dom"," seg"," ter"," qua"," qui", " sex", " sáb"]
+    var diaAula: String = ""
     
     // MARK: - View
     // View Did Load
@@ -43,6 +46,31 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         mediaMateria.delegate = self
         
         preencherTFs()
+    }
+    
+    // View Will Appear
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        diaAula = ""
+        if semana == [true, false, false, false, false, false, true] {
+            diaAula = "Fins de Semana"
+        } else if semana == [false, true, true, true, true, true, false] {
+            diaAula = "Dias de Semana"
+        } else if semana == [true, true, true, true, true, true, true] {
+            diaAula = "Todos os Dias"
+        } else if semana != [false, false, false, false, false, false, false] {
+            var auxSemana = ""
+            for i in 0...semana.count-1 {
+                if semana[i] == true {
+                    auxSemana += nameSemana[i] + ","
+                }
+            }
+            if Array(auxSemana.characters)[auxSemana.characters.count-1] == "," {
+                diaAula = auxSemana.substringToIndex(auxSemana.endIndex.predecessor())
+            }
+        }
+        labelDiaSemana.text = diaAula
+        nomeMateria.resignFirstResponder()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -127,7 +155,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         var aux: Bool?
         var alert = false
         var alertaM = ""
-        var alertaT = "Atenção ⚠️"
+        let alertaT = "Atenção ⚠️"
         
         if (nomeMateria.text == "") {
             alertaM += "- Preencha o Nome da Matéria\n"
@@ -176,10 +204,9 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         }
         
         if alert == false {
-            alertaM = "Matéria Adicionada ✔️"
-            alertaT = "Pronto 😃"
-            aux = true
-        }else{
+            self.navigationController?.popViewControllerAnimated(true)
+            return true
+        } else {
             aux = false
         }
         
