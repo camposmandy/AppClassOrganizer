@@ -107,19 +107,6 @@ class MateriasViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-//        
-//        let apagar = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Apagar") { (action, indexPath) -> Void in
-//                    MateriaManager.sharedInstance.deletar(indexPath.ro)(indexPath.row as! Int)
-//                    MateriaManager.sharedInstance.salvar()
-//        }
-//    }
-//
-
     // MARK: - Outras
     
     func reloadData(){

@@ -121,7 +121,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             
             celula?.textLabel?.hidden = false
             
-            celula?.textLabel?.text = "Sem Matérias 😁"
+            celula?.textLabel?.text = "Sem aulas hoje"
             celula?.textLabel?.textColor = UIColor .grayColor()
             celula?.textLabel?.textAlignment = NSTextAlignment.Center
         }

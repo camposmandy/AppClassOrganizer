@@ -37,7 +37,10 @@ class VerMateriaTableTableViewController: UITableViewController {
     // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         carregarDados()
     }
     
@@ -77,24 +80,38 @@ class VerMateriaTableTableViewController: UITableViewController {
             let nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
             if nomeDia == "Domingo" {
                 lblDom.textColor = appColor
+            } else {
+                lblDom.textColor = UIColor.grayColor()
             }
             if nomeDia == "Segunda" {
                 lblSeg.textColor = appColor
+            } else {
+                lblSeg.textColor = UIColor.grayColor()
             }
             if nomeDia == "Terça" {
                 lblTer.textColor = appColor
+            } else {
+                lblTer.textColor = UIColor.grayColor()
             }
             if nomeDia == "Quarta" {
                 lblQua.textColor = appColor
+            } else {
+                lblQua.textColor = UIColor.grayColor()
             }
             if nomeDia == "Quinta" {
                 lblQui.textColor = appColor
+            } else {
+                lblQui.textColor = UIColor.grayColor()
             }
             if nomeDia == "Sexta" {
                 lblSex.textColor = appColor
+            } else {
+                lblSex.textColor = UIColor.grayColor()
             }
             if nomeDia == "Sábado" {
                 lblSab.textColor = appColor
+            } else {
+                lblSab.textColor = UIColor.grayColor()
             }
         }
     }

@@ -112,11 +112,13 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             if switchFaltas.on {
                 materia.cargaHoraria = Int(cargaHoraria.text!)!
                 materia.faltas = Int(percFaltasMateria.text!)!
+                materia.controleFaltas = 1
             } else {
                 materia.cargaHoraria = 0
                 materia.faltas = 0
+                materia.quantFaltas = 0
+                materia.controleFaltas = 0
             }
-            materia.quantFaltas = 0
             materia.media = (mediaMateria.text! as NSString).doubleValue
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
@@ -125,6 +127,9 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
                 if semana[i] == true {
                     let dia = diaSemana?[i]
                     materia.adcDiaSemana(dia!)
+                } else {
+                    let dia = diaSemana?[i]
+                    materia.removerDiaSemana(dia!)
                 }
             }
             MateriaManager.sharedInstance.salvar()
@@ -138,6 +143,32 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
         nomeMateria.text = materia.nomeMateria
         professorMateria.text = materia.nomeProfessor
         mediaMateria.text = "\(materia.media)"
+        
+        let dias = materia.possuiSemana.allObjects as NSArray
+        for i in 0...dias.count-1 {
+            let nomeDia = (dias.objectAtIndex(i) as! DiasSemana).nomeDia
+            if nomeDia == "Domingo" {
+                semana[0] = true
+            }
+            if nomeDia == "Segunda" {
+                semana[1] = true
+            }
+            if nomeDia == "Terça" {
+                semana[2] = true
+            }
+            if nomeDia == "Quarta" {
+                semana[3] = true
+            }
+            if nomeDia == "Quinta" {
+                semana[4] = true
+            }
+            if nomeDia == "Sexta" {
+                semana[5] = true
+            }
+            if nomeDia == "Sábado" {
+                semana[6] = true
+            }
+        }
         
         if materia.controleFaltas == 1 {
             switchFaltas.setOn(true, animated: true)

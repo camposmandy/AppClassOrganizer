@@ -24,6 +24,19 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
        alertaDeletarTudo()
     }
     
+    @IBAction func buttonCurtirFacebook(sender: AnyObject) {
+        curtirFacebook()
+    }
+    
+    func curtirFacebook() {
+        let facebookURL = NSURL(string: "fb://pages/1602639666642925")!
+        if UIApplication.sharedApplication().canOpenURL(facebookURL) {
+            UIApplication.sharedApplication().openURL(facebookURL)
+        } else {
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/ClassOrganizerApp")!)
+        }
+    }
+    
     // MARK: - Alertas
    
     func alertaFeedBack() {
@@ -35,7 +48,10 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         alerta.addAction(cancelAction)
         
         let appStore: UIAlertAction = UIAlertAction (title: "App Store", style: .Default) { action -> Void in
-        // Implementar código pra App Store
+            let url  = NSURL(string: "itms-apps://itunes.apple.com/app/runroute/id986897571")
+            if UIApplication.sharedApplication().canOpenURL(url!) == true  {
+                UIApplication.sharedApplication().openURL(url!)
+            }
         }
         alerta.addAction(appStore)
         

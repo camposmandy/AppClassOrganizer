@@ -39,7 +39,7 @@ class DiasDaSemanaViewController: UIViewController, UITableViewDelegate, UITable
         if senderEditViewController == nil {
             semana = (senderAdcViewController?.semana)!
         } else {
-           semana = (senderEditViewController?.semana)!
+            semana = (senderEditViewController?.semana)!
         }
     }
     

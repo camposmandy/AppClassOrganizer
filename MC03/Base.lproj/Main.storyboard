@@ -1324,10 +1324,10 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-FP-WWj">
                                 <rect key="frame" x="20" y="244" width="560" height="287"/>
-                                <mutableString key="text">O Class Organizer é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
+                                <string key="text">O Class Organizer é um App dedicado às pessoas que tem a necessidade de organizar suas atividades e aulas acadêmicas de forma fácil e rápida.
 Com o Class Organizer, você poderá adicionar suas matérias, tarefas, e controlar suas faltas e suas notas, de forma organiza prática e simples!
 
-Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  • Leonardo Brunassi</mutableString>
+Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  • Leonardo Brunassi</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1591,15 +1591,11 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FeedBack" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtA-Os-HPG">
-                                                    <rect key="frame" x="26" y="11" width="78" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpM-8K-juY">
+                                                    <rect key="frame" x="18" y="8" width="531" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpM-8K-juY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                    <state key="normal">
+                                                    <state key="normal" title="FeedBack">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1607,6 +1603,12 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YpM-8K-juY" firstAttribute="leading" secondItem="yKb-JJ-uYM" secondAttribute="leadingMargin" constant="10" id="PYz-XG-mE6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YpM-8K-juY" secondAttribute="trailing" constant="10" id="WrC-jZ-EVz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YpM-8K-juY" secondAttribute="bottom" id="ah1-3H-z12"/>
+                                                <constraint firstItem="YpM-8K-juY" firstAttribute="top" secondItem="yKb-JJ-uYM" secondAttribute="topMargin" id="y57-iY-Gy4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="EHt-Vm-HcE">
@@ -1616,17 +1618,49 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sobre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEj-Qq-MV0">
-                                                    <rect key="frame" x="25" y="11" width="46" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEj-Qq-MV0">
+                                                    <rect key="frame" x="18" y="8" width="531" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bEj-Qq-MV0" secondAttribute="trailing" constant="10" id="Bm7-as-pzi"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bEj-Qq-MV0" secondAttribute="bottom" id="Ehk-Vz-Ugq"/>
+                                                <constraint firstItem="bEj-Qq-MV0" firstAttribute="leading" secondItem="oWg-nW-LJ3" secondAttribute="leadingMargin" constant="10" id="JP4-Ym-Dpz"/>
+                                                <constraint firstItem="bEj-Qq-MV0" firstAttribute="top" secondItem="oWg-nW-LJ3" secondAttribute="topMargin" id="gud-Jh-PHa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="6Xy-r0-Snh" kind="show" id="PAg-36-vEL"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Roy-PP-lTF">
+                                        <rect key="frame" x="0.0" y="417.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Roy-PP-lTF" id="vAA-eC-QQn">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-sO-JcU">
+                                                    <rect key="frame" x="18" y="8" width="531" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title="Curtir página no Facebook">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonCurtirFacebook:" destination="qDU-ca-dzR" eventType="touchUpInside" id="ybY-4M-vLi"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4XQ-sO-JcU" firstAttribute="top" secondItem="vAA-eC-QQn" secondAttribute="topMargin" id="PHv-3X-1n2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4XQ-sO-JcU" secondAttribute="bottom" id="RF0-sO-EkS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4XQ-sO-JcU" secondAttribute="trailing" constant="10" id="WYe-BX-7Wm"/>
+                                                <constraint firstItem="4XQ-sO-JcU" firstAttribute="leading" secondItem="vAA-eC-QQn" secondAttribute="leadingMargin" constant="10" id="Wgx-U7-bTL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2433,24 +2467,24 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="QqV-tQ-hvr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Hdg-bs-KMp">
                                         <rect key="frame" x="0.0" y="422.5" width="600" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QqV-tQ-hvr" id="0Y8-8c-zK0">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hdg-bs-KMp" id="VWX-pm-Qq7">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Carga Horária" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AfK-SP-7L0">
-                                                    <rect key="frame" x="18" y="8" width="574" height="29"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Carga Horária (quantidade de aulas)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aql-u0-EWI">
+                                                    <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AfK-SP-7L0" secondAttribute="bottom" id="AoV-OQ-WGK"/>
-                                                <constraint firstItem="AfK-SP-7L0" firstAttribute="trailing" secondItem="0Y8-8c-zK0" secondAttribute="trailingMargin" id="XZC-Vv-oKc"/>
-                                                <constraint firstItem="AfK-SP-7L0" firstAttribute="leading" secondItem="0Y8-8c-zK0" secondAttribute="leadingMargin" constant="10" id="XvT-zd-BOz"/>
-                                                <constraint firstItem="AfK-SP-7L0" firstAttribute="top" secondItem="0Y8-8c-zK0" secondAttribute="topMargin" id="qaK-3F-OVo"/>
+                                                <constraint firstItem="aql-u0-EWI" firstAttribute="leading" secondItem="VWX-pm-Qq7" secondAttribute="leadingMargin" constant="10" id="29e-Vy-enW"/>
+                                                <constraint firstItem="aql-u0-EWI" firstAttribute="top" secondItem="VWX-pm-Qq7" secondAttribute="topMargin" id="T0C-WB-I0X"/>
+                                                <constraint firstAttribute="centerY" secondItem="aql-u0-EWI" secondAttribute="centerY" id="Ze4-nu-0SB"/>
+                                                <constraint firstAttribute="centerX" secondItem="aql-u0-EWI" secondAttribute="centerX" id="l9M-6b-gb6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2530,7 +2564,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cargaHoraria" destination="AfK-SP-7L0" id="Xfx-v5-acH"/>
+                        <outlet property="cargaHoraria" destination="aql-u0-EWI" id="jhZ-q9-HYT"/>
                         <outlet property="labelDiaSemana" destination="sps-YG-Sun" id="D1E-dY-Z0F"/>
                         <outlet property="mediaMateria" destination="8Wq-So-Wy4" id="gJ5-xY-nXp"/>
                         <outlet property="nomeMateria" destination="xiL-mT-Nwp" id="iZI-8C-8yd"/>
@@ -2564,10 +2598,10 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
         <image name="tarefas_fill" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xhi-c7-WXY"/>
-        <segue reference="HVr-id-ZS7"/>
-        <segue reference="7qz-96-p13"/>
         <segue reference="MMf-li-1jI"/>
+        <segue reference="Xhi-c7-WXY"/>
+        <segue reference="hFm-Bf-AMJ"/>
+        <segue reference="7qz-96-p13"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
