@@ -129,7 +129,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
                 if materia.controleFaltas == 1 {
-                    celula!.lblPercentualFalta?.text = "Faltas \(materia.quantFaltas) de \(materia.faltas) permitidas"
+                    let faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
+                    celula!.lblPercentualFalta?.text = "Faltas \(materia.quantFaltas) de \(faltasPermitidas) permitidas"
                     // Implementar uma mudança de cor na label caso o numero de faltas esteja perto do limite
                 } else {
                     celula!.lblPercentualFalta?.text == "sem controle de faltas"
