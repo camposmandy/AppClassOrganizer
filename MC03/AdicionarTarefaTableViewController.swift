@@ -113,7 +113,7 @@ class AdicionarTarefaTableViewController: UITableViewController, UITextFieldDele
             if(opcao.on) {
                 let localNotification = UILocalNotification()
                 //Mensagem
-                localNotification.alertBody = "A tarefa \(nomeTarefa.text) deve ser entregue amanhã."
+                localNotification.alertBody = "A tarefa \(nomeTarefa.text!) deve ser entregue amanhã."
                 
                 //Som
                 localNotification.soundName = UILocalNotificationDefaultSoundName

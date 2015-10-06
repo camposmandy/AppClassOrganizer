@@ -464,7 +464,7 @@
                                                     <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -842,7 +842,7 @@
                                                     <rect key="frame" x="18" y="8" width="563" height="29"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -2730,7 +2730,7 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
                                                     <rect key="frame" x="18" y="8" width="563" height="29"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -2949,10 +2949,10 @@ Desenvolvido por:  • Amanda Campos  • João Marcos Ribeiro Araujo  •
         <image name="vermaterias" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MMf-li-1jI"/>
         <segue reference="SqI-hb-4xY"/>
         <segue reference="7qz-96-p13"/>
         <segue reference="hFm-Bf-AMJ"/>
+        <segue reference="MMf-li-1jI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
