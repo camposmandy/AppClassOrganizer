@@ -71,12 +71,17 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }
         labelDiaDaSemana.text = diaAula
         nomeMateria.resignFirstResponder()
+        self.navigationItem.title = "Adicionar Matéria"
     }
     
     override func viewDidAppear(animated: Bool) {
         if index != nil {
             tableView.deselectRowAtIndexPath(index!, animated: true)
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationItem.title = "Voltar"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -150,16 +155,16 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
         }
         if textField == media {
             if string.characters.count > 0 {
-                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.,").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
                 
                 // Verificação para não entrar mais que um ponto (.)
                 var countDot = 0
-                if string == "." {
+                if string == "." || string == ","{
                     countDot++
                     for c in textField.text!.characters {
-                        if c == "." {
+                        if c == "." || c == "," {
                             countDot++
                         }
                     }
@@ -190,8 +195,8 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
             alert = true
         }
         
-        let auxMedia = (media.text! as NSString).doubleValue
-        
+        let auxMedia = (media.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
+
         if auxMedia < 0 || auxMedia > 10 {
             alertaM += "- Média de 0 a 10\n"
             alert = true
@@ -266,7 +271,7 @@ class AdicionarMateriaTableViewController: UITableViewController, UITextFieldDel
                 materia.controleFaltas = 0
             }
             
-            materia.media = (media.text! as NSString).doubleValue
+            materia.media = (media.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
             
             diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             

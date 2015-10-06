@@ -119,7 +119,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
                 materia.quantFaltas = 0
                 materia.controleFaltas = 0
             }
-            materia.media = (mediaMateria.text! as NSString).doubleValue
+            materia.media = (mediaMateria.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
             
             diaSemana = DiaSemanaManager.sharedInstance.DiasSemana()
             
@@ -203,7 +203,7 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
             alert = true
         }
         
-        let auxMedia = (mediaMateria.text! as NSString).doubleValue
+        let auxMedia = (mediaMateria.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
         
         if auxMedia < 0 || auxMedia > 10 {
             alertaM += "- Média de 0 a 10\n"
@@ -263,13 +263,33 @@ class EditarMateriaTableViewController: UITableViewController, UITextFieldDelega
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        if textField == percFaltasMateria || textField == cargaHoraria || textField == mediaMateria{
+        if textField == mediaMateria{
             if string.characters.count > 0 {
-                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.,").invertedSet
+                let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
+                result = replacementStringIsLegal
+            }
+            // Verificação para não entrar mais que um ponto (.)
+            var countDot = 0
+            if string == "." || string == ","{
+                countDot++
+                for c in textField.text!.characters {
+                    if c == "." || c == "," {
+                        countDot++
+                    }
+                }
+                if countDot > 1 {
+                    return false
+                }
+            }
+        } else if textField == percFaltasMateria || textField == cargaHoraria {
+            if string.characters.count > 0 {
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
             }
         }
+        
         return result
     }
 }

@@ -74,7 +74,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             if let _ = materia {
                 nota.tipoNota = textFieldTipoNota.text!
                 nota.pesoNota = Int(textFieldPesoNota.text!)!
-                nota.nota = (textFieldNota.text! as NSString).doubleValue
+                nota.nota = (textFieldNota.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
                 nota.pertenceMateria = materia!
                 materia?.adcNota(nota)
                 
@@ -113,7 +113,7 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
             alert = true
         }
         
-        let auxNota = (textFieldNota.text! as NSString).doubleValue
+        let auxNota = (textFieldNota.text!.stringByReplacingOccurrencesOfString(",", withString: ".") as NSString).doubleValue
         
         if auxNota < 0 || auxNota > 10 {
             alertaM += "- Nota de 0 a 10\n"
@@ -163,18 +163,18 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        if textField == textFieldPesoNota || textField == textFieldNota {
+        if textField == textFieldNota {
             if string.characters.count > 0 {
-                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.").invertedSet
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789.,").invertedSet
                 let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
                 result = replacementStringIsLegal
                 
                 // Verificação para não entrar mais que um ponto (.)
                 var countDot = 0
-                if string == "." {
+                if string == "." || string == "," {
                     countDot++
                     for c in textField.text!.characters {
-                        if c == "." {
+                        if c == "." || c == "," {
                             countDot++
                         }
                     }
@@ -182,6 +182,12 @@ class AdcNotaTableViewController: UITableViewController, UITextFieldDelegate {
                         return false
                     }
                 }
+            }
+        } else if textField == textFieldPesoNota {
+            if string.characters.count > 0 {
+                let disallowedCharacterSet = NSCharacterSet(charactersInString: "0123456789").invertedSet
+                let replacementStringIsLegal = string.rangeOfCharacterFromSet(disallowedCharacterSet) == nil
+                result = replacementStringIsLegal
             }
         }
         return result

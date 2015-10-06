@@ -64,7 +64,8 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 tableView.userInteractionEnabled = true
                 
                 celula?.materia = materia
-                celula?.lblPercentualFalta.text = "Faltas \(materia.quantFaltas) de \(materia.faltas) permitidas"
+                let faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
+                celula?.lblPercentualFalta.text = "Faltas \(materia.quantFaltas) de \(faltasPermitidas) permitidas"
                 celula?.lblMateria.text = materia.nomeMateria
             }
         } else {

@@ -20,6 +20,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var labelMes: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var labelAdicionar: UILabel!
     // MARK: - Variáveis
     
     var appColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1)
@@ -27,6 +28,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     var date: NSDate!
     var diaDaSemana = 0
     var materiasDoDia = NSArray()
+    var materias: [Materia]?
     
     // MARK: - View
     // View Did Load
@@ -34,6 +36,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         tabBarController!.tabBar.tintColor = appColor
+        labelAdicionar.hidden = true
+        carregarDados()
         verificaPrimeiroAcesso()
         
         tableView.delegate = self
@@ -43,6 +47,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // View Will Appear
     override func viewWillAppear(animated: Bool) {
         carregarDados()
+        if materias?.count != 0 {
+            let indexPath = NSIndexPath(forRow: 0, inSection: self.diaDaSemana-1)
+            self.tableView.scrollToRowAtIndexPath(indexPath,
+                atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        }
     }
     
     // Prepare for Segue
@@ -57,27 +66,40 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - TableView
     // Número de seções
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        if materias!.count != 0 {
+            return (diasSemana?.count)!
+        } else {
+            return 1
+        }
     }
     
     // Cabeçalho da Seção
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch diaDaSemana {
-            case 1: return "Domingo"
-            case 2: return "Segunda-Feira"
-            case 3: return "Terça-Feira"
-            case 4: return "Quarta-Feira"
-            case 5: return "Quinta-Feira"
-            case 6: return "Sexta-Feira"
-            case 7: return "Sábado"
+        if materias?.count != 0 {
+            switch section {
+            case 0: return "Domingo"
+            case 1: return "Segunda-Feira"
+            case 2: return "Terça-Feira"
+            case 3: return "Quarta-Feira"
+            case 4: return "Quinta-Feira"
+            case 5: return "Sexta-Feira"
+            case 6: return "Sábado"
             default: return ""
+            }
+        } else {
+            return ""
         }
+        
     }
     
     // Número de células na seção
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if materiasDoDia.count != 0 {
-            return materiasDoDia.count
+        if materias!.count != 0 {
+            if diasSemana![section].pertenceMateria.allObjects.count != 0 {
+            return diasSemana![section].pertenceMateria.allObjects.count
+            } else {
+                return 1
+            }
         } else {
             return 1
         }
@@ -86,32 +108,41 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-
-        if materiasDoDia.count != 0 {
-            let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
+        
+        if diasSemana![indexPath.section].pertenceMateria.allObjects.count != 0 {
+           let materia = diasSemana![indexPath.section].pertenceMateria.allObjects[indexPath.row] as! Materia
             
-            celula?.lblMateria.hidden = false
-            celula?.lblProfessor.hidden = false
-            celula?.lblPercentualFalta.hidden = false
-            celula?.imagemIcone.hidden = false
-            
-            celula?.textLabel?.hidden = true
-            
-            if let mat = materia {
-                celula?.lblMateria.text = mat.nomeMateria
+            if indexPath.section == diaDaSemana-1 {
+                celula?.lblMateria.hidden = false
+                celula?.lblProfessor.hidden = false
+                celula?.lblPercentualFalta.hidden = false
+                celula?.imagemIcone.hidden = false
                 
-                if mat.nomeProfessor != "" {
-                    celula?.lblProfessor.text = "Prof. \(mat.nomeProfessor)"
+                celula?.textLabel?.hidden = true
+                
+                celula?.lblMateria.text = materia.nomeMateria
+                
+                if materia.nomeProfessor != "" {
+                    celula?.lblProfessor.text = "Prof. \(materia.nomeProfessor)"
                 } else {
                     celula?.lblProfessor.text = ""
                 }
                 
-                if mat.controleFaltas == 1 {
-                    celula!.lblPercentualFalta?.text = "Faltas \(mat.quantFaltas) de \(mat.faltas) permitidas"
+                if materia.controleFaltas == 1 {
+                    celula!.lblPercentualFalta?.text = "Faltas \(materia.quantFaltas) de \(materia.faltas) permitidas"
                     // Implementar uma mudança de cor na label caso o numero de faltas esteja perto do limite
                 } else {
                     celula!.lblPercentualFalta?.text == "sem controle de faltas"
                 }
+            } else {
+                celula?.lblMateria.hidden = true
+                celula?.lblProfessor.hidden = true
+                celula?.lblPercentualFalta.hidden = true
+                celula?.imagemIcone.hidden = true
+                celula?.textLabel?.hidden = false
+                celula?.textLabel?.textColor = UIColor .blackColor()
+                celula?.textLabel?.text = " • \(materia.nomeMateria)"
+
             }
         } else {
             celula?.lblMateria.hidden = true
@@ -121,12 +152,28 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             
             celula?.textLabel?.hidden = false
             
-            celula?.textLabel?.text = "Sem aulas hoje"
+            celula?.textLabel?.text = " Sem matérias"
             celula?.textLabel?.textColor = UIColor .grayColor()
-            celula?.textLabel?.textAlignment = NSTextAlignment.Center
+            if materias?.count == 0 {
+                celula?.textLabel?.text = "Sem matérias cadastradas"
+                celula?.textLabel?.textAlignment = NSTextAlignment.Center
+            }
+            
         }
-
+        
         return celula!
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if diasSemana![indexPath.section].pertenceMateria.allObjects.count != 0 {
+            if indexPath.section != diaDaSemana-1 {
+                return 44
+            } else {
+                return 97
+            }
+        } else {
+            return 44
+        }
     }
     
     // Permite o swap na célula para opções
@@ -136,7 +183,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Botões do swap na célula
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let materia = materiasDoDia.objectAtIndex(indexPath.row) as? Materia
+        let materia = diasSemana![indexPath.section].pertenceMateria.allObjects[indexPath.row] as! Materia
         
         // Botão + Nota
         let maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
@@ -147,7 +194,7 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         
-        if materia?.controleFaltas == 1 {
+        if materia.controleFaltas == 1 {
             // Botão + Falta
             let maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
                 self.performSegueWithIdentifier("showFaltas", sender: nil)
@@ -222,10 +269,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func carregarDados() {
         diasSemana = DiaSemanaManager.sharedInstance.DiasSemana()
+        materias = MateriaManager.sharedInstance.Materia()
         
         date = NSDate()
         diaDaSemana = NSCalendar.currentCalendar().components(NSCalendarUnit.Weekday, fromDate: date).weekday
-        materiasDoDia = diasSemana![diaDaSemana-1].pertenceMateria.allObjects as NSArray
+        //materiasDoDia = diasSemana![diaDaSemana-1].pertenceMateria.allObjects as NSArray
         
         let dayFormatter = NSDateFormatter()
         let monthFormatter = NSDateFormatter()
@@ -239,12 +287,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
         labelDia.text = dayString
         labelMes.text = monthString
         
-        if materiasDoDia.count == 0 {
-            tableView.userInteractionEnabled = false
+        if materias?.count == 0 {
+            labelAdicionar.hidden = false
         } else {
-            tableView.userInteractionEnabled = true
+            labelAdicionar.hidden = true
         }
-        
         tableView.reloadData()
     }
 }
