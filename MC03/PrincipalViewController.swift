@@ -108,7 +108,8 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     // Célula
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let celula = tableView.dequeueReusableCellWithIdentifier("celPrincipal") as? PrincipalCell
-        
+        tableView.userInteractionEnabled = true
+        celula?.userInteractionEnabled = true
         if diasSemana![indexPath.section].pertenceMateria.allObjects.count != 0 {
            let materia = diasSemana![indexPath.section].pertenceMateria.allObjects[indexPath.row] as! Materia
             
@@ -131,7 +132,13 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
                 if materia.controleFaltas == 1 {
                     let faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
                     celula!.lblPercentualFalta?.text = "Faltas \(materia.quantFaltas) de \(faltasPermitidas) permitidas"
-                    // Implementar uma mudança de cor na label caso o numero de faltas esteja perto do limite
+                    if Int(materia.quantFaltas) >= faltasPermitidas {
+                        celula?.lblPercentualFalta.textColor = UIColor.redColor()
+                    } else if Int(materia.quantFaltas) >= faltasPermitidas-2 {
+                        celula?.lblPercentualFalta.textColor = UIColor(red: 249/255, green: 105/255, blue: 14/255, alpha: 1)
+                    } else {
+                        celula?.lblPercentualFalta.textColor = UIColor.blackColor()
+                    }
                 } else {
                     celula!.lblPercentualFalta?.text == "sem controle de faltas"
                 }
@@ -155,9 +162,11 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
             
             celula?.textLabel?.text = " Sem matérias"
             celula?.textLabel?.textColor = UIColor .grayColor()
+            celula?.userInteractionEnabled = false
             if materias?.count == 0 {
                 celula?.textLabel?.text = "Sem matérias cadastradas"
                 celula?.textLabel?.textAlignment = NSTextAlignment.Center
+                tableView.userInteractionEnabled = false
             }
             
         }
@@ -184,31 +193,36 @@ class PrincipalViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Botões do swap na célula
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let materia = diasSemana![indexPath.section].pertenceMateria.allObjects[indexPath.row] as! Materia
-        
-        // Botão + Nota
-        let maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
-            self.performSegueWithIdentifier("adcNotaMateria", sender: materia)
-        }
-        
-        maisNota.backgroundColor = appColor
-        
-        
-        
-        if materia.controleFaltas == 1 {
-            // Botão + Falta
-            let maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
-                self.performSegueWithIdentifier("showFaltas", sender: nil)
+        if diasSemana![indexPath.section].pertenceMateria.allObjects.count != 0 {
+            let materia = diasSemana![indexPath.section].pertenceMateria.allObjects[indexPath.row] as! Materia
+            
+            // Botão + Nota
+            let maisNota = UITableViewRowAction(style: .Normal, title: "+ Nota") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
+                self.performSegueWithIdentifier("adcNotaMateria", sender: materia)
             }
             
-            maisFalta.backgroundColor = UIColor.grayColor()
+            maisNota.backgroundColor = appColor
             
-            return [maisFalta, maisNota]
+            if materia.controleFaltas == 1 {
+                // Botão + Falta
+                let maisFalta = UITableViewRowAction(style: .Normal, title: "+ Falta") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
+                    let aux = materia.quantFaltas.integerValue + 1
+                    materia.quantFaltas = aux
+                    MateriaManager.sharedInstance.salvar()
+                    tableView.reloadData()
+                }
+                
+                maisFalta.backgroundColor = UIColor.grayColor()
+                
+                return [maisFalta, maisNota]
+            } else {
+                return [maisNota]
+            }
         } else {
-            return [maisNota]
+            return []
         }
     }
-    
+
     // MARK: - Outras
     
     func verificaPrimeiroAcesso() {

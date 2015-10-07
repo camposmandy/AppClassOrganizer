@@ -48,7 +48,15 @@ class FaltaTableViewCell: UITableViewCell {
 
     func updateUI() {
         if let m = materia {
-            lblPercentualFalta.text = "Faltas \(m.quantFaltas) de \(m.faltas) permitidas"
+            let faltasPermitidas = Int(m.cargaHoraria.doubleValue * m.faltas.doubleValue * 0.01)
+            lblPercentualFalta.text = "Faltas \(m.quantFaltas) de \(faltasPermitidas) permitidas"
+            if Int(m.quantFaltas) >= faltasPermitidas {
+                lblPercentualFalta.textColor = UIColor.redColor()
+            } else if Int(m.quantFaltas) >= faltasPermitidas-2 {
+                lblPercentualFalta.textColor = UIColor(red: 249/255, green: 105/255, blue: 14/255, alpha: 1)
+            } else {
+                lblPercentualFalta.textColor = UIColor.blackColor()
+            }
         }
         setNeedsDisplay()
     }

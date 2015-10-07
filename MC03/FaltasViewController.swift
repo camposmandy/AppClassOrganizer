@@ -66,6 +66,13 @@ class FaltasViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 celula?.materia = materia
                 let faltasPermitidas = Int(materia.cargaHoraria.doubleValue * materia.faltas.doubleValue * 0.01)
                 celula?.lblPercentualFalta.text = "Faltas \(materia.quantFaltas) de \(faltasPermitidas) permitidas"
+                if Int(materia.quantFaltas) >= faltasPermitidas {
+                    celula?.lblPercentualFalta.textColor = UIColor.redColor()
+                } else if Int(materia.quantFaltas) >= faltasPermitidas-2 {
+                    celula?.lblPercentualFalta.textColor = UIColor(red: 249/255, green: 105/255, blue: 14/255, alpha: 1)
+                } else {
+                    celula?.lblPercentualFalta.textColor = UIColor.blackColor()
+                }
                 celula?.lblMateria.text = materia.nomeMateria
             }
         } else {
