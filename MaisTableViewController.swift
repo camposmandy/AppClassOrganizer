@@ -48,7 +48,7 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         alerta.addAction(cancelAction)
         
         let appStore: UIAlertAction = UIAlertAction (title: "App Store", style: .Default) { action -> Void in
-            let url  = NSURL(string: "itms-apps://itunes.apple.com/app/runroute/id986897571")
+            let url  = NSURL(string: "itms-apps://itunes.apple.com/app/class-organizer/id1008293525")
             if UIApplication.sharedApplication().canOpenURL(url!) == true  {
                 UIApplication.sharedApplication().openURL(url!)
             }
