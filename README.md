@@ -12,6 +12,13 @@ Olá, o aplicativo Class Organizer foi criado a partir de um Challenge que teve 
 Nosso aplicativo é bem `simples e fácil de ser utilizado`. Ele é um utilitário para ajudar a `organizar sua vida escolar`, através dele é possível adicionar as matérias, e com isso ter todo o `controle de faltas, notas e tarefas`. 
 Ele possui a função de envia notificações de tarefas para que o usuário nunca esqueça de entregar-las, e o `ajuda através das notas a controlar sua média`.
 
+### Algumas Screenshots 
+![View one](http://a3.mzstatic.com/us/r30/Purple69/v4/62/27/84/62278487-11c3-5631-5fd6-80a821ed7243/screen322x572.jpeg)
+![View two](http://a3.mzstatic.com/us/r30/Purple6/v4/50/02/d3/5002d330-6c3b-d0c0-d29f-25c7cfb6e57f/screen322x572.jpeg)
+
+![View three](http://a4.mzstatic.com/us/r30/Purple6/v4/18/1d/01/181d01aa-fd49-a9ed-a9de-8e68d3b44c2c/screen322x572.jpeg)
+![View four](http://a3.mzstatic.com/us/r30/Purple6/v4/89/e7/3e/89e73ee5-219e-494d-881c-46c7d3fa4920/screen322x572.jpeg)
+
 ### Recursos utilizados
 - [x] Fabric and Crashlytics
 - [x] Notification 
